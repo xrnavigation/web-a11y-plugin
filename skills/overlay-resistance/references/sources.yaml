@@ -1,0 +1,120 @@
+# Sources for overlay-resistance skill
+# All claims in SKILL.md and reference files trace to these sources
+
+technical:
+  - id: testparty-death-of-overlays
+    title: "Death of Overlays"
+    url: https://testparty.ai/blog/death-of-overlays
+    cited_for: "Screen readers parse HTML before overlay JS executes"
+
+  - id: testparty-overlay-vs-source
+    title: "Accessibility Overlay vs Source Code Fixes"
+    url: https://testparty.ai/blog/accessibility-overlay-vs-source-code-fixes
+    cited_for: "Overlays cannot fix underlying HTML/CSS/JS"
+
+  - id: zoonou-overlays
+    title: "I Use Assistive Tech — Here's Why Accessibility Overlays Don't Work"
+    url: https://zoonou.com/blog/i-use-assistive-tech-heres-why-accessibility-overlays-dont-work/
+    cited_for: "AT user perspective on overlay failures"
+
+  - id: asu-overlays
+    title: "Overlays"
+    url: https://accessibility.asu.edu/articles/overlays
+    publisher: Arizona State University IT Accessibility
+    cited_for: "Overlays cannot fix source code issues"
+
+  - id: accessibilitychecker-remediation
+    title: "Accessibility Remediation"
+    url: https://www.accessibilitychecker.org/blog/accessibility-remediation/
+    cited_for: "Automated detection catches only 25-35% of issues"
+
+  - id: deque-auditing-design-systems
+    title: "Auditing Design Systems for Accessibility"
+    url: https://www.deque.com/blog/auditing-design-systems-for-accessibility/
+    cited_for: "Limits of automated accessibility testing"
+
+  - id: roselli-accessibe-sued
+    title: "accessiBe Will Get You Sued"
+    url: https://adrianroselli.com/2020/06/accessibe-will-get-you-sued.html
+    author: Adrian Roselli
+    cited_for: "Overlay increases violations (Axe 4→12, ARC 19→38); named lawsuits"
+
+legal:
+  - id: ftc-accessibe-order
+    title: "FTC Order Requires Online Marketer to Pay $1 Million"
+    url: https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-order-requires-online-marketer-pay-1-million-deceptive-claims-its-ai-product-could-make-websites
+    date: 2025-01
+    publisher: Federal Trade Commission
+    cited_for: "$1M fine for deceptive marketing claims"
+
+  - id: ftc-accessibe-case
+    title: "accessiBe Inc. Case Page"
+    url: https://www.ftc.gov/legal-library/browse/cases-proceedings/2223156-accessibe-inc
+    publisher: Federal Trade Commission
+    cited_for: "FTC case details and consent order"
+
+  - id: usablenet-2025-midyear
+    title: "2025 Midyear ADA Lawsuit Report"
+    url: https://info.usablenet.com/hubfs/2025-MidYear-Report-FINAL.pdf
+    publisher: UsableNet
+    cited_for: "456 overlay lawsuits in H1 2025 (22.6% of total)"
+
+  - id: accessibility-works-2024
+    title: "ADA Lawsuit Trends & Statistics 2024 Summary"
+    url: https://www.accessibility.works/blog/ada-lawsuit-trends-statistics-2024-summary/
+    cited_for: "1,023 overlay lawsuits in 2024 (25% of total)"
+
+  - id: lflegal-userway-lawsuit
+    title: "UserWay Overlay Lawsuit"
+    url: https://www.lflegal.com/2025/02/userway-overlay-lawsuit/
+    date: 2025-02
+    author: Lainey Feingold
+    cited_for: "UserWay sued for overlay failures"
+
+  - id: lflegal-roselli-slapp
+    title: "Adrian Roselli SLAPP Lawsuit"
+    url: https://www.lflegal.com/2023/07/adrian-roselli-slapp-lawsuit/
+    author: Lainey Feingold
+    cited_for: "AudioEye SLAPP lawsuit against overlay critic"
+
+  - id: roselli-edge-cg
+    title: "Accessibility at the Edge W3C CG Is an Overlay Smoke Screen"
+    url: https://adrianroselli.com/2022/09/accessibility-at-the-edge-w3c-cg-is-an-overlay-smoke-screen.html
+    author: Adrian Roselli
+    cited_for: "accessiBe W3C community group as industry smoke screen"
+
+community:
+  - id: nfb-accessibe-statement
+    title: "National Convention Sponsorship Statement Regarding accessiBe"
+    url: https://nfb.org/about-us/press-room/national-convention-sponsorship-statement-regarding-accessibe
+    date: 2021-06-22
+    publisher: National Federation of the Blind
+    cited_for: "NFB found accessiBe harmful to blind people; revoked sponsorship"
+
+  - id: overlay-fact-sheet
+    title: "Overlay Fact Sheet"
+    url: https://overlayfactsheet.com/en/
+    cited_for: "1,000+ professionals opposing overlays"
+
+  - id: groves-overlay-fact-sheet
+    title: "Overlay Fact Sheet: What It Is and How to Make It Work for You"
+    url: https://karlgroves.com/overlay-fact-sheet-what-it-is-and-how-to-make-it-work-for-you/
+    author: Karl Groves
+    cited_for: "Context on the Overlay Fact Sheet"
+
+  - id: accessibyebye
+    title: "AccessiByeBye"
+    url: https://www.accessibyebye.org/
+    cited_for: "Browser extension to block overlay scripts — users find overlays harmful"
+
+  - id: allyant-blind-user
+    title: "My Experience of Navigating the Web as a Blind User"
+    url: https://allyant.com/blog/my-experience-of-navigating-the-web-as-a-blind-user/
+    cited_for: "Overlay widgets as instant page-abandonment triggers"
+
+  - id: webaim-survey-10
+    title: "Screen Reader User Survey #10"
+    url: https://webaim.org/projects/screenreadersurvey10/
+    date: 2024
+    publisher: WebAIM
+    cited_for: "User frustrations with web accessibility; overlay impact"

@@ -1,0 +1,90 @@
+sources:
+  - name: "APG Tabs Pattern"
+    url: "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Roles, states, and properties"
+      - "Keyboard interaction"
+      - "Automatic vs manual activation"
+      - "Horizontal and vertical orientation"
+
+  - name: "WAI-ARIA 1.2 — tab role"
+    url: "https://www.w3.org/TR/wai-aria-1.2/#tab"
+    type: specification
+    accessed: "2026-03-27"
+    sections_used:
+      - "tab role definition — superclass, required context, presentational children"
+      - "tablist role definition — required owned elements"
+      - "tabpanel role definition — association requirements"
+
+  - name: "APG Manual Activation Example"
+    url: "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Reference implementation for manual-activation tabs"
+
+  - name: "Adrian Roselli — ARIA Tabs (2013)"
+    url: "https://adrianroselli.com/2013/02/aria-tabs.html"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    note: "Author marks post as outdated"
+    sections_used:
+      - "aria-hidden vs CSS visibility:hidden for panel hiding"
+
+  - name: "Adrian Roselli — When Is a Vetted Pattern No Longer a Vetted Pattern? (2020)"
+    url: "https://adrianroselli.com/2020/04/when-is-a-vetted-pattern-no-longer-a-vetted-pattern.html"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Presentational children problem with tab role"
+      - "Risks of modifying APG patterns"
+
+  - name: "A11y Collective — Building Accessible Tab Interfaces"
+    url: "https://www.a11y-collective.com/blog/accessibility-tab/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Roving tabindex pattern"
+      - "Keyboard interaction details"
+
+  - name: "James Bateson — Making Tab Patterns Accessible"
+    url: "https://jamesbateson.co.uk/articles/making-tab-patterns-accessible/"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "No ARIA is better than bad ARIA"
+      - "Tab key vs arrow key navigation"
+      - "DOM hierarchy requirements"
+
+  - name: "Access & Use — Tabbed Interfaces"
+    url: "https://accessuse.eu/en/tabbed-interfaces.html"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Screen reader behavior — JAWS vs NVDA vs VoiceOver"
+      - "Forms mode and focusable panel requirements"
+      - "Focus management strategies"
+
+  - name: "Deque — ARIA Tab Panel Accessibility"
+    url: "https://www.deque.com/blog/a11y-support-series-part-1-aria-tab-panel-accessibility/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Screen reader support testing for tab panels"
+      - "Cross-browser testing recommendations"
+
+  - name: "Using ARIA"
+    url: "https://www.w3.org/TR/using-aria/"
+    type: w3c-note
+    accessed: "2026-03-27"
+    sections_used:
+      - "Rule 2 — do not change native semantics"
+
+  - name: "APG Read Me First"
+    url: "https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "No ARIA is better than Bad ARIA"

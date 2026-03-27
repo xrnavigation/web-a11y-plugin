@@ -1,0 +1,177 @@
+sources:
+  - name: "WHATWG HTML Spec — The inert attribute"
+    url: "https://html.spec.whatwg.org/multipage/interaction.html#the-inert-attribute"
+    type: specification
+    accessed: "2026-03-27"
+    sections_used:
+      - "The inert attribute — non-interactive subtrees"
+      - "Blocked dialog behavior — automatic inertness"
+      - "Guidance on inert vs disabled"
+
+  - name: "WCAG 2.2 SC 2.4.11 — Focus Not Obscured (Minimum)"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html"
+    type: specification
+    accessed: "2026-03-27"
+    sections_used:
+      - "Success criterion — partially visible requirement"
+      - "Failure F110 — sticky content obscuring focus"
+
+  - name: "WCAG 2.2 SC 2.4.12 — Focus Not Obscured (Enhanced)"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced.html"
+    type: specification
+    accessed: "2026-03-27"
+    sections_used:
+      - "Success criterion — fully visible requirement"
+
+  - name: "W3C Technique C43 — Using CSS scroll-padding"
+    url: "https://www.w3.org/WAI/WCAG22/Techniques/css/C43"
+    type: w3c-technique
+    accessed: "2026-03-27"
+    sections_used:
+      - "scroll-padding technique for focus-not-obscured"
+
+  - name: "W3C APG — Keyboard Interface Practice"
+    url: "https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Roving tabindex pattern"
+      - "aria-activedescendant pattern"
+      - "Focus vs selection distinction"
+
+  - name: "Adrian Roselli — Dialog Focus in Screen Readers"
+    url: "https://adrianroselli.com/2020/10/dialog-focus-in-screen-readers.html"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Initial focus placement — no single correct answer"
+      - "Screen reader inconsistencies in dialog focus"
+      - "Focus restoration on dialog close"
+
+  - name: "Adrian Roselli — Where to Put Focus When Deleting a Thing"
+    url: "https://adrianroselli.com/2023/08/where-to-put-focus-when-deleting-a-thing.html"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Focus previous item's equivalent control"
+      - "Accessible name requirements for focus targets"
+      - "focus-visible limitations for non-keyboard users"
+
+  - name: "Adrian Roselli — Keep the Focus Outline"
+    url: "https://adrianroselli.com/2014/06/keep-focus-outline.html"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Do not remove focus outline globally"
+      - "Go beyond browser defaults"
+
+  - name: "WebAIM — Skip Navigation Links"
+    url: "https://webaim.org/techniques/skipnav/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Skip link implementation pattern"
+      - "CSS hiding without display:none"
+      - "Common skip link mistakes"
+
+  - name: "BBC GEL Technical Guide: Routing"
+    url: "https://bbc.github.io/gel/foundations/routing/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Focus h1 on route change"
+      - "Do not focus on initial load"
+      - "SPA skip link considerations"
+
+  - name: "Deque — Accessibility Tips in Single-Page Applications"
+    url: "https://www.deque.com/blog/accessibility-tips-in-single-page-applications/"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "SPA route change announcement"
+      - "ARIA live region for route announcer"
+      - "Dynamic focus loss problem"
+
+  - name: "TetraLogical — Sticky content: focus in view"
+    url: "https://tetralogical.com/blog/2023/06/08/focus-in-view/"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "scroll-padding vs scroll-margin comparison"
+      - "Safari scroll-margin bugs"
+
+  - name: "CSS-Tricks — Fixed Headers and Jump Links"
+    url: "https://css-tricks.com/fixed-headers-and-jump-links-the-solution-is-scroll-margin-top/"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "scroll-margin-top technique"
+
+  - name: "Medium — Stop Breaking Modal Accessibility"
+    url: "https://medium.com/@alexdev82/stop-breaking-modal-accessibility-the-focus-management-mistake-90-of-devs-make-9605bad927e2"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Focus restoration failure — body focus default"
+      - "Trigger-removed edge case"
+
+  - name: "Medium — Achieving Focus Trapping in a React Modal Component"
+    url: "https://medium.com/cstech/achieving-focus-trapping-in-a-react-modal-component-3f28f596f35b"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Sentinel focus trap technique"
+      - "Focusable element selector list"
+
+  - name: "Bootstrap Issue #12364"
+    url: "https://github.com/twbs/bootstrap/issues/12364"
+    type: issue-tracker
+    accessed: "2026-03-27"
+    sections_used:
+      - "Modal focus restoration requirement"
+      - "Trigger-removed edge case discussion"
+
+  - name: "LogRocket — Build an accessible modal with focus-trap-react"
+    url: "https://blog.logrocket.com/build-accessible-modal-focus-trap-react/"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "focus-trap-react usage"
+
+  - name: "Mantine — useFocusTrap"
+    url: "https://mantine.dev/hooks/use-focus-trap/"
+    type: library-docs
+    accessed: "2026-03-27"
+    sections_used:
+      - "useFocusTrap hook API"
+
+  - name: "MDN — Vue refs and lifecycle methods for focus management"
+    url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries/Vue_refs_focus_management"
+    type: documentation
+    accessed: "2026-03-27"
+    sections_used:
+      - "Template refs for focus"
+      - "nextTick for DOM-dependent focus"
+
+  - name: "marcus.io — Accessible routing with vue.js"
+    url: "https://marcus.io/blog/accessible-routing-vuejs"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Vue Router afterEach focus pattern"
+
+  - name: "Brian Treese — Angular CDK Focus Trap"
+    url: "https://briantree.se/using-the-angular-cdk-trap-focus-directive/"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "cdkTrapFocus directive usage"
+      - "cdkTrapFocusAutoCapture"
+
+  - name: "Angular Material CDK a11y"
+    url: "https://v12.material.angular.io/cdk/a11y"
+    type: library-docs
+    accessed: "2026-03-27"
+    sections_used:
+      - "FocusTrap API"
+      - "FocusMonitor API"

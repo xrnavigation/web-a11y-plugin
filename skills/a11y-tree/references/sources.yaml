@@ -1,0 +1,80 @@
+sources:
+  - name: "W3C APG Tree View Pattern"
+    url: "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Required ARIA roles and states for tree/treeitem/group"
+      - "Keyboard interaction specification"
+      - "Multi-select tree models (recommended and alternative)"
+      - "Selection follows focus warning"
+      - "Dynamic loading — aria-level, aria-setsize, aria-posinset"
+
+  - name: "W3C APG Treegrid Pattern"
+    url: "https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Treegrid structure — role=treegrid, row, gridcell"
+      - "Navigation models — rows-first, cells-first, cells-only"
+      - "Treegrid-specific keyboard additions"
+      - "aria-sort, aria-colcount, aria-rowcount for partial rendering"
+
+  - name: "WAI-ARIA 1.2 Specification"
+    url: "https://www.w3.org/TR/wai-aria-1.2/#tree"
+    type: specification
+    accessed: "2026-03-27"
+    sections_used:
+      - "tree role definition"
+      - "treeitem role definition"
+      - "treegrid role definition"
+
+  - name: "MDN: ARIA tree role"
+    url: "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role"
+    type: documentation
+    accessed: "2026-03-27"
+    sections_used:
+      - "Role requirements and parent-child relationships"
+      - "Attribute reference — aria-multiselectable, aria-orientation"
+      - "Warning against using tree for navigation"
+
+  - name: "MDN: ARIA treeitem role"
+    url: "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/treeitem_role"
+    type: documentation
+    accessed: "2026-03-27"
+    sections_used:
+      - "aria-expanded restrictions (parent nodes only)"
+      - "aria-level, aria-setsize, aria-posinset requirements"
+      - "Keyboard interaction requirements"
+
+  - name: "GitHub Blog: Considerations for making a tree view component accessible"
+    url: "https://github.blog/engineering/user-experience/considerations-for-making-a-tree-view-component-accessible/"
+    type: practitioner-blog
+    year: 2023
+    accessed: "2026-03-27"
+    sections_used:
+      - "Roving tabindex vs aria-activedescendant — roving tabindex recommended"
+      - "Semantic HTML foundation (ul/li with ARIA overlaid)"
+      - "VoiceOver aria-labelledby findings"
+      - "Live region announcements for async loading"
+      - "Cross-screen-reader testing results"
+
+  - name: "Pope Tech: Create an accessible tree view widget using ARIA"
+    url: "https://blog.pope.tech/2023/07/06/create-an-accessible-tree-view-widget-using-aria/"
+    type: practitioner-blog
+    year: 2023
+    accessed: "2026-03-27"
+    sections_used:
+      - "aria-expanded on leaf nodes mistake"
+      - "ARIA roles without keyboard behavior warning"
+
+  - name: "Accessible Culture: (Not so) Simple ARIA Tree Views and Screen Readers"
+    url: "https://accessibleculture.org/articles/2013/02/not-so-simple-aria-tree-views-and-screen-readers/"
+    type: practitioner-blog
+    year: 2013
+    accessed: "2026-03-27"
+    sections_used:
+      - "JAWS tree view behavior"
+      - "NVDA tree view behavior"
+      - "VoiceOver aria-activedescendant requirements"
+      - "Orca positional attribute support gaps"

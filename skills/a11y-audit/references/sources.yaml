@@ -1,0 +1,91 @@
+sources:
+  - id: axe-core-cli-npm
+    title: "@axe-core/cli — npm"
+    url: https://www.npmjs.com/package/@axe-core/cli
+    retrieved: 2026-03-27
+    used_in: [SKILL.md, tool-invocation-recipes.md]
+
+  - id: axe-core-github
+    title: "axe-core — GitHub"
+    url: https://github.com/dequelabs/axe-core
+    retrieved: 2026-03-27
+    used_in: [SKILL.md, tool-invocation-recipes.md, top-violations.md]
+
+  - id: axe-core-npm-monorepo
+    title: "axe-core-npm CLI package — GitHub"
+    url: https://github.com/dequelabs/axe-core-npm/tree/develop/packages/cli
+    retrieved: 2026-03-27
+    used_in: [tool-invocation-recipes.md]
+
+  - id: deque-university-rules
+    title: "Deque University — axe Rules"
+    url: https://dequeuniversity.com/rules/axe/
+    retrieved: 2026-03-27
+    used_in: [top-violations.md]
+
+  - id: axe-core-api-docs
+    title: "axe-core API Documentation"
+    url: https://www.deque.com/axe/core-documentation/api-documentation/
+    retrieved: 2026-03-27
+    used_in: [SKILL.md, tool-invocation-recipes.md]
+
+  - id: pa11y-github
+    title: "pa11y — GitHub"
+    url: https://github.com/pa11y/pa11y
+    retrieved: 2026-03-27
+    used_in: [SKILL.md, tool-invocation-recipes.md]
+
+  - id: pa11y-ci-github
+    title: "pa11y-ci — GitHub"
+    url: https://github.com/pa11y/pa11y-ci
+    retrieved: 2026-03-27
+    used_in: [SKILL.md, tool-invocation-recipes.md]
+
+  - id: lighthouse-github
+    title: "Lighthouse — GitHub"
+    url: https://github.com/GoogleChrome/lighthouse
+    retrieved: 2026-03-27
+    used_in: [tool-invocation-recipes.md]
+
+  - id: lighthouse-npm
+    title: "Lighthouse — npm"
+    url: https://www.npmjs.com/package/lighthouse
+    retrieved: 2026-03-27
+    used_in: [tool-invocation-recipes.md]
+
+  - id: lighthouse-a11y-scoring
+    title: "Lighthouse Accessibility Scoring"
+    url: https://developer.chrome.com/docs/lighthouse/accessibility/scoring
+    retrieved: 2026-03-27
+    used_in: [SKILL.md]
+
+  - id: eslint-plugin-jsx-a11y
+    title: "eslint-plugin-jsx-a11y — GitHub"
+    url: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y
+    retrieved: 2026-03-27
+    used_in: [SKILL.md, tool-invocation-recipes.md]
+
+  - id: playwright-a11y-docs
+    title: "Playwright Accessibility Testing"
+    url: https://playwright.dev/docs/accessibility-testing
+    retrieved: 2026-03-27
+    used_in: [SKILL.md, playwright-integration.md]
+
+  - id: axe-core-playwright-npm
+    title: "@axe-core/playwright — npm"
+    url: https://www.npmjs.com/package/@axe-core/playwright
+    retrieved: 2026-03-27
+    used_in: [playwright-integration.md]
+
+  - id: webaim-million-2025
+    title: "WebAIM Million 2025"
+    url: https://webaim.org/projects/million/
+    retrieved: 2026-03-27
+    used_in: [SKILL.md, top-violations.md]
+    notes: "Found average 51 errors/page across 1M sites; 96.4% in six categories; ARIA pages had 34.2% more errors"
+
+  - id: lighthouse-ci-config
+    title: "Lighthouse CI Configuration"
+    url: https://googlechrome.github.io/lighthouse-ci/docs/configuration.html
+    retrieved: 2026-03-27
+    used_in: [SKILL.md]

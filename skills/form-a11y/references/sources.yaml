@@ -1,0 +1,145 @@
+sources:
+  - id: w3c-aria21
+    title: "ARIA21: Using aria-invalid to Indicate An Error Field"
+    author: "W3C"
+    url: "https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA21"
+    type: specification
+    used_in:
+      - SKILL.md
+      - error-association-patterns.md
+
+  - id: w3c-sc-3-3-7
+    title: "Understanding SC 3.3.7 Redundant Entry"
+    author: "W3C"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html"
+    type: specification
+    used_in:
+      - SKILL.md
+      - common-mistakes.md
+
+  - id: w3c-sc-3-3-8
+    title: "Understanding SC 3.3.8 Accessible Authentication (Minimum)"
+    author: "W3C"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html"
+    type: specification
+    used_in:
+      - SKILL.md
+      - common-mistakes.md
+
+  - id: w3c-sc-3-3-9
+    title: "Understanding SC 3.3.9 Accessible Authentication (Enhanced)"
+    author: "W3C"
+    url: "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html"
+    type: specification
+    used_in:
+      - SKILL.md
+
+  - id: html-spec-autofill
+    title: "HTML Standard: Autofill"
+    author: "WHATWG"
+    url: "https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill"
+    type: specification
+    used_in:
+      - SKILL.md
+      - autocomplete-values.md
+
+  - id: smashing-form-validation
+    title: "A Guide To Accessible Form Validation"
+    author: "Sandrina Pereira"
+    publisher: "Smashing Magazine"
+    date: "2023-02"
+    url: "https://www.smashingmagazine.com/2023/02/guide-accessible-form-validation/"
+    type: article
+    used_in:
+      - SKILL.md
+      - error-association-patterns.md
+      - common-mistakes.md
+
+  - id: tetralogical-form-validation
+    title: "Foundations: Form Validation and Error Messages"
+    author: "TetraLogical"
+    date: "2024-10-21"
+    url: "https://tetralogical.com/blog/2024/10/21/foundations-form-validation-and-error-messages/"
+    type: article
+    used_in:
+      - SKILL.md
+      - common-mistakes.md
+
+  - id: webaim-form-validation
+    title: "Usable and Accessible Form Validation and Error Recovery"
+    author: "WebAIM"
+    url: "https://webaim.org/techniques/formvalidation/"
+    type: article
+    used_in:
+      - SKILL.md
+      - common-mistakes.md
+
+  - id: roselli-exposing-field-errors
+    title: "Exposing Field Errors"
+    author: "Adrian Roselli"
+    date: "2023-04"
+    url: "https://adrianroselli.com/2023/04/exposing-field-errors.html"
+    type: article
+    used_in:
+      - SKILL.md
+      - error-association-patterns.md
+      - common-mistakes.md
+
+  - id: roselli-description-exposure
+    title: "Accessible Description Exposure"
+    author: "Adrian Roselli"
+    date: "2022-04"
+    url: "https://adrianroselli.com/2022/04/accessible-description-exposure.html"
+    type: article
+    used_in:
+      - SKILL.md
+      - error-association-patterns.md
+
+  - id: roselli-labeling-priority
+    title: "My Priority of Methods for Labeling a Control"
+    author: "Adrian Roselli"
+    date: "2020-01"
+    url: "https://adrianroselli.com/2020/01/my-priority-of-methods-for-labeling-a-control.html"
+    type: article
+    used_in:
+      - SKILL.md
+      - error-association-patterns.md
+      - common-mistakes.md
+
+  - id: roselli-dont-disable
+    title: "Don't Disable Form Controls"
+    author: "Adrian Roselli"
+    date: "2024-02"
+    url: "https://adrianroselli.com/2024/02/dont-disable-form-controls.html"
+    type: article
+    used_in:
+      - SKILL.md
+      - common-mistakes.md
+
+  - id: cerovac-errormessage
+    title: "Support for aria-errormessage is getting better, but still not there yet"
+    author: "Bogdan Cerovac"
+    date: "2024-06"
+    url: "https://cerovac.com/a11y/2024/06/support-for-aria-errormessage-is-getting-better-but-still-not-there-yet/"
+    type: article
+    used_in:
+      - SKILL.md
+      - error-association-patterns.md
+      - common-mistakes.md
+
+  - id: a11ysupport-errormessage
+    title: "aria-errormessage attribute"
+    author: "a11ysupport.io"
+    url: "https://a11ysupport.io/tech/aria/aria-errormessage_attribute"
+    type: reference
+    used_in:
+      - error-association-patterns.md
+
+  - id: deque-aria-invalid
+    title: "aria-invalid error indication"
+    author: "Deque"
+    url: "https://www.deque.com/blog/aria-invalid-error-indication/"
+    type: article
+    used_in:
+      - SKILL.md
+      - common-mistakes.md

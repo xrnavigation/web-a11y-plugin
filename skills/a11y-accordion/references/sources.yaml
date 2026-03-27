@@ -1,0 +1,98 @@
+sources:
+  - name: "APG Accordion Pattern"
+    url: "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Definition — vertically stacked interactive headings"
+      - "WAI-ARIA Roles, States, and Properties — required attributes table"
+      - "Keyboard Interaction — Enter, Space, optional arrow keys"
+      - "role=region landmark proliferation warning for 6+ panels"
+
+  - name: "APG Disclosure Pattern"
+    url: "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Definition — collapsed/expanded content widget"
+      - "Required ARIA — button with aria-expanded"
+      - "Difference from accordion pattern"
+
+  - name: "HTML Spec — details element"
+    url: "https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element"
+    type: specification
+    accessed: "2026-03-27"
+    sections_used:
+      - "details element definition and behavior"
+      - "summary element as toggle"
+      - "open attribute and toggle event"
+      - "name attribute for exclusive accordion groups"
+
+  - name: "Adrian Roselli — Details / Summary Are Not [insert control here]"
+    url: "https://adrianroselli.com/2019/04/details-summary-are-not-insert-control-here.html"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Heading semantics destroyed inside summary"
+      - "Screen reader testing results for headings in summary"
+
+  - name: "Adrian Roselli — Disclosure Widgets"
+    url: "https://adrianroselli.com/2020/05/disclosure-widgets.html"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Accordion is more than adjacent disclosure widgets"
+      - "Triggers must be buttons not links"
+      - "Content must persist after disclosure"
+      - "DOM order requirement"
+
+  - name: "Adrian Roselli — Progressively Enhanced HTML Accordion"
+    url: "https://adrianroselli.com/2023/08/progressively-enhanced-html-accordion.html"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Hybrid native + ARIA approach"
+      - "role=group wrapper with aria-labelledby"
+      - "Screen reader testing matrix"
+      - "Adjacent details elements lack group semantics"
+
+  - name: "Scott O'Hara — The details and summary elements"
+    url: "https://www.scottohara.me/blog/2018/09/03/details-and-summary.html"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Screen reader behavior matrix for details/summary"
+      - "Heading semantics inside summary"
+      - "role=button on summary suppresses state in VoiceOver"
+      - "Inconsistent role announcements across ATs"
+
+  - name: "Scott O'Hara — Accessible ARIA Accordions"
+    url: "https://www.scottohara.me/blog/2017/10/25/accordion-release.html"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Hidden content must be hidden from everyone"
+      - "Off-screen positioning leaves content in accessibility tree"
+
+  - name: "MDN Blog — HTML details exclusive accordions"
+    url: "https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions/"
+    type: reference-documentation
+    accessed: "2026-03-27"
+    sections_used:
+      - "name attribute for exclusive accordion groups"
+      - "Browser support information"
+
+  - name: "Chrome for Developers — Exclusive Accordion"
+    url: "https://developer.chrome.com/docs/css-ui/exclusive-accordion"
+    type: reference-documentation
+    accessed: "2026-03-27"
+    sections_used:
+      - "name attribute implementation details"
+      - "Browser support (Chrome 120+)"
+
+  - name: "APG Read Me First"
+    url: "https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "No ARIA is better than Bad ARIA"

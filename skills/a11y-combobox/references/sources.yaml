@@ -1,0 +1,119 @@
+sources:
+  - name: "APG Combobox Pattern"
+    url: "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "About This Pattern — combobox definition and popup types"
+      - "Keyboard Interaction — full keyboard spec for all variants"
+      - "WAI-ARIA Roles, States, and Properties — required attributes"
+
+  - name: "APG Select-Only Combobox Example"
+    url: "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Keyboard Support (closed/open state tables)"
+      - "WAI-ARIA Roles, States, and Properties tables"
+
+  - name: "APG Editable Combobox with Both Autocomplete"
+    url: "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Inline + list autocomplete behavior"
+
+  - name: "APG Editable Combobox with List Autocomplete"
+    url: "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "List filtering behavior"
+
+  - name: "APG Editable Combobox without Autocomplete"
+    url: "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Fixed suggestion list behavior"
+
+  - name: "APG Grid Combobox Example"
+    url: "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/grid-combo/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Grid popup keyboard interaction"
+
+  - name: "APG Date Picker Combobox Example"
+    url: "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Dialog popup behavior — DOM focus moves into dialog"
+
+  - name: "WAI-ARIA 1.2 Combobox Role"
+    url: "https://www.w3.org/TR/wai-aria-1.2/#combobox"
+    type: specification
+    accessed: "2026-03-27"
+    sections_used:
+      - "Required states and properties for combobox role"
+
+  - name: "Adrian Roselli — Under-Engineered Comboboxen"
+    url: "https://adrianroselli.com/2023/06/under-engineered-comboboxen.html"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "datalist browser/AT testing results"
+      - "Platform-specific failures (Android Firefox, iOS VoiceOver)"
+      - "value vs text node confusion across browsers"
+
+  - name: "Adrian Roselli — Stop Giving Control Hints to Screen Readers"
+    url: "https://adrianroselli.com/2019/10/stop-giving-control-hints-to-screen-readers.html"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Argument against adding custom usage instructions to screen reader users"
+
+  - name: "Sarah Higley — aria-activedescendant is not focus"
+    url: "https://sarahmhigley.com/writing/activedescendant/"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Core differences from DOM focus"
+      - "Screen reader support gaps per AT"
+      - "Practical recommendations — use only in text editing contexts"
+      - "Non-option element mode switching bugs"
+
+  - name: "React Aria — Building a ComboBox"
+    url: "https://react-aria.adobe.com/blog/building-a-combobox"
+    type: library-documentation
+    accessed: "2026-03-27"
+    sections_used:
+      - "NVDA announcement failures"
+      - "VoiceOver gaps with aria-activedescendant"
+      - "aria-live workaround for cross-AT announcements"
+      - "role=group breaking VoiceOver"
+      - "Mobile adaptations — native select fallback"
+
+  - name: "24 Accessibility — Select Your Poison Part 2"
+    url: "https://www.24a11y.com/2019/select-your-poison-part-2/"
+    type: practitioner-study
+    accessed: "2026-03-27"
+    sections_used:
+      - "Testing results — native select 100% success vs select-multiple 25.3%"
+      - "NVDA scan mode invisibility for ARIA 1.1 comboboxes"
+      - "Auto-filtering reducing success rates"
+
+  - name: "Chris Henrick — Custom and Accessible Select Menus Aren't Easy"
+    url: "https://clhenrick.io/blog/accessible-select-element/"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Overview of custom select challenges"
+
+  - name: "MDN — ARIA combobox role"
+    url: "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"
+    type: reference-documentation
+    accessed: "2026-03-27"
+    sections_used:
+      - "Role description and required attributes"

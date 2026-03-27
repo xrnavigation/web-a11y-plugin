@@ -1,0 +1,249 @@
+sources:
+  - name: "WebAIM Screen Reader Survey #10"
+    url: "https://webaim.org/projects/screenreadersurvey10/"
+    type: survey
+    accessed: "2026-03-27"
+    sections_used:
+      - "Navigation strategies — 71.6% navigate by headings"
+      - "Link list usage patterns"
+      - "Most problematic items — ambiguous links, missing headings"
+
+  - name: "WCAG 2.1 SC 2.4.4 — Link Purpose (In Context)"
+    url: "https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html"
+    type: specification
+    accessed: "2026-03-27"
+    sections_used:
+      - "Level A requirement for link purpose"
+      - "Programmatically determined context definition"
+
+  - name: "WCAG 2.1 SC 2.4.9 — Link Purpose (Link Only)"
+    url: "https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-link-only.html"
+    type: specification
+    accessed: "2026-03-27"
+    sections_used:
+      - "Level AAA requirement for context-independent link text"
+
+  - name: "WebAIM Link Text"
+    url: "https://webaim.org/techniques/hypertext/link_text"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Link text guidelines — conciseness, no 'click here', no 'link' in text"
+      - "Images as links — alt as link text"
+
+  - name: "Yale Accessible Links"
+    url: "https://usability.yale.edu/web-accessibility/articles/links"
+    type: university-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Link text best practices"
+      - "Underline requirements for non-underlined links"
+
+  - name: "Section508 Descriptive Links"
+    url: "https://www.section508.gov/blog/accessibility-bytes/descriptive-links-and-hypertext/"
+    type: government-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Why ambiguous links are problematic"
+      - "Descriptive link text examples"
+
+  - name: "Pope Tech — Why Ambiguous Links Are Problematic"
+    url: "https://blog.pope.tech/2018/07/26/why-ambiguous-links-are-problematic/"
+    type: practitioner-blog
+    accessed: "2026-03-27"
+    sections_used:
+      - "Links list navigation impact"
+
+  - name: "Vision Australia — Read More Links"
+    url: "https://www.visionaustralia.org/business-consulting/digital-access/blog/how-to-make-read-more-links-accessible"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Three fix options for 'Read more' links"
+      - "WCAG 2.5.3 Label in Name interaction with aria-label"
+
+  - name: "NN/g Error-Message Guidelines"
+    url: "https://www.nngroup.com/articles/error-message-guidelines/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Three categories: visibility, communication, efficiency"
+      - "Non-blaming tone guidelines"
+      - "Preserve user input requirement"
+
+  - name: "GOV.UK Error Message Component"
+    url: "https://design-system.service.gov.uk/components/error-message/"
+    type: design-system
+    accessed: "2026-03-27"
+    sections_used:
+      - "Language rules — no jargon, no please/sorry"
+      - "Match field label rule"
+      - "Visually hidden 'Error:' prefix"
+
+  - name: "GOV.UK Error Summary Component"
+    url: "https://design-system.service.gov.uk/components/error-summary/"
+    type: design-system
+    accessed: "2026-03-27"
+    sections_used:
+      - "Error summary at page top"
+      - "Identical wording in summary and inline"
+
+  - name: "GOV.UK Validation Pattern"
+    url: "https://design-system.service.gov.uk/patterns/validation/"
+    type: design-system
+    accessed: "2026-03-27"
+    sections_used:
+      - "Error message specificity by type (empty, wrong format, too long)"
+
+  - name: "TetraLogical Form Validation"
+    url: "https://tetralogical.com/blog/2024/10/21/foundations-form-validation-and-error-messages/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "aria-describedby for error association"
+      - "aria-invalid usage"
+
+  - name: "Smashing Magazine Accessible Form Validation"
+    url: "https://www.smashingmagazine.com/2023/02/guide-accessible-form-validation/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Dynamic error announcements with role='alert'"
+
+  - name: "WebAIM Form Validation"
+    url: "https://webaim.org/techniques/formvalidation/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Error placement and association patterns"
+
+  - name: "Plain Language Guidelines (digital.gov)"
+    url: "https://digital.gov/guides/plain-language"
+    type: government-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Write for your audience"
+      - "Use everyday words"
+      - "Short sentences, active voice"
+      - "6th-8th grade reading level target"
+
+  - name: "MN.gov Plain Language and Accessibility"
+    url: "https://mn.gov/mnit/about-mnit/accessibility/news/?id=38-614411"
+    type: government-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Plain language as accessibility technique"
+
+  - name: "WCAG 2.1 SC 3.1.5 — Reading Level"
+    url: "https://www.w3.org/WAI/WCAG21/Understanding/reading-level.html"
+    type: specification
+    accessed: "2026-03-27"
+    sections_used:
+      - "Lower secondary education reading level recommendation"
+
+  - name: "A11Y Project — Heading Structure"
+    url: "https://www.a11yproject.com/posts/how-to-accessible-heading-structure/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "One h1 per page"
+      - "Hierarchical nesting rules"
+
+  - name: "Yale Headings"
+    url: "https://usability.yale.edu/web-accessibility/articles/headings"
+    type: university-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Screen reader heading navigation"
+      - "Heading structure as table of contents"
+
+  - name: "Section508 Document Headings"
+    url: "https://www.section508.gov/blog/accessibility-bytes/document-headings/"
+    type: government-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Heading hierarchy requirements"
+
+  - name: "WebAIM Semantic Structure — Headings"
+    url: "https://webaim.org/techniques/headings/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Heading navigation patterns"
+
+  - name: "web.dev Headings and Landmarks"
+    url: "https://web.dev/articles/headings-and-landmarks"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Heading structure as landmark navigation"
+
+  - name: "W3C Form Instructions Tutorial"
+    url: "https://www.w3.org/WAI/tutorials/forms/instructions/"
+    type: w3c-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Form element order (label, hint, error, input)"
+      - "aria-describedby for help text"
+
+  - name: "Deque — The Problem with Placeholders"
+    url: "https://www.deque.com/blog/accessible-forms-the-problem-with-placeholders/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Five reasons placeholder text is hostile"
+      - "Placeholder is not a label"
+
+  - name: "Harvard — Accessible Labels and Instructions"
+    url: "https://accessibility.huit.harvard.edu/provide-accessible-labels-and-instructions"
+    type: university-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Help text placement"
+      - "Visible persistent labels"
+
+  - name: "NN/g Alt Text — What to Write"
+    url: "https://www.nngroup.com/articles/write-alt-text/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Context, intention, trim framework"
+      - "Same image, different alt text by context"
+
+  - name: "Deque — Great Alt Text Introduction"
+    url: "https://www.deque.com/blog/great-alt-text-introduction/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Image classification: decorative, functional, informative"
+
+  - name: "Harvard — Write Helpful Alt Text"
+    url: "https://accessibility.huit.harvard.edu/describe-content-images"
+    type: university-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Context-dependent alt text examples"
+
+  - name: "Section508 Alternative Text"
+    url: "https://www.section508.gov/create/alternative-text/"
+    type: government-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Alt text decision tree"
+      - "Complex image long description patterns"
+
+  - name: "WCAG.com Good Alt Text Bad Alt Text"
+    url: "https://www.wcag.com/blog/good-alt-text-bad-alt-text-making-your-content-perceivable/"
+    type: practitioner-guide
+    accessed: "2026-03-27"
+    sections_used:
+      - "Missing alt vs empty alt distinction"
+      - "Filename alt text problem"
+
+  - name: "WCAG 2.1 SC 2.5.3 — Label in Name"
+    url: "https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html"
+    type: specification
+    accessed: "2026-03-27"
+    sections_used:
+      - "Visible text must be contained in accessible name"
+      - "Impact on speech recognition users"

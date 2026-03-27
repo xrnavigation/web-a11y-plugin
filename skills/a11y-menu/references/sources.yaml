@@ -1,0 +1,137 @@
+# Sources for a11y-menu skill
+# All factual claims in SKILL.md and reference files cite one or more of these sources.
+
+specifications:
+  - id: apg-menubar
+    title: "Menu and Menubar Pattern"
+    author: "W3C WAI-ARIA Authoring Practices Guide"
+    url: https://www.w3.org/WAI/ARIA/apg/patterns/menubar/
+    type: specification
+
+  - id: apg-menu-button
+    title: "Menu Button Pattern"
+    author: "W3C WAI-ARIA Authoring Practices Guide"
+    url: https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/
+    type: specification
+
+  - id: wai-aria-1.2
+    title: "WAI-ARIA 1.2 Specification — Role Definitions"
+    author: "W3C"
+    urls:
+      - https://www.w3.org/TR/wai-aria-1.2/#menu
+      - https://www.w3.org/TR/wai-aria-1.2/#menubar
+      - https://www.w3.org/TR/wai-aria-1.2/#menuitem
+      - https://www.w3.org/TR/wai-aria-1.2/#menuitemcheckbox
+      - https://www.w3.org/TR/wai-aria-1.2/#menuitemradio
+    type: specification
+
+  - id: mdn-menu-role
+    title: "ARIA: menu role"
+    author: "MDN Web Docs"
+    url: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role
+    type: reference
+
+  - id: mdn-menuitemcheckbox
+    title: "ARIA: menuitemcheckbox role"
+    author: "MDN Web Docs"
+    url: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemcheckbox_role
+    type: reference
+
+  - id: mdn-menuitemradio
+    title: "ARIA: menuitemradio role"
+    author: "MDN Web Docs"
+    url: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemradio_role
+    type: reference
+
+practitioner_articles:
+  - id: roselli-2017
+    title: "Don't Use ARIA Menu Roles for Site Nav"
+    author: "Adrian Roselli"
+    year: 2017
+    url: https://adrianroselli.com/2017/10/dont-use-aria-menu-roles-for-site-nav.html
+    type: article
+    cited_in:
+      - SKILL.md (sections 1, 5, 6)
+      - menu-vs-navigation.md
+      - common-mistakes.md
+
+  - id: roselli-2023
+    title: "Be Careful Using Menu"
+    author: "Adrian Roselli"
+    year: 2023
+    url: https://adrianroselli.com/2023/05/be-careful-using-menu.html
+    type: article
+    cited_in:
+      - SKILL.md (section 6)
+      - menu-vs-navigation.md
+      - common-mistakes.md
+
+  - id: roselli-2019
+    title: "Link + Disclosure Widget Navigation"
+    author: "Adrian Roselli"
+    year: 2019
+    url: https://adrianroselli.com/2019/06/link-disclosure-widget-navigation.html
+    type: article
+    cited_in:
+      - SKILL.md (section 1)
+      - menu-vs-navigation.md
+
+  - id: pickering
+    title: "Menus & Menu Buttons"
+    author: "Heydon Pickering"
+    source: "Inclusive Components"
+    url: https://inclusive-components.design/menus-menu-buttons/
+    type: article
+    cited_in:
+      - SKILL.md (sections 2, 6)
+      - menu-button-pattern.md
+      - common-mistakes.md
+      - menu-vs-navigation.md
+
+  - id: make-things-accessible
+    title: "Site navigation is not an ARIA menu"
+    author: "Make Things Accessible"
+    url: https://www.makethingsaccessible.com/guides/site-navigation-is-not-an-aria-menu/
+    type: article
+    cited_in:
+      - SKILL.md (sections 1, 6)
+      - menu-vs-navigation.md
+      - common-mistakes.md
+
+  - id: boia
+    title: "Avoiding Common Mistakes with ARIA's Menu Role"
+    author: "BOIA"
+    url: https://www.boia.org/blog/avoiding-common-mistakes-with-arias-menu-role
+    type: article
+    cited_in:
+      - SKILL.md (sections 3, 5, 6)
+      - common-mistakes.md
+
+  - id: matuzovic-2023
+    title: "aria-haspopup and screen readers"
+    author: "Manuel Matuzovic"
+    year: 2023
+    url: https://www.matuzo.at/blog/2023/aria-haspopup/
+    type: article
+    cited_in:
+      - SKILL.md (section 2)
+      - menu-button-pattern.md
+
+screen_reader_behavior:
+  - id: tink
+    title: "Understanding screen reader interaction modes"
+    author: "Leonie Watson (Tink)"
+    url: https://tink.uk/understanding-screen-reader-interaction-modes/
+    type: article
+    cited_in:
+      - SKILL.md (section 1)
+      - menu-vs-navigation.md
+
+  - id: accessible-culture
+    title: "ARIA Widgets and Focus/Forms Mode Support in JAWS and NVDA"
+    author: "Accessible Culture"
+    url: https://accessibleculture.org/articles/2012/09/aria-widgets-and-focus-forms-mode-support/
+    type: article
+    cited_in:
+      - SKILL.md (section 1)
+      - menu-vs-navigation.md
