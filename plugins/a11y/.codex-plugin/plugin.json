@@ -1,0 +1,30 @@
+{
+  "name": "a11y",
+  "version": "0.1.0",
+  "description": "Web accessibility skills — semantic markup, ARIA, color contrast, keyboard navigation, screen reader support, testing.",
+  "author": {
+    "name": "XRNavigation"
+  },
+  "repository": "https://github.com/xrnavigation/web-a11y-plugin",
+  "keywords": [
+    "a11y",
+    "accessibility",
+    "agent-skills",
+    "codex",
+    "claude-code"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Web Accessibility",
+    "shortDescription": "Build and review accessible web experiences",
+    "longDescription": "Web accessibility skills — semantic markup, ARIA, color contrast, keyboard navigation, screen reader support, testing.",
+    "developerName": "XRNavigation",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read"
+    ],
+    "defaultPrompt": [
+      "Use Web Accessibility for this task."
+    ]
+  }
+}

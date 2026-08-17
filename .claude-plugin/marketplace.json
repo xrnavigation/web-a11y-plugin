@@ -1,0 +1,16 @@
+{
+  "name": "web-a11y-skills-marketplace",
+  "owner": {
+    "name": "XRNavigation"
+  },
+  "metadata": {
+    "description": "Agent skills for building and reviewing accessible web experiences"
+  },
+  "plugins": [
+    {
+      "name": "a11y",
+      "source": "./plugins/a11y",
+      "description": "Web accessibility skills covering semantic markup, ARIA, color contrast, keyboard navigation, screen readers, and testing"
+    }
+  ]
+}

@@ -57,17 +57,32 @@ Every skill includes cited reference material. No hallucinated guidance.
 | `hostile-pattern-detection` | Carousels, infinite scroll, hover-only, auto-play, CAPTCHAs |
 | `overlay-resistance` | Never recommend accessibility overlays (accessiBe, UserWay, etc.) |
 
-## Installation
+## Install in Claude Code
 
 Add the marketplace, then install:
 
 ```
-/plugin marketplace add xrnavigation/agent-skills
-/plugin install a11y@agent-skills
+/plugin marketplace add xrnavigation/web-a11y-plugin
+/plugin install a11y@web-a11y-skills-marketplace
 ```
 
-Or install directly:
+## Install in Codex
 
+```text
+codex plugin marketplace add xrnavigation/web-a11y-plugin
+codex plugin add a11y@web-a11y-skills-marketplace
 ```
-/plugin install xrnavigation/web-a11y-plugin
+
+Adding the marketplace registers its catalog; the second command installs the plugin.
+For local development, replace the repository name in either marketplace command with `.`.
+
+## Layout
+
+```text
+.claude-plugin/marketplace.json
+.agents/plugins/marketplace.json
+plugins/a11y/
+  .claude-plugin/plugin.json
+  .codex-plugin/plugin.json
+  skills/<skill-name>/SKILL.md
 ```

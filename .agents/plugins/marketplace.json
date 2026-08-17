@@ -1,0 +1,20 @@
+{
+  "name": "web-a11y-skills-marketplace",
+  "interface": {
+    "displayName": "Web Accessibility"
+  },
+  "plugins": [
+    {
+      "name": "a11y",
+      "source": {
+        "source": "local",
+        "path": "./plugins/a11y"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
