@@ -1,122 +1,151 @@
 sources:
-  - name: "W3C Alt Text Decision Tree"
-    url: "https://www.w3.org/WAI/tutorials/images/decision-tree/"
-    type: w3c-tutorial
-    accessed: "2026-03-27"
-    sections_used:
-      - "Complete decision tree — decorative, functional, informative, complex image classification"
-
-  - name: "W3C Images Tutorial"
-    url: "https://www.w3.org/WAI/tutorials/images/"
-    type: w3c-tutorial
-    accessed: "2026-03-27"
-    sections_used:
-      - "Informative images"
-      - "Decorative images"
-      - "Functional images"
-      - "Images of text"
-      - "Complex images"
-      - "Groups of images"
-      - "Image maps"
-
-  - name: "WebAIM — Alternative Text"
-    url: "https://webaim.org/techniques/alttext/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Context-dependent alt text — Ellen Ochoa example"
-      - "Functional images — link and button alt text"
-      - "Decorative images"
-      - "Anti-patterns"
-
-  - name: "Harvard Digital Accessibility — Describe Content Images"
-    url: "https://accessibility.huit.harvard.edu/describe-content-images"
-    type: institutional-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Context-dependent alt text — Hollis Hall example"
-      - "Same image, different descriptions by context"
-
-  - name: "Scott O'Hara — Contextually Marking Up Accessible Images and SVGs"
-    url: "https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Inline SVG patterns — role='img' + aria-labelledby"
-      - "Decorative SVG — aria-hidden + focusable='false'"
-      - "SVG in buttons — icon as decorative, button carries name"
-      - "Cross-browser/screen reader testing results"
-
-  - name: "Deque — Creating Accessible SVGs"
-    url: "https://www.deque.com/blog/creating-accessible-svgs/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Complex SVG with aria-labelledby referencing title + desc"
-      - "Testing results across assistive technology"
-
-  - name: "Sara Soueidan — Accessible Icon Buttons"
-    url: "https://www.sarasoueidan.com/blog/accessible-icon-buttons/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Visually hidden text technique"
-      - "aria-labelledby with hidden element"
-      - "aria-label on button"
-      - "Anti-patterns — aria-label on SVG, aria-labelledby to SVG title"
-      - "Cross-browser/screen reader testing matrix"
-
-  - name: "David MacDonald — Alternate Text for CSS Background Images"
-    url: "http://www.davidmacd.com/blog/alternate-text-for-css-background-images.html"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Separate span with role='img' and aria-label"
-      - "Warning about role='img' on content containers"
-
-  - name: "ASU IT Accessibility — Accessible CSS"
-    url: "https://accessibility.asu.edu/articles/css"
-    type: institutional-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "CSS background images and text alternatives"
-
-  - name: "BOIA — 8 Common Image Alt Text Mistakes"
-    url: "https://www.boia.org/blog/8-common-image-alt-text-mistakes-to-stop-making"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Redundant prefixes (image of, photo of)"
-      - "Missing alt attribute"
-      - "Filename as alt text"
-      - "Overly long alt text"
-
-  - name: "Allyant — 6 Common Alt Text Mistakes"
-    url: "https://allyant.com/blog/6-common-alt-text-mistakes-and-best-practices/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "SEO keyword stuffing"
-      - "Decorative images with unnecessary alt"
-      - "Poor spelling and punctuation"
-
-  - name: "WCAG 2.1 — SC 2.5.3 Label in Name"
-    url: "https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "aria-label must contain visible text"
-
-  - name: "MDN — ARIA img role"
-    url: "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role"
-    type: reference
-    accessed: "2026-03-27"
-    sections_used:
-      - "role='img' usage for SVG and CSS background images"
-
-  - name: "Section508.gov — Authoring Meaningful Alternative Text"
-    url: "https://www.section508.gov/create/alternative-text/"
-    type: government-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Federal accessibility requirements for alt text"
+- name: W3C Alt Text Decision Tree
+  url: https://www.w3.org/WAI/tutorials/images/decision-tree/
+  type: w3c-tutorial
+  accessed: '2026-03-27'
+  sections_used:
+  - Complete decision tree — decorative, functional, informative, complex image classification
+- name: W3C Images Tutorial
+  url: https://www.w3.org/WAI/tutorials/images/
+  type: w3c-tutorial
+  accessed: '2026-03-27'
+  sections_used:
+  - Informative images
+  - Decorative images
+  - Functional images
+  - Images of text
+  - Complex images
+  - Groups of images
+  - Image maps
+- name: WebAIM — Alternative Text
+  url: https://webaim.org/techniques/alttext/
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Context-dependent alt text — Ellen Ochoa example
+  - Functional images — link and button alt text
+  - Decorative images
+  - Anti-patterns
+- name: Harvard Digital Accessibility — Describe Content Images
+  url: https://accessibility.huit.harvard.edu/describe-content-images
+  type: institutional-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Context-dependent alt text — Hollis Hall example
+  - Same image, different descriptions by context
+- name: Scott O'Hara — Contextually Marking Up Accessible Images and SVGs
+  url: https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Inline SVG patterns — role='img' + aria-labelledby
+  - Decorative SVG — aria-hidden + focusable='false'
+  - SVG in buttons — icon as decorative, button carries name
+  - Cross-browser/screen reader testing results
+- name: Deque — Creating Accessible SVGs
+  url: https://www.deque.com/blog/creating-accessible-svgs/
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Complex SVG with aria-labelledby referencing title + desc
+  - Testing results across assistive technology
+- name: Sara Soueidan — Accessible Icon Buttons
+  url: https://www.sarasoueidan.com/blog/accessible-icon-buttons/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Visually hidden text technique
+  - aria-labelledby with hidden element
+  - aria-label on button
+  - Anti-patterns — aria-label on SVG, aria-labelledby to SVG title
+  - Cross-browser/screen reader testing matrix
+- name: David MacDonald — Alternate Text for CSS Background Images
+  url: http://www.davidmacd.com/blog/alternate-text-for-css-background-images.html
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Separate span with role='img' and aria-label
+  - Warning about role='img' on content containers
+- name: ASU IT Accessibility — Accessible CSS
+  url: https://accessibility.asu.edu/articles/css
+  type: institutional-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - CSS background images and text alternatives
+- name: BOIA — 8 Common Image Alt Text Mistakes
+  url: https://www.boia.org/blog/8-common-image-alt-text-mistakes-to-stop-making
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Redundant prefixes (image of, photo of)
+  - Missing alt attribute
+  - Filename as alt text
+  - Overly long alt text
+- name: Allyant — 6 Common Alt Text Mistakes
+  url: https://allyant.com/blog/6-common-alt-text-mistakes-and-best-practices/
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - SEO keyword stuffing
+  - Decorative images with unnecessary alt
+  - Poor spelling and punctuation
+- name: WCAG 2.1 — SC 2.5.3 Label in Name
+  url: https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - aria-label must contain visible text
+- name: MDN — ARIA img role
+  url: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role
+  type: reference
+  accessed: '2026-03-27'
+  sections_used:
+  - role='img' usage for SVG and CSS background images
+- name: Section508.gov — Authoring Meaningful Alternative Text
+  url: https://www.section508.gov/create/alternative-text/
+  type: government-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Federal accessibility requirements for alt text
+- name: WAI decorative images
+  url: https://www.w3.org/WAI/tutorials/images/decorative
+  used_in:
+  - references/common-mistakes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval
+    date inferred by registration.
+- name: WAI complex images
+  url: https://www.w3.org/WAI/tutorials/images/complex
+  used_in:
+  - references/common-mistakes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval
+    date inferred by registration.
+- name: SVG-AAM name and description
+  url: https://www.w3.org/TR/svg-aam-1.0/#mapping_additional_nd
+  used_in:
+  - SKILL.md
+  verification: Primary guidance read during the 2026-10-10 revision; not a browser
+    or AT compatibility test.
+- name: ARIA img
+  url: https://www.w3.org/TR/wai-aria-1.2/#img
+  used_in:
+  - SKILL.md
+  verification: Primary guidance read during the 2026-10-10 revision; not a browser
+    or AT compatibility test.
+- name: APG button
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/button/
+  used_in:
+  - references/icon-button-patterns.md
+  verification: Primary guidance read during the 2026-10-10 revision; not a browser
+    or AT compatibility test.
+- name: WAI functional images
+  url: https://www.w3.org/WAI/tutorials/images/functional/
+  used_in:
+  - references/svg-accessibility.md
+  verification: Primary guidance read during the 2026-10-10 revision; not a browser
+    or AT compatibility test.
+- name: APG production testing
+  url: https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/
+  used_in:
+  - references/svg-accessibility.md
+  verification: Primary guidance read during the 2026-10-10 revision; not a browser
+    or AT compatibility test.

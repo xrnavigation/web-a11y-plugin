@@ -1,290 +1,109 @@
 ---
 name: css-a11y
-description: Guides CSS patterns that affect accessibility — focus indicators, forced-colors mode, prefers-reduced-motion, prefers-contrast, color-only information avoidance, and target sizing. Auto-invokes when writing CSS for interactive elements, animations, transitions, media queries, or custom focus styles.
-allowed-tools: Read, Glob, Grep
+description: Guides visible focus, forced colors, contrast, reduced motion and accessible target styling. Use when changing interactive CSS, focus rings, animations, visual state cues or theme adaptations.
 ---
 
-# CSS Accessibility Patterns
+# CSS accessibility
 
-> "Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element."
-> — [WCAG 2.1, SC 1.4.1](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html)
+Keep states and controls perceptible across themes and input methods. Distinguish
+WCAG thresholds from this collection's implementation recommendations.
 
-CSS controls what users see. When CSS removes focus indicators, ignores user preferences, or relies on color alone, it creates barriers that no amount of semantic HTML or ARIA can fix. Every visual pattern below has a direct WCAG success criterion behind it.
+## Visible focus
 
----
-
-## 1. Focus Indicators
-
-Focus indicators tell keyboard users where they are. Removing or weakening them is the most common CSS accessibility failure.
-
-### Use `:focus-visible`, Not `:focus`
-
-`:focus-visible` shows focus rings for keyboard navigation but not mouse clicks. This eliminates the "ugly ring on click" complaint that leads developers to remove outlines entirely.
+Preserve browser focus indication or provide a tested replacement. `:focus-visible`
+uses browser heuristics; it does not mean keyboard-only in every situation. A
+visible `:focus` baseline is a useful project choice for programmatic/pointer focus
+as well ([Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html),
+[MDN focus-visible](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible)).
 
 ```css
-button:focus-visible {
-  outline: max(1px, 0.1em) solid currentColor;
-  outline-offset: 0.25em;
+button:focus {
+  outline: 3px solid #005fcc;
+  outline-offset: 3px;
 }
-```
-
-Using `currentColor` ensures the outline adapts in forced-colors mode. Using `em` units makes it scale with font size. ([Modern CSS Solutions](https://moderncss.dev/modern-css-upgrades-to-improve-accessibility/))
-
-### Double-Outline Technique
-
-A two-color indicator ensures visibility against any background:
-
-```css
-:focus-visible {
-  outline: 3px solid black;
-  box-shadow: 0 0 0 6px white;
-}
-```
-
-For dark backgrounds, invert the colors. This satisfies SC 1.4.11 (Non-Text Contrast, 3:1 ratio) and works toward SC 2.4.13 (Focus Appearance). ([Sara Soueidan](https://www.sarasoueidan.com/blog/focus-indicators/))
-
-### Never `outline: none` Without Replacement
-
-Setting `outline: none` or `outline: 0` removes focus visibility for all users, including Windows High Contrast Mode users. Many CSS resets include this — always redefine focus styles when using them.
-
-**Safer pattern:** Use `outline-color: transparent` instead of `outline: none`. This preserves the outline in forced-colors mode while hiding it visually in normal rendering. ([A11Y Project](https://www.a11yproject.com/posts/never-remove-css-outlines/); [outlinenone.com](https://www.outlinenone.com/))
-
-### WCAG Criteria
-
-| Criterion | Level | Requirement |
-|---|---|---|
-| 2.4.7 Focus Visible | A | Keyboard focus indicator must be visible |
-| 1.4.11 Non-Text Contrast | AA | Focus indicator needs 3:1 contrast against adjacent colors |
-| 2.4.11 Focus Not Obscured (Min) | AA | Focused component not entirely hidden by other content |
-| 2.4.13 Focus Appearance | AAA | Indicator area ≥ 2px thick perimeter, 3:1 contrast between focused/unfocused states |
-
-For details, see: [references/focus-indicators.md](references/focus-indicators.md)
-
----
-
-## 2. Forced-Colors Mode
-
-When `forced-colors: active` (Windows High Contrast Mode), the browser forcibly overrides colors, shadows, and background images. Visual distinctions that rely on `box-shadow`, background gradients, or `background-color` alone disappear.
-
-### What Survives
-
-Borders and outlines persist. They are the only reliable way to convey visual boundaries and focus states.
-
-### Transparent Outline/Border Pattern
-
-Use transparent borders in base styles — invisible normally, visible in forced-colors mode:
-
-```css
-.card {
-  border: 2px solid transparent;
-}
-
-button:focus-visible {
-  outline: 3px solid transparent;
-  outline-offset: 2px;
-}
-```
-
-### System Color Keywords
-
-System colors map to the user's high-contrast palette: `Canvas`, `CanvasText`, `LinkText`, `ButtonText`, `ButtonBorder`, `Highlight`, `HighlightText`, `GrayText`. These are assigned based on native HTML semantics — a `<div role="button">` does NOT get `ButtonText` coloring.
-
-### `forced-color-adjust: none`
-
-Use only when color IS the content (color pickers, data visualizations). Do not create a separate design for forced-colors users — use the media query only for small fixups.
-
-```css
 @media (forced-colors: active) {
-  .color-swatch {
-    forced-color-adjust: none;
-  }
+  button:focus { outline-color: Highlight; }
 }
 ```
 
-For details, see: [references/forced-colors-mode.md](references/forced-colors-mode.md)
+This is a sample for a tested light theme, not a guarantee on every background.
+Check actual adjacent colors, clipping and sticky overlays. Transparent outlines
+need another visible indicator in normal colors; `outline: none` alone removes it
+([Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html)).
 
-([Smashing Magazine](https://www.smashingmagazine.com/2022/06/guide-windows-high-contrast-mode/); [MDN forced-colors](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/forced-colors))
+| Criterion | Level | Check |
+|---|---|---|
+| 2.4.7 Focus Visible | AA | A mode with visible keyboard focus |
+| 1.4.11 Non-text Contrast | AA | Required visual control/state information meets 3:1 adjacent contrast, with exceptions |
+| 2.4.11 Focus Not Obscured (Minimum) | AA | Component not entirely hidden by author content |
+| 2.4.13 Focus Appearance | AAA | Qualifying changed indicator area and 3:1 focused/unfocused contrast, with exceptions |
 
----
+Read the actual conditions in [WCAG 2.2](https://www.w3.org/TR/WCAG22/); do not
+teach the AAA perimeter/change-contrast requirement as an AA focus-ring rule.
 
-## 3. `prefers-reduced-motion`
+## Forced colors and contrast preferences
 
-The goal is to reduce vestibular-triggering motion, not to strip all animation. Some transitions (list reflow, gentle fades) actively help comprehension.
-
-### Replace, Don't Remove
+Shadows and gradients can disappear in forced colors. Retain real borders/outlines
+and test system colors; avoid disabling user color adaptation globally with
+`forced-color-adjust:none`. Background images are not all removed: URL images and
+non-URL images have different forced-color behavior
+([MDN forced-colors](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors)).
 
 ```css
-.hero-image {
-  animation: slide-in 0.6s ease-out;
+.card { border: 1px solid transparent; }
+@media (forced-colors: active) {
+  .card { border-color: CanvasText; }
 }
+```
 
+`prefers-contrast` and `forced-colors` represent different preferences/features;
+do not infer a specific OS or absence of another preference from either
+([MDN prefers-contrast](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast)).
+
+## Color and motion
+
+Do not convey information by color alone. Keep visible text/icons/patterns for
+errors, selection and charts. Normal text contrast is 4.5:1, large text 3:1 at AA,
+with criterion exceptions; evaluate actual foreground/background combinations
+([Use of color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html),
+[Contrast minimum](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)).
+
+```css
 @media (prefers-reduced-motion: reduce) {
-  .hero-image {
-    animation: fade-in 0.3s ease-out; /* Replace, don't remove */
-  }
+  .decorative-spinner { animation: none; }
+  html { scroll-behavior: auto; }
 }
 ```
 
-The global nuclear option (`animation-duration: 0.01ms !important` on `*`) is a last resort — it removes meaningful transitions alongside problematic ones.
+As project guidance, reduce nonessential motion while retaining meaningful status
+text. Do not depend on animation-end events for required functionality. Reduced
+motion is a preference, not a substitute for pause controls or flash testing
+([MDN reduced motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)).
+SC 2.2.2 A requires pause/stop/hide for automatically starting moving/blinking/
+scrolling information lasting over five seconds and presented alongside other
+content, unless essential; auto-updating information has a separate branch without
+that five-second threshold
+([Pause Stop Hide](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html)).
 
-### Smooth Scrolling
+## Targets and layout
 
-Only enable smooth scrolling when the user has no motion preference:
+SC 2.5.8 AA requires 24 by 24 CSS pixel targets or a qualifying exception, including
+its precise spacing construction. Forty-four CSS pixels is a useful project target
+and appears in 2.5.5 AAA with different exceptions; do not confuse the levels
+([Target minimum](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html),
+[Target enhanced](https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html)).
 
 ```css
-@media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth; }
-}
+.action { min-inline-size: 2.75rem; min-block-size: 2.75rem; }
 ```
 
-### On-Page Controls
+Measure the rendered hit area in CSS pixels: rem depends on root font size. Do not
+shrink controls because `any-pointer:fine` matches; hybrid devices may also have
+touch. Keep DOM and visual order meaningful and verify keyboard traversal
+([MDN any-pointer](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/any-pointer),
+[Focus order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html)).
 
-WCAG requires a pause mechanism for any movement lasting more than 5 seconds. Provide an on-page toggle in addition to respecting the OS preference.
-
-([MDN prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion); [W3C Technique C39](https://www.w3.org/WAI/WCAG21/Techniques/css/C39))
-
----
-
-## 4. `prefers-contrast`
-
-### When It Matters
-
-- **macOS "Increase Contrast"** fires `prefers-contrast: more`. Your styles apply — the author retains color control.
-- **Windows High Contrast** fires `forced-colors: active`. The browser overrides colors; `prefers-contrast` styles may be invisible.
-
-Target `prefers-contrast: more` for macOS users and similar environments where you keep color control:
-
-```css
-@media (prefers-contrast: more) {
-  :root {
-    --border-color: black;
-    --text-secondary: #333;  /* was #666 */
-    --bg-subtle: white;      /* was #f5f5f5 */
-  }
-
-  .card {
-    border: 2px solid var(--border-color);
-  }
-}
-```
-
-([MDN prefers-contrast](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast); [Kilian Valkhof](https://kilianvalkhof.com/2023/css-html/i-no-longer-understand-prefers-contrast/))
-
----
-
-## 5. Color-Only Information
-
-WCAG 1.4.1 prohibits using color as the only visual means of conveying information.
-
-### Common Violations
-
-- Required fields indicated only by red border
-- Links distinguished from body text only by color (no underline)
-- Status badges using only green/red/yellow
-- Chart series differentiated only by color
-- Error messages in red text without icon or label
-
-### Compliant Patterns
-
-**Status indicators — color + icon + text:**
-```css
-.status-success::before { content: "\2713 "; /* checkmark */ }
-.status-error::before { content: "\2717 "; /* X mark */ }
-```
-
-**Links — underline or non-color indicator:**
-```css
-a {
-  color: #0066cc;
-  text-decoration: underline;
-}
-```
-
-If removing underlines (e.g., in navs), provide other visual distinction: font-weight, border-bottom, icon, or background change on hover/focus.
-
-**Grayscale test:** View the interface in grayscale. If you cannot distinguish states, the design relies on color alone.
-
-([W3C SC 1.4.1](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html))
-
----
-
-## 6. Target Size
-
-WCAG 2.5.8 (Level AA): Interactive targets must be at least **24 × 24 CSS pixels**.
-
-```css
-button, a, input, select, textarea {
-  min-height: 24px;
-  min-width: 24px;
-}
-
-/* Better: comfortable for touch */
-button, [role="button"] {
-  min-height: 44px;
-  min-width: 44px;
-}
-```
-
-### Responsive Sizing with `max()`
-
-```css
-.avatar-grid {
-  grid-template-columns: repeat(auto-fill, max(44px, 3rem));
-}
-```
-
-### Device-Aware Targets
-
-```css
-.control { min-height: 44px; }
-
-@media (any-hover: hover) and (any-pointer: fine) {
-  .control { min-height: 24px; }
-}
-```
-
-### Five Exceptions
-
-1. **Spacing** — undersized but circles (24px diameter) don't overlap with adjacent targets
-2. **Equivalent** — another same-page control meets the requirement
-3. **Inline** — target within a sentence, constrained by line-height
-4. **User agent control** — size determined by the browser (native checkboxes)
-5. **Essential** — position is fundamental to meaning (map pins, data points)
-
-([WCAG 2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html))
-
----
-
-## 7. Common Mistakes
-
-These are the most frequent CSS accessibility failures. Each is cited.
-
-1. **`outline: none` in CSS resets** without replacement focus styles. Breaks keyboard navigation and forced-colors mode. ([outlinenone.com](https://www.outlinenone.com/); [WebAIM](https://webaim.org/blog/plague-of-outline-0/))
-
-2. **`box-shadow` for focus indication.** Disappears in forced-colors mode. Use `outline` instead. ([Smashing Magazine](https://www.smashingmagazine.com/2022/06/guide-windows-high-contrast-mode/))
-
-3. **Color alone for status/error states.** Invisible to color-blind users. Violates SC 1.4.1. ([W3C SC 1.4.1](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html))
-
-4. **Removing all animation** with `prefers-reduced-motion` instead of replacing with gentler alternatives. ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion))
-
-5. **`:focus` instead of `:focus-visible`.** Shows rings on mouse click, leading developers to remove them entirely. ([Sara Soueidan](https://www.sarasoueidan.com/blog/focus-indicators/))
-
-6. **CSS visual reordering breaking tab order.** `order`, `flex-direction: row-reverse`, grid placement make visual order diverge from DOM/focus order. ([Modern CSS Solutions](https://moderncss.dev/modern-css-upgrades-to-improve-accessibility/))
-
-7. **Styling by class instead of attribute for state.** `.is-disabled` instead of `[disabled]`, `.is-open` instead of `[aria-expanded="true"]`. CSS should key off accessibility semantics. ([Adrian Roselli](https://adrianroselli.com/2021/06/using-css-to-enforce-accessibility.html))
-
-For the full list with code examples, see: [references/common-mistakes.md](references/common-mistakes.md)
-
----
-
-## 8. Cross-References
-
-Related skills:
-- `aria-decision-framework` — when CSS focus styles interact with ARIA widgets, the framework determines which HTML elements to use; this skill determines how to style them
-- `focus-management` — programmatic focus movement complements CSS focus indicators
-
-Related references:
-- [references/focus-indicators.md](references/focus-indicators.md) — detailed focus indicator patterns and WCAG criteria
-- [references/forced-colors-mode.md](references/forced-colors-mode.md) — complete forced-colors property behavior and system colors
-- [references/common-mistakes.md](references/common-mistakes.md) — expanded anti-patterns with before/after code
-- [references/sources.yaml](references/sources.yaml) — provenance for all cited sources
+Use `zoom-reflow` for resizing/spacing, `pointer-gestures` for pointer alternatives.
+Read [focus indicators](references/focus-indicators.md),
+[forced colors](references/forced-colors-mode.md),
+[common mistakes](references/common-mistakes.md) and [sources](references/sources.yaml).

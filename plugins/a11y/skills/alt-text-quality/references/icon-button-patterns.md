@@ -33,7 +33,7 @@ Icon-only buttons have no visible text. The icon is always **decorative** within
 
 - Icon hidden from AT via `aria-hidden="true"`
 - Real text provides the accessible name
-- Works across all tested browser/screen reader combinations
+- Verify the computed name and actual output in the product support matrix
 - `focusable="false"` prevents double tab stop in IE
 
 **This is the recommended default technique.**
@@ -63,8 +63,8 @@ Icon-only buttons have no visible text. The icon is always **decorative** within
 ```
 
 - Simplest markup
-- Caveat: `aria-label` is not translated by automated translation tools
-- Caveat: if there IS visible text, `aria-label` must match it (WCAG 2.5.3 Label in Name)
+- Caveat: `aria-label` needs explicit localization and translation-pipeline verification
+- Caveat: if there IS visible text, `aria-label` must contain it (WCAG 2.5.3 Label in Name)
 
 ---
 
@@ -98,11 +98,11 @@ Both patterns had failures across browser/screen reader combinations in Sara Sou
 
 1. **Use native `<button>` elements** — not `<div role="button">`. Native buttons provide keyboard support (Enter/Space activation, focus management) for free.
 
-2. **Prefer SVG over icon fonts** — SVGs work in Windows High Contrast Mode; icon fonts may not render correctly.
+2. **Prefer SVG over icon fonts** — test SVG strokes/fills in forced colors; using SVG alone does not guarantee visibility.
 
 3. **`focusable="false"` on SVGs inside buttons** — prevents a double-focus issue in IE/old Edge where the SVG receives its own tab stop.
 
-4. **Toggle buttons** — use `aria-pressed="true"` / `aria-pressed="false"` on the button and update the visually hidden text to match the current state.
+4. **Toggle buttons** — use `aria-pressed="true"` / `aria-pressed="false"` on the button while keeping the action label stable when using pressed-state semantics ([APG button](https://www.w3.org/WAI/ARIA/apg/patterns/button/)).
 
 ---
 

@@ -1,338 +1,99 @@
 ---
 name: a11y-audit
-description: Runs automated accessibility scans with axe-core, pa11y, Lighthouse, or eslint-plugin-jsx-a11y. Interprets results, prioritizes violations, and generates fix recommendations. Use when asked to audit, scan, or check accessibility of a page, component, or codebase.
+description: Runs and interprets automated web accessibility checks with axe, Playwright, pa11y, Lighthouse, or JSX linting. Use when scanning a URL, rendered component state, or codebase; reports bounded findings and manual follow-up.
 argument-hint: "[url-or-path] [--tool axe|pa11y|lighthouse|eslint]"
 context: fork
 allowed-tools: Read, Glob, Grep, Bash
 ---
 
-# Accessibility Audit
+# Automated accessibility audit
 
-Run automated accessibility scans, interpret results, prioritize violations, and generate actionable fix recommendations.
+Audit the requested journey and rendered states. Report the evidence and tested
+scope. Automated checks find some barriers; a clean scan does not establish WCAG
+conformance ([Playwright accessibility testing](https://playwright.dev/docs/accessibility-testing)).
 
-**Important:** Automated tools catch 30-50% of WCAG violations. Always recommend manual testing for complete coverage — keyboard navigation, screen reader testing, and cognitive review cannot be automated.
+## Choose and prepare
 
----
+1. Read the repository's test helpers, dependencies, scripts and browser setup.
+   Reuse its pinned tools; record versions. Avoid introducing a second browser
+   harness for an existing suite.
+2. Identify URLs, authentication state, viewport, component states and the requested
+   WCAG version/level. Include opened menus, validation failures, loading and
+   empty states; axe scans the state present at analysis time
+   ([Playwright](https://playwright.dev/docs/accessibility-testing)).
+3. Use JSX lint for source, axe/Playwright for rendered interaction states, and
+   pa11y for URL sweeps. Lighthouse's accessibility score describes its weighted
+   audits rather than conformance
+   ([Lighthouse scoring](https://developer.chrome.com/docs/lighthouse/accessibility/scoring)).
 
-## 1. Tool Selection Guide
+## Run a bounded scan
 
-Pick the right tool for the situation:
+With an existing project installation of `@axe-core/cli`:
 
-| Situation | Tool | Why |
-|---|---|---|
-| Quick audit of a URL | `@axe-core/cli` | Fast, reliable, JSON output, exit code for CI |
-| Single page with custom config | `pa11y` | Flexible runners, threshold control, multiple output formats |
-| Multi-page CI sweep | `pa11y-ci` | Sitemap support, concurrent scanning, CI-native |
-| Accessibility score tracking | `lighthouse` | 0-100 score, trend tracking, holistic view |
-| Static analysis of JSX/React | `eslint-plugin-jsx-a11y` | Catches issues at build time, no browser needed |
-| E2E test integration | `@axe-core/playwright` | Component-level, state-aware, part of test suite |
-| Maximum coverage | Combine eslint (static) + axe/playwright (runtime) + pa11y-ci (sweep) | Layers catch different issue types |
-
-**Default recommendation:** Start with `@axe-core/cli` for URL audits, `eslint-plugin-jsx-a11y` for codebases.
-
----
-
-## 2. Quick Start — axe-core CLI
-
-### Install
-
-```bash
-npm install -g @axe-core/cli
-# or per-project
-npm install --save-dev @axe-core/cli
+```sh
+npx --no-install axe https://example.com --exit --stdout
 ```
 
-### Run a Scan
-
-```bash
-# Basic scan — human-readable output
-axe https://example.com
-
-# WCAG 2.1 AA compliance check
-axe https://example.com --tags wcag2a,wcag2aa,wcag21a,wcag21aa
-
-# JSON output to stdout (for parsing)
-axe https://example.com --stdout
-
-# JSON output to file
-axe https://example.com --save report.json --dir ./results
-
-# Multiple URLs
-axe https://example.com https://example.com/about https://example.com/contact
-
-# Scan specific rules only
-axe https://example.com --rules color-contrast,image-alt,label
-
-# Disable noisy rules
-axe https://example.com --disable color-contrast
-```
-
-### Exit Codes
-
-- **0** — No violations found
-- **1** — Violations found or error
-
-### Parse JSON Results
-
-```bash
-# Count violations by impact
-axe https://example.com --stdout | jq '[.[] | .violations[] | .impact] | group_by(.) | map({(.[0]): length}) | add'
-
-# List violation IDs and counts
-axe https://example.com --stdout | jq '[.[] | .violations[] | {id: .id, count: (.nodes | length)}]'
-```
-
-For complete CLI reference and recipes for all tools, see: [references/tool-invocation-recipes.md](references/tool-invocation-recipes.md)
-
----
-
-## 3. Result Interpretation
-
-### Severity / Impact Levels
-
-axe-core uses four impact levels. Map them to action priorities:
-
-| Impact | Meaning | Action | CI Gate? |
-|---|---|---|---|
-| **critical** | Completely blocks access for some users | Fix immediately | Always fail |
-| **serious** | Significantly impairs access | Fix before release | Fail (default) |
-| **moderate** | Causes difficulty for some users | Fix in next sprint | Warn or threshold |
-| **minor** | Annoyance, not a barrier | Track and fix | Do not block |
-
-### Result Categories
-
-| Category | Meaning | Action |
-|---|---|---|
-| `violations` | Rules that failed — issues found | Fix these |
-| `passes` | Rules that passed | No action needed |
-| `incomplete` | Could not be evaluated programmatically | Manual review required |
-| `inapplicable` | Rules that don't apply to this page | Ignore |
-
-### Common False Positives
-
-Not every reported violation is a real issue:
-
-- **Color contrast on gradients/images** — Tool cannot compute actual contrast against complex backgrounds. Verify manually with a contrast picker.
-- **Hidden elements** — Elements properly hidden with `display: none` may still be flagged. Check if the element is truly invisible.
-- **Third-party widgets** — Ads, embeds, chat widgets generate violations outside your control. Use `--exclude` or `.exclude()` selectors.
-- **Dynamic content** — Scan after all content loads. Use `--wait` (pa11y) or `waitFor` (Playwright) for SPAs.
-
-### `incomplete` Is Not a False Positive
-
-`incomplete` results mean the tool cannot determine pass/fail programmatically. Common examples:
-- "Is this alt text actually descriptive?" — Only a human can judge
-- "Does this color contrast meet ratio?" — Background is dynamic/complex
-- Review these manually; do not auto-dismiss them.
-
----
-
-## 4. Top 10 Violations Quick Reference
-
-The most commonly detected violations across the web (based on WebAIM Million 2025 data). For the full top 20 with fix patterns, see [references/top-violations.md](references/top-violations.md).
-
-| # | Rule | Impact | Quick Fix |
-|---|---|---|---|
-| 1 | `color-contrast` | Serious | Adjust colors to meet 4.5:1 (normal) / 3:1 (large) ratio |
-| 2 | `image-alt` | Critical | Add `alt="description"`. Decorative: `alt=""` |
-| 3 | `label` | Critical | Add `<label for="id">` or `aria-label` to inputs |
-| 4 | `button-name` | Critical | Add text content or `aria-label` to buttons |
-| 5 | `link-name` | Serious | Add text content or `aria-label` to links |
-| 6 | `html-has-lang` | Serious | Add `lang="en"` to `<html>` element |
-| 7 | `document-title` | Serious | Add `<title>` in `<head>` |
-| 8 | `heading-order` | Moderate | Use sequential h1 > h2 > h3, no skipping |
-| 9 | `list` / `listitem` | Serious | `<ul>`/`<ol>` must contain only `<li>` children |
-| 10 | `region` | Moderate | Wrap content in landmarks: `<main>`, `<nav>`, `<header>` |
-
-These six categories account for 96.4% of detected errors on the web: missing alt text, low contrast, missing labels, missing document language, empty buttons, and empty links.
-
----
-
-## 5. Fix Recommendation Templates
-
-Use these templates when reporting fixes to developers.
-
-### Missing Alt Text (`image-alt`)
-
-```html
-<!-- Before -->
-<img src="hero.jpg">
-
-<!-- After: informative image -->
-<img src="hero.jpg" alt="Team collaborating around a whiteboard">
-
-<!-- After: decorative image -->
-<img src="divider.png" alt="">
-```
-
-### Missing Form Label (`label`)
-
-```html
-<!-- Before -->
-<input type="email" placeholder="Email">
-
-<!-- After: visible label (preferred) -->
-<label for="email">Email</label>
-<input type="email" id="email">
-
-<!-- After: hidden label (when design requires it) -->
-<label for="email" class="sr-only">Email</label>
-<input type="email" id="email" placeholder="Email">
-```
-
-### Empty Button (`button-name`)
-
-```html
-<!-- Before -->
-<button><svg>...</svg></button>
-
-<!-- After -->
-<button aria-label="Close dialog"><svg aria-hidden="true">...</svg></button>
-```
-
-### Color Contrast (`color-contrast`)
-
-```css
-/* Before: 2.5:1 ratio — fails AA */
-.text { color: #aaaaaa; background: #ffffff; }
-
-/* After: 4.6:1 ratio — passes AA */
-.text { color: #767676; background: #ffffff; }
-```
-
-### Missing Language (`html-has-lang`)
-
-```html
-<!-- Before -->
-<html>
-
-<!-- After -->
-<html lang="en">
-```
-
----
-
-## 6. Limitations
-
-Automated accessibility testing has hard limits. Be explicit about what it cannot catch.
-
-**What automated tools detect (30-50% of WCAG):**
-- Missing alt text, labels, headings
-- Color contrast ratios (in simple cases)
-- Invalid ARIA usage
-- Missing document structure (lang, title, landmarks)
-- Keyboard traps (some cases)
-
-**What automated tools miss (50-70% of WCAG):**
-- Quality of alt text (present but meaningless)
-- Logical reading order
-- Keyboard navigation flow and usability
-- Screen reader announcement quality
-- Focus management in dynamic interactions
-- Cognitive load and plain language
-- Touch target adequacy beyond size
-- Motion/animation sensitivity
-- Content reflow at different zoom levels
-
-**Always recommend:**
-1. Keyboard-only navigation test (Tab through entire flow)
-2. Screen reader test (NVDA on Windows, VoiceOver on macOS)
-3. Zoom to 200% and check content reflow
-4. Review against full WCAG 2.1 AA checklist for manual criteria
-
-**ARIA caution:** Pages with ARIA attributes average 34.2% more detected errors than those without (WebAIM 2025). Prefer native HTML elements. See the `aria-decision-framework` skill.
-
----
-
-## 7. CI Integration
-
-### pa11y-ci Configuration
-
-Create `.pa11yci` in project root:
-
-```json
-{
-  "defaults": {
-    "timeout": 10000,
-    "concurrency": 2,
-    "runners": ["axe"],
-    "reporters": [
-      "cli",
-      ["json", { "fileName": "./a11y-results.json" }]
-    ]
-  },
-  "urls": [
-    "http://localhost:3000/",
-    "http://localhost:3000/about",
-    "http://localhost:3000/login"
-  ]
-}
-```
-
-```bash
-# Run in CI after starting dev server
-pa11y-ci --config .pa11yci
-
-# With sitemap
-pa11y-ci --sitemap http://localhost:3000/sitemap.xml
-
-# Allow threshold for gradual adoption
-pa11y-ci --threshold 5
-```
-
-### Playwright + axe-core
+`--exit` makes rule failures return a failing process status. Without it, do not
+interpret exit zero as zero violations. Distinguish tool/browser/network errors
+from findings; retain stdout and stderr
+([axe CLI](https://github.com/dequelabs/axe-core-npm/blob/develop/packages/cli/README.md)).
+
+For interaction coverage in an existing Playwright suite:
 
 ```typescript
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-test('page meets WCAG 2.1 AA', async ({ page }) => {
-  await page.goto('/');
-
+test('checkout has no detected violations in its error state', async ({ page }, testInfo) => {
+  await page.goto('/checkout'); // Requires the project's configured baseURL.
+  await page.getByRole('button', { name: 'Place order' }).click();
+  await expect(page.getByRole('heading', { name: 'Check your details' })).toBeVisible();
   const results = await new AxeBuilder({ page })
-    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-    .exclude('.third-party-widget')
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
     .analyze();
-
+  await testInfo.attach('axe-results', {
+    body: JSON.stringify(results, null, 2), contentType: 'application/json'
+  });
   expect(results.violations).toEqual([]);
 });
 ```
 
-For reusable fixtures, targeted scans, and result attachment patterns, see: [references/playwright-integration.md](references/playwright-integration.md)
+Verify tag availability in the installed axe version. Tags select rules, not
+severity or complete criterion coverage
+([axe API](https://github.com/dequelabs/axe-core/blob/develop/doc/API.md),
+[Playwright](https://playwright.dev/docs/accessibility-testing)).
 
-### GitHub Actions Example
+## Interpret and remediate
 
-```yaml
-- name: Accessibility audit
-  run: |
-    npm start &
-    npx wait-on http://localhost:3000
-    npx pa11y-ci --config .pa11yci
-```
+- Preserve `violations`, `incomplete`, `passes` and `inapplicable`. Investigate
+  `incomplete` results manually; do not count them as passing
+  ([axe API](https://github.com/dequelabs/axe-core/blob/develop/doc/API.md)).
+- Report rule ID, affected targets, rendered state, rule help URL, user impact,
+  proposed fix and retest. Tool impact is a triage input; agree release policy
+  with the project rather than treating it as a WCAG severity scheme.
+- Separate WCAG-tagged rules from tool best practices. For example, a heading
+  order warning alone does not prove a particular WCAG failure
+  ([Playwright](https://playwright.dev/docs/accessibility-testing)).
+- Keep third-party UI in scope when users encounter it. An exclusion suppresses
+  all rules for the subtree. Record any approved exception with an issue, owner,
+  scope and review date; retain the original result. Prefer narrow fingerprints
+  over blanket rule suppression or count thresholds
+  ([Playwright known issues](https://playwright.dev/docs/accessibility-testing)).
+- Retest the same state after repair and its adjacent states. Do not remove a rule
+  merely to obtain a green result.
 
-### Gradual Adoption Strategy
+## Report and completion
 
-For existing projects with many violations:
+Return a report containing target/revision, environment/tool versions, states,
+commands, findings, incomplete checks, exclusions and evidence artifact paths.
+Identify checks not run and why. Summarize keyboard, screen reader, zoom/reflow,
+pointer and media follow-up from `testing-strategy`; do not invent an automation
+coverage percentage or assert that an untested page is accessible
+([WAI evaluation](https://www.w3.org/WAI/test-evaluate/)).
 
-1. **Baseline**: Run a full scan, record the count
-2. **Gate on critical/serious only**: `--tags wcag2a,wcag2aa` + threshold
-3. **Ratchet down**: Reduce threshold as violations are fixed
-4. **Zero tolerance for new code**: Strict eslint-plugin-jsx-a11y on changed files
-
----
-
-## 8. Cross-References
-
-**For fix guidance on specific patterns:**
-- `aria-decision-framework` — When to use ARIA vs native HTML
-- `focus-management` — Focus traps, roving tabindex, skip links
-- `form-a11y` — Form labeling, validation, error messages
-- `alt-text-quality` — Writing effective alt text
-- `live-regions` — Dynamic content announcements
-- `cognitive-a11y` — Plain language, cognitive load reduction
-- `css-a11y` — Accessible styling patterns
-
-**Reference material in this skill:**
-- [references/tool-invocation-recipes.md](references/tool-invocation-recipes.md) — Complete CLI commands for all tools
-- [references/top-violations.md](references/top-violations.md) — Top 20 violations with detailed fix patterns
-- [references/playwright-integration.md](references/playwright-integration.md) — Playwright + axe patterns and fixtures
-- [references/sources.yaml](references/sources.yaml) — All cited sources with URLs
+Read [common mistakes](references/common-mistakes.md),
+[tool recipes](references/tool-invocation-recipes.md),
+[Playwright integration](references/playwright-integration.md),
+[fix examples](references/top-violations.md), and
+[source registry](references/sources.yaml) as needed.

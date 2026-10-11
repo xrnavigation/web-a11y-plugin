@@ -1,167 +1,219 @@
 sources:
-  - name: "Deque: Automated Testing Study Identifies 57% of Digital Accessibility Issues"
-    url: "https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/"
-    type: industry-study
-    accessed: "2026-03-27"
-    sections_used:
-      - "57% of issues detectable by automation"
-      - "Seven criteria account for 80% of issues"
-      - "Contrast alone is ~30% of all issues"
-      - "Intelligent Guided Tests increase coverage to ~80%"
-
-  - name: "Accessible.org: Automated Scans Reliably Flag 13% of WCAG Criteria"
-    url: "https://accessible.org/automated-scans-wcag/"
-    type: analysis
-    accessed: "2026-03-27"
-    sections_used:
-      - "13% of 55 WCAG 2.1 AA criteria: mostly accurate automated detection"
-      - "45% partially detectable"
-      - "42% cannot be detected by automation"
-
-  - name: "WebAIM Screen Reader Survey #10 (2024)"
-    url: "https://webaim.org/projects/screenreadersurvey10/"
-    type: survey
-    accessed: "2026-03-27"
-    sections_used:
-      - "Desktop screen reader market share (JAWS 40.5%, NVDA 37.7%, VoiceOver 9.7%)"
-      - "Browser + screen reader combinations"
-      - "Mobile usage statistics (91.3% use SR on mobile)"
-      - "Heading navigation as primary strategy (71.6%)"
-      - "Free SR perceived as viable (78.1%)"
-
-  - name: "Deque: How Accessibility Programs Benefit from Both Manual and Automated Testing"
-    url: "https://www.deque.com/blog/how-accessibility-programs-benefit-from-both-manual-and-automated-testing/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Categories automation cannot catch"
-      - "Complementary nature of manual and automated testing"
-
-  - name: "Deque: Manual Accessibility Testing Approach"
-    url: "https://www.deque.com/blog/manual-accessibility-testing-approach/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Manual testing methodology"
-
-  - name: "Deque: Automated Accessibility Testing Coverage"
-    url: "https://www.deque.com/automated-accessibility-testing-coverage/"
-    type: industry-report
-    accessed: "2026-03-27"
-    sections_used:
-      - "Coverage statistics for automated tools"
-
-  - name: "Deque University: NVDA Keyboard Shortcuts"
-    url: "https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts"
-    type: reference
-    accessed: "2026-03-27"
-    sections_used:
-      - "NVDA keyboard shortcuts for testing"
-
-  - name: "WebAIM: Keyboard Shortcuts for NVDA"
-    url: "https://webaim.org/resources/shortcuts/nvda"
-    type: reference
-    accessed: "2026-03-27"
-    sections_used:
-      - "NVDA browse mode navigation shortcuts"
-
-  - name: "WebAIM: Using VoiceOver to Evaluate Web Accessibility"
-    url: "https://webaim.org/articles/voiceover/"
-    type: tutorial
-    accessed: "2026-03-27"
-    sections_used:
-      - "VoiceOver keyboard commands"
-      - "Safari prerequisite configuration"
-      - "Rotor usage"
-
-  - name: "WebAIM: Using TalkBack to Evaluate Web Accessibility"
-    url: "https://webaim.org/articles/talkback/"
-    type: tutorial
-    accessed: "2026-03-27"
-    sections_used:
-      - "TalkBack gesture commands"
-      - "Navigation by element type"
-
-  - name: "Harvard Digital Accessibility: How to Test with Android TalkBack"
-    url: "https://accessibility.huit.harvard.edu/test-android-talkback"
-    type: tutorial
-    accessed: "2026-03-27"
-    sections_used:
-      - "TalkBack setup and gestures"
-
-  - name: "WebAIM: Keyboard Accessibility"
-    url: "https://webaim.org/techniques/keyboard/"
-    type: tutorial
-    accessed: "2026-03-27"
-    sections_used:
-      - "Standard keyboard interaction patterns"
-      - "Testing methodology"
-
-  - name: "University of Washington: Keyboard Accessibility Checklist"
-    url: "https://www.washington.edu/accesstech/checklist/keyboard/"
-    type: checklist
-    accessed: "2026-03-27"
-    sections_used:
-      - "Keyboard testing checklist items"
-
-  - name: "W3C Easy Checks: Keyboard Focus (Draft)"
-    url: "https://www.w3.org/WAI/test-evaluate/easy-checks/keyboard-focus/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Focus visibility checks"
-      - "Tab order verification"
-
-  - name: "TetraLogical: How to Write User Stories for Accessibility"
-    url: "https://tetralogical.com/blog/2022/05/26/how-to-write-user-stories-for-accessibility/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Disability-specific user story templates"
-      - "Acceptance criteria patterns"
-
-  - name: "Section508.gov: Sample User Stories for Accessible ICT"
-    url: "https://www.section508.gov/develop/user-stories/"
-    type: government-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "User story templates by disability type"
-
-  - name: "TPGi: How to Write User Stories for Accessibility Requirements"
-    url: "https://www.tpgi.com/how-write-user-stories-accessibility-requirements/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Integrating accessibility into agile workflows"
-      - "Acceptance criteria examples"
-
-  - name: "WCAG 2.1"
-    url: "https://www.w3.org/TR/WCAG21/"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "SC 1.3.1 Info and Relationships"
-      - "SC 1.3.2 Meaningful Sequence"
-      - "SC 1.4.1 Use of Color"
-      - "SC 1.4.3 Contrast (Minimum)"
-      - "SC 2.1.1 Keyboard"
-      - "SC 2.1.2 No Keyboard Trap"
-      - "SC 2.4.3 Focus Order"
-      - "SC 2.4.7 Focus Visible"
-      - "SC 2.5.3 Label in Name"
-      - "SC 4.1.2 Name, Role, Value"
-      - "SC 4.1.3 Status Messages"
-
-  - name: "WCAG 2.2"
-    url: "https://www.w3.org/TR/WCAG22/"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "SC 2.4.11 Focus Appearance"
-
-  - name: "ARIA Authoring Practices Guide (APG)"
-    url: "https://www.w3.org/WAI/ARIA/apg/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Widget keyboard interaction patterns"
+- name: 'Deque: Automated Testing Study Identifies 57% of Digital Accessibility Issues'
+  url: https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/
+  type: industry-study
+  accessed: '2026-03-27'
+  sections_used:
+  - 57% of issues detectable by automation
+  - Seven criteria account for 80% of issues
+  - Contrast alone is ~30% of all issues
+  - Intelligent Guided Tests increase coverage to ~80%
+- name: 'Accessible.org: Automated Scans Reliably Flag 13% of WCAG Criteria'
+  url: https://accessible.org/automated-scans-wcag/
+  type: analysis
+  accessed: '2026-03-27'
+  sections_used:
+  - '13% of 55 WCAG 2.1 AA criteria: mostly accurate automated detection'
+  - 45% partially detectable
+  - 42% cannot be detected by automation
+- name: 'WebAIM Screen Reader Survey #10 (2024)'
+  url: https://webaim.org/projects/screenreadersurvey10/
+  type: survey
+  accessed: '2026-03-27'
+  sections_used:
+  - Desktop screen reader market share (JAWS 40.5%, NVDA 37.7%, VoiceOver 9.7%)
+  - Browser + screen reader combinations
+  - Mobile usage statistics (91.3% use SR on mobile)
+  - Heading navigation as primary strategy (71.6%)
+  - Free SR perceived as viable (78.1%)
+- name: 'Deque: How Accessibility Programs Benefit from Both Manual and Automated Testing'
+  url: https://www.deque.com/blog/how-accessibility-programs-benefit-from-both-manual-and-automated-testing/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Categories automation cannot catch
+  - Complementary nature of manual and automated testing
+- name: 'Deque: Manual Accessibility Testing Approach'
+  url: https://www.deque.com/blog/manual-accessibility-testing-approach/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Manual testing methodology
+- name: 'Deque: Automated Accessibility Testing Coverage'
+  url: https://www.deque.com/automated-accessibility-testing-coverage/
+  type: industry-report
+  accessed: '2026-03-27'
+  sections_used:
+  - Coverage statistics for automated tools
+- name: 'Deque University: NVDA Keyboard Shortcuts'
+  url: https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts
+  type: reference
+  accessed: '2026-03-27'
+  sections_used:
+  - NVDA keyboard shortcuts for testing
+- name: 'WebAIM: Keyboard Shortcuts for NVDA'
+  url: https://webaim.org/resources/shortcuts/nvda
+  type: reference
+  accessed: '2026-03-27'
+  sections_used:
+  - NVDA browse mode navigation shortcuts
+- name: 'WebAIM: Using VoiceOver to Evaluate Web Accessibility'
+  url: https://webaim.org/articles/voiceover/
+  type: tutorial
+  accessed: '2026-03-27'
+  sections_used:
+  - VoiceOver keyboard commands
+  - Safari prerequisite configuration
+  - Rotor usage
+- name: 'WebAIM: Using TalkBack to Evaluate Web Accessibility'
+  url: https://webaim.org/articles/talkback/
+  type: tutorial
+  accessed: '2026-03-27'
+  sections_used:
+  - TalkBack gesture commands
+  - Navigation by element type
+- name: 'Harvard Digital Accessibility: How to Test with Android TalkBack'
+  url: https://accessibility.huit.harvard.edu/test-android-talkback
+  type: tutorial
+  accessed: '2026-03-27'
+  sections_used:
+  - TalkBack setup and gestures
+- name: 'WebAIM: Keyboard Accessibility'
+  url: https://webaim.org/techniques/keyboard/
+  type: tutorial
+  accessed: '2026-03-27'
+  sections_used:
+  - Standard keyboard interaction patterns
+  - Testing methodology
+- name: 'University of Washington: Keyboard Accessibility Checklist'
+  url: https://www.washington.edu/accesstech/checklist/keyboard/
+  type: checklist
+  accessed: '2026-03-27'
+  sections_used:
+  - Keyboard testing checklist items
+- name: 'W3C Easy Checks: Keyboard Focus (Draft)'
+  url: https://www.w3.org/WAI/test-evaluate/easy-checks/keyboard-focus/
+  type: w3c-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Focus visibility checks
+  - Tab order verification
+- name: 'TetraLogical: How to Write User Stories for Accessibility'
+  url: https://tetralogical.com/blog/2022/05/26/how-to-write-user-stories-for-accessibility/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Disability-specific user story templates
+  - Acceptance criteria patterns
+- name: 'Section508.gov: Sample User Stories for Accessible ICT'
+  url: https://www.section508.gov/develop/user-stories/
+  type: government-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - User story templates by disability type
+- name: 'TPGi: How to Write User Stories for Accessibility Requirements'
+  url: https://www.tpgi.com/how-write-user-stories-accessibility-requirements/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Integrating accessibility into agile workflows
+  - Acceptance criteria examples
+- name: WCAG 2.1
+  url: https://www.w3.org/TR/WCAG21/
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - SC 1.3.1 Info and Relationships
+  - SC 1.3.2 Meaningful Sequence
+  - SC 1.4.1 Use of Color
+  - SC 1.4.3 Contrast (Minimum)
+  - SC 2.1.1 Keyboard
+  - SC 2.1.2 No Keyboard Trap
+  - SC 2.4.3 Focus Order
+  - SC 2.4.7 Focus Visible
+  - SC 2.5.3 Label in Name
+  - SC 4.1.2 Name, Role, Value
+  - SC 4.1.3 Status Messages
+- name: WCAG 2.2
+  url: https://www.w3.org/TR/WCAG22/
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - SC 2.4.11 Focus Appearance
+- name: ARIA Authoring Practices Guide (APG)
+  url: https://www.w3.org/WAI/ARIA/apg/
+  type: w3c-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Widget keyboard interaction patterns
+- name: WAI validation
+  url: https://www.w3.org/WAI/tutorials/forms/validation
+  used_in:
+  - SKILL.md
+  - references/acceptance-criteria-templates.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: APG keyboard interface
+  url: https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface
+  used_in:
+  - SKILL.md
+  - references/acceptance-criteria-templates.md
+  - references/keyboard-testing-checklist.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Resize text
+  url: https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html
+  used_in:
+  - SKILL.md
+  - references/acceptance-criteria-templates.md
+  - references/common-mistakes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Reflow
+  url: https://www.w3.org/WAI/WCAG22/Understanding/reflow.html
+  used_in:
+  - SKILL.md
+  - references/acceptance-criteria-templates.md
+  - references/common-mistakes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Text spacing
+  url: https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html
+  used_in:
+  - SKILL.md
+  - references/acceptance-criteria-templates.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Playwright
+  url: https://playwright.dev/docs/accessibility-testing
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: APG
+  url: https://www.w3.org/WAI/ARIA/apg/practices/read-me-first
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Dragging movements
+  url: https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html
+  used_in:
+  - references/common-mistakes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: No keyboard trap
+  url: https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html
+  used_in:
+  - SKILL.md
+  - references/keyboard-testing-checklist.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: WAI evaluation
+  url: https://www.w3.org/WAI/test-evaluate
+  used_in:
+  - SKILL.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.

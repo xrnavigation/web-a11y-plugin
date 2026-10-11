@@ -14,8 +14,8 @@ Source: [APG Grid Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/grid/)
 | End | Move focus to last cell in current row. |
 | Ctrl+Home | Move focus to first cell in first row (top-left). |
 | Ctrl+End | Move focus to last cell in last row (bottom-right). |
-| Page Down | Scroll down by one "page" of visible rows; move focus accordingly. |
-| Page Up | Scroll up by one "page" of visible rows; move focus accordingly. |
+| Page Down (optional) | Scroll down by one "page" of visible rows; move focus accordingly. |
+| Page Up (optional) | Scroll up by one "page" of visible rows; move focus accordingly. |
 | Tab | Move focus OUT of the grid to the next focusable element on the page. |
 | Shift+Tab | Move focus OUT of the grid to the previous focusable element. |
 
@@ -58,7 +58,7 @@ When selection is supported, use `aria-selected="true"` on selected cells/rows a
 
 ### Roving tabindex pattern
 
-Only ONE cell in the entire grid should have `tabindex="0"` (the currently focused cell). All other cells have `tabindex="-1"`. When focus moves, update the tabindex values:
+Only one navigation target has `tabindex="0"`: the cell or its focused widget. Other navigation targets have `tabindex="-1"`. When focus moves, update the tabindex values:
 
 ```javascript
 // Pseudocode
@@ -76,7 +76,7 @@ This ensures that Tab/Shift+Tab enters the grid at the last-focused cell.
 > "A user who may expect to tab to a link, button, or checkbox they can see in the grid may be confused when they tab past it."
 > — [Adrian Roselli](https://adrianroselli.com/2020/07/aria-grid-as-an-anti-pattern.html)
 
-Keyboard-only users (non-screen-reader) receive no indication that arrow-key navigation is required. Only screen reader users hear the "grid" role announcement. Consider adding visible instructions for keyboard users.
+Project recommendation: provide concise visible instructions where arrow navigation or editing is unfamiliar. Verify actual focus and exposed roles; do not assume a particular spoken role announcement.
 
 ## Sources
 

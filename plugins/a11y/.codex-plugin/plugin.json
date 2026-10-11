@@ -1,7 +1,7 @@
 {
   "name": "a11y",
-  "version": "0.1.0",
-  "description": "Web accessibility skills — semantic markup, ARIA, color contrast, keyboard navigation, screen reader support, testing.",
+  "version": "0.2.0",
+  "description": "Web accessibility skills covering semantics, widgets, focus, forms, visual adaptation, pointer input, media and evidence-based testing.",
   "author": {
     "name": "XRNavigation"
   },
@@ -17,7 +17,7 @@
   "interface": {
     "displayName": "Web Accessibility",
     "shortDescription": "Build and review accessible web experiences",
-    "longDescription": "Web accessibility skills — semantic markup, ARIA, color contrast, keyboard navigation, screen reader support, testing.",
+    "longDescription": "Web accessibility skills covering semantics, widgets, focus, forms, visual adaptation, pointer input, media and evidence-based testing.",
     "developerName": "XRNavigation",
     "category": "Developer Tools",
     "capabilities": [

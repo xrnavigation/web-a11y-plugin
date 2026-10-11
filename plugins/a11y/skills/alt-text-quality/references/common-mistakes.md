@@ -19,7 +19,7 @@ Sources: [BOIA](https://www.boia.org/blog/8-common-image-alt-text-mistakes-to-st
 
 ## 1. Starting with "image of", "photo of", "graphic of"
 
-Screen readers already announce the element as "image" or "graphic." Adding these words creates redundancy — the user hears: "Image. Image of a sunset."
+Image semantics can make generic prefixes redundant. Spoken role wording depends on the browser, screen reader and settings; do not treat illustrative speech as observed output.
 
 **Exception:** The image *type* is relevant when the medium matters:
 - "Oil painting of..." on an art history page
@@ -30,7 +30,7 @@ Screen readers already announce the element as "image" or "graphic." Adding thes
 
 ## 2. Missing alt attribute entirely
 
-Without any `alt` attribute, screen readers read the **filename** aloud. The user hears something like "DSC underscore zero four three seven dot jpeg." This is worse than no image at all.
+Without `alt`, a browser or screen reader may expose a filename or another unhelpful fallback. Record the actual behavior in supported combinations instead of promising a particular spoken string.
 
 **Rule:** Always include `alt`. Use `alt=""` for decorative images. Never omit the attribute.
 
@@ -50,7 +50,7 @@ Decorative images (borders, spacers, ambient backgrounds, ornamental flourishes)
 
 ## 5. Duplicating caption text in alt
 
-When an image has a visible caption (e.g., in a `<figcaption>`), use `alt=""` to avoid the screen reader reading the same information twice. The caption already serves as the description.
+A caption alone does not make an image decorative. Use empty alt only if nearby text conveys all meaningful visual information; otherwise describe what the caption omits ([WAI decorative images](https://www.w3.org/WAI/tutorials/images/decorative/)).
 
 ```html
 <!-- RIGHT -->
@@ -92,10 +92,10 @@ Alt text must match the image's purpose **in context**, not its visual appearanc
 
 ## 8. Overly long alt text
 
-Screen readers read alt text as a single uninterruptible string. Long descriptions are exhausting to listen to and cannot be skimmed.
+Keep alt focused on purpose; put complex information in an accessible longer description. There is no universal uninterruptible-speech or character-limit rule ([WAI complex images](https://www.w3.org/WAI/tutorials/images/complex/)).
 
 **Guidelines:**
-- Aim for under 150 characters
+- Use concise purpose-focused text; add a long description when the information needs structure.
 - For complex images needing longer descriptions, use a long-description technique:
   - Adjacent text in the page
   - `<figcaption>`
@@ -112,4 +112,4 @@ Screen readers interpret text phonetically. Misspelled words may be mispronounce
 
 ## 10. SEO keyword stuffing
 
-Cramming keywords into alt text for search engine purposes degrades the experience for screen reader users. Alt text is for humans, not crawlers. Search engines also penalize keyword-stuffed alt text.
+Cramming keywords into alt text for search engine purposes degrades the experience for screen reader users. Alt text is for humans, not crawlers. Do not use a speculative search-ranking claim to justify image alternatives.

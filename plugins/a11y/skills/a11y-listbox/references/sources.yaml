@@ -1,115 +1,109 @@
 sources:
-  - name: "W3C APG Listbox Pattern"
-    url: "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Roles, states, and properties"
-      - "Keyboard interaction — single and multi-select"
-      - "Single vs multi-select behavior"
-      - "Selection follows focus guidance"
-      - "No interactive children in options"
-      - "Scrollable listbox considerations"
-
-  - name: "WAI-ARIA 1.2 Specification: listbox role"
-    url: "https://www.w3.org/TR/wai-aria-1.2/#listbox"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "Formal role definition"
-      - "Required attributes"
-      - "Implicit aria-orientation value (vertical)"
-
-  - name: "MDN: ARIA listbox role"
-    url: "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role"
-    type: documentation
-    accessed: "2026-03-27"
-    sections_used:
-      - "When to use native select vs ARIA listbox"
-      - "Required aria-selected on all options in multi-select"
-      - "Focus management guidance"
-      - "Code examples"
-
-  - name: "MDN: aria-multiselectable"
-    url: "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable"
-    type: documentation
-    accessed: "2026-03-27"
-    sections_used:
-      - "Attribute usage and requirements"
-
-  - name: "APG Select-Only Combobox Example"
-    url: "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Recommended pattern for styled select replacement"
-
-  - name: "WCAG 2.2 SC 2.5.7 — Dragging Movements"
-    url: "https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "Non-drag alternative requirement"
-      - "Definition of dragging movement"
-      - "Keyboard alone insufficient for SC 2.5.7"
-
-  - name: "W3C Technique G219"
-    url: "https://www.w3.org/WAI/WCAG22/Techniques/general/G219.html"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "Sufficient technique for dragging movement alternatives"
-
-  - name: "24 Accessibility: Select Your Poison (2019)"
-    url: "https://www.24a11y.com/2019/select-your-poison/"
-    type: practitioner-article
-    accessed: "2026-03-27"
-    sections_used:
-      - "When to use native select vs custom"
-      - "Platform behavior differences"
-      - "Checkbox/radio group alternatives"
-
-  - name: "24 Accessibility: Select Your Poison Part 2 (2019)"
-    url: "https://www.24a11y.com/2019/select-your-poison-part-2/"
-    type: practitioner-article
-    accessed: "2026-03-27"
-    sections_used:
-      - "Screen reader testing results — 100% success for native select"
-      - "NVDA selected state asymmetry"
-      - "VoiceOver iOS inconsistencies"
-      - "ARIA 1.1 vs 1.2 pattern support"
-
-  - name: "WCAG 2.1 SC 2.4.7 — Focus Visible"
-    url: "https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "Visible focus indicator requirement"
-
-  - name: "Sparkbox: Understanding and Implementing WCAG 2.2 2.5.7"
-    url: "https://sparkbox.com/foundry/understanding_implementing_wcag_dragging_movements_accessibility"
-    type: practitioner-article
-    accessed: "2026-03-27"
-    sections_used:
-      - "Dragging movements implementation patterns"
-
-  - name: "TPGi: The Road to Accessible Drag and Drop (Part 2)"
-    url: "https://www.tpgi.com/the-road-to-accessible-drag-and-drop-part-2/"
-    type: practitioner-article
-    accessed: "2026-03-27"
-    sections_used:
-      - "JAWS mode-switching behavior in composite widgets"
-
-  - name: "Adrian Roselli: Stop Giving Control Hints to Screen Readers"
-    url: "https://adrianroselli.com/2019/10/stop-giving-control-hints-to-screen-readers.html"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Screen reader interaction patterns"
-
-  - name: "WebAxe: Accessible Custom Select Dropdowns"
-    url: "https://www.webaxe.org/accessible-custom-select-dropdowns/"
-    type: practitioner-article
-    accessed: "2026-03-27"
-    sections_used:
-      - "Practical guidance for custom select implementations"
+- name: W3C APG Listbox Pattern
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/listbox/
+  type: w3c-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Roles, states, and properties
+  - Keyboard interaction — single and multi-select
+  - Single vs multi-select behavior
+  - Selection follows focus guidance
+  - No interactive children in options
+  - Scrollable listbox considerations
+- name: 'WAI-ARIA 1.2 Specification: listbox role'
+  url: https://www.w3.org/TR/wai-aria-1.2/#listbox
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - Formal role definition
+  - Required attributes
+  - Implicit aria-orientation value (vertical)
+- name: 'MDN: ARIA listbox role'
+  url: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role
+  type: documentation
+  accessed: '2026-03-27'
+  sections_used:
+  - When to use native select vs ARIA listbox
+  - Required aria-selected on all options in multi-select
+  - Focus management guidance
+  - Code examples
+- name: 'MDN: aria-multiselectable'
+  url: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable
+  type: documentation
+  accessed: '2026-03-27'
+  sections_used:
+  - Attribute usage and requirements
+- name: APG Select-Only Combobox Example
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/
+  type: w3c-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Recommended pattern for styled select replacement
+- name: WCAG 2.2 SC 2.5.7 — Dragging Movements
+  url: https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - Non-drag alternative requirement
+  - Definition of dragging movement
+  - Keyboard alone insufficient for SC 2.5.7
+- name: W3C Technique G219
+  url: https://www.w3.org/WAI/WCAG22/Techniques/general/G219.html
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - Sufficient technique for dragging movement alternatives
+- name: '24 Accessibility: Select Your Poison (2019)'
+  url: https://www.24a11y.com/2019/select-your-poison/
+  type: practitioner-article
+  accessed: '2026-03-27'
+  sections_used:
+  - When to use native select vs custom
+  - Platform behavior differences
+  - Checkbox/radio group alternatives
+- name: '24 Accessibility: Select Your Poison Part 2 (2019)'
+  url: https://www.24a11y.com/2019/select-your-poison-part-2/
+  type: practitioner-article
+  accessed: '2026-03-27'
+  sections_used:
+  - Screen reader testing results — 100% success for native select
+  - NVDA selected state asymmetry
+  - VoiceOver iOS inconsistencies
+  - ARIA 1.1 vs 1.2 pattern support
+- name: WCAG 2.1 SC 2.4.7 — Focus Visible
+  url: https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - Visible focus indicator requirement
+- name: 'Sparkbox: Understanding and Implementing WCAG 2.2 2.5.7'
+  url: https://sparkbox.com/foundry/understanding_implementing_wcag_dragging_movements_accessibility
+  type: practitioner-article
+  accessed: '2026-03-27'
+  sections_used:
+  - Dragging movements implementation patterns
+- name: 'TPGi: The Road to Accessible Drag and Drop (Part 2)'
+  url: https://www.tpgi.com/the-road-to-accessible-drag-and-drop-part-2/
+  type: practitioner-article
+  accessed: '2026-03-27'
+  sections_used:
+  - JAWS mode-switching behavior in composite widgets
+- name: 'Adrian Roselli: Stop Giving Control Hints to Screen Readers'
+  url: https://adrianroselli.com/2019/10/stop-giving-control-hints-to-screen-readers.html
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Screen reader interaction patterns
+- name: 'WebAxe: Accessible Custom Select Dropdowns'
+  url: https://www.webaxe.org/accessible-custom-select-dropdowns/
+  type: practitioner-article
+  accessed: '2026-03-27'
+  sections_used:
+  - Practical guidance for custom select implementations
+- name: APG rearrangeable listbox
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.

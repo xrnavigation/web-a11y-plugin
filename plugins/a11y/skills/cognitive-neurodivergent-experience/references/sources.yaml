@@ -1,167 +1,47 @@
-# Sources for cognitive-neurodivergent-experience skill
-# All claims in the skill and reference files are traced to these sources
-
-primary_research:
-  - id: wcag-com-neurodiversity
-    title: "Digital Accessibility and Neurodiversity"
-    url: https://www.wcag.com/blog/digital-accessibility-and-neurodiversity/
-    publisher: WCAG.com
-    used_for: "Prevalence data (15-20% neurodivergent)"
-
-  - id: w3c-coga-usable
-    title: "Making Content Usable for People with Cognitive and Learning Disabilities"
-    url: https://www.w3.org/TR/coga-usable/
-    publisher: W3C
-    type: W3C Working Group Note
-    used_for: "COGA framework, design objectives, personas, plain language guidance"
-
-  - id: w3c-coga-data-loss
-    title: "Avoid Data Loss and Timeouts — COGA Design Pattern"
-    url: https://www.w3.org/WAI/WCAG2/supplemental/patterns/o4p09-data-loss/
-    publisher: W3C WAI
-    used_for: "Time pressure, data preservation, cognitive fatigue recovery, 20-hour recommendation"
-
-  - id: w3c-cognitive-accessibility
-    title: "Cognitive Accessibility at W3C"
-    url: https://www.w3.org/WAI/cognitive/
-    publisher: W3C WAI
-    used_for: "COGA design objectives overview"
-
-  - id: w3c-coga-dyscalculia
-    title: "Gap Analysis: Dyscalculia"
-    url: https://www.w3.org/WAI/GL/task-forces/coga/wiki/Gap_Analysis/Dyscalculia
-    publisher: W3C COGA Task Force
-    used_for: "Dyscalculia barriers with number formatting"
-
-  - id: w3c-wai-user-stories
-    title: "Stories of Web Users — How People with Disabilities Use the Web"
-    url: https://www.w3.org/WAI/people-use-web/user-stories/
-    publisher: W3C WAI
-    used_for: "Personas (Ian, Stefan, Sophie)"
-
-sensory_and_vestibular:
-  - id: ux-mastery-autism
-    title: "Researching and Designing for Autism"
-    url: https://uxmastery.com/researching-designing-for-autism/
-    publisher: UX Mastery
-    author: Ashlea McKay
-    used_for: "Sensory overload quote ('blastwave')"
-
-  - id: advanced-autism-overload
-    title: "Autism Sensory Overload and Overstimulation"
-    url: https://www.advancedautism.com/post/autism-sensory-overload-and-overstimulation
-    publisher: Advanced Autism Services
-    used_for: "Sensory overload as physically painful, meltdown/shutdown descriptions"
-
-  - id: a-list-apart-motion
-    title: "Designing Safer Web Animation for Motion Sensitivity"
-    url: https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity/
-    publisher: A List Apart
-    used_for: "Vestibular disorder prevalence (8M/2.4M), three factors driving symptoms, Grannell/Tarnoff examples"
-
-  - id: 216digital-neurodivergent
-    title: "Web Accessibility for Neurodivergent Users"
-    url: https://216digital.com/web-accessibility-for-neurodivergent-users/
-    publisher: 216digital
-    used_for: "Auto-playing media triggers, sensory overload triggers"
-
-  - id: webaim-seizure
-    title: "Seizure and Vestibular Disorders"
-    url: https://webaim.org/articles/seizure/
-    publisher: WebAIM
-    used_for: "Flashing content risks, auto-play harm"
-
-cognitive_and_executive_function:
-  - id: nws-adhd
-    title: "Why ADHD Accessibility Matters in Website Development"
-    url: https://www.nwsdigital.com/Blog/Why-ADHD-Accessibility-Matters-in-Website-Development
-    publisher: NWS Digital
-    used_for: "Executive function barriers, multi-step form challenges"
-
-  - id: nng-cognitive-load
-    title: "4 Principles to Reduce Cognitive Load"
-    url: https://www.nngroup.com/articles/4-principles-reduce-cognitive-load/
-    publisher: Nielsen Norman Group
-    used_for: "Cognitive load as finite resource, progressive disclosure"
-
-anxiety_and_predictability:
-  - id: tpgi-anxiety
-    title: "A Web of Anxiety: Accessibility for People with Anxiety and Panic Disorders, Part 2"
-    url: https://www.tpgi.com/a-web-of-anxiety-accessibility-for-people-with-anxiety-and-panic-disorders-part-2/
-    publisher: TPGi
-    used_for: "Time pressure feedback loop, countdown anxiety mechanism"
-
-  - id: tetralogical-anxiety
-    title: "Designing for People with Anxiety"
-    url: https://tetralogical.com/blog/2026/03/10/designing-for-people-with-anxiety/
-    publisher: TetraLogical
-    date: 2026-03-10
-    used_for: "Seven-principle anxiety framework, predictability as safety"
-
-  - id: today-design-neurodiversity
-    title: "Neurodiversity and the Digital Divide"
-    url: https://today.design/news/neurodiversity-and-the-digital-divide-how-our-neurological-differences-shape-the-way-we-experience-the-web/
-    publisher: Today Design
-    used_for: "Autistic reliance on predictable patterns, mental model violation"
-
-  - id: neurodivergent-insights-anxiety
-    title: "Neurodivergent Anxiety"
-    url: https://neurodivergentinsights.com/neurodivergent-anxiety/
-    publisher: Neurodivergent Insights
-    used_for: "Anxiety as baseline state, freeze response to irreversible actions"
-
-  - id: nng-confirmation-dialog
-    title: "Confirmation Dialogs Can Prevent User Errors — If Not Overused"
-    url: https://www.nngroup.com/articles/confirmation-dialog/
-    publisher: Nielsen Norman Group
-    used_for: "Generic confirmations training automatic dismissal, specific consequences"
-
-reading_and_language:
-  - id: ux-movement-dyslexia
-    title: "6 Surprising Bad Practices That Hurt Dyslexic Users"
-    url: https://uxmovement.com/content/6-surprising-bad-practices-that-hurt-dyslexic-users/
-    publisher: UX Movement
-    used_for: "Six typographic barriers for dyslexia (justified text, contrast, etc.)"
-
-  - id: cnn-dyslexia
-    title: "What It's Like to Read When You Have Dyslexia"
-    url: https://www.cnn.com/2016/03/05/health/dyslexia-simulation
-    publisher: CNN
-    used_for: "Dyslexia reading experience, mental health impact"
-
-  - id: cleveland-clinic-dyscalculia
-    title: "Dyscalculia"
-    url: https://my.clevelandclinic.org/health/diseases/23949-dyscalculia
-    publisher: Cleveland Clinic
-    used_for: "Dyscalculia prevalence (3-6%), number processing barriers"
-
-  - id: siteimprove-readability
-    title: "Readability, Plain Language, and WCAG"
-    url: https://www.siteimprove.com/blog/readability-plain-language-wcag/
-    publisher: Siteimprove
-    used_for: "WCAG 3.1.5 reading level, plain language guidance"
-
-prevalence_and_frameworks:
-  - id: nimh-anxiety
-    title: "Any Anxiety Disorder — Statistics"
-    url: https://www.nimh.nih.gov/health/statistics/any-anxiety-disorder
-    publisher: National Institute of Mental Health
-    used_for: "Anxiety disorder prevalence (~19% US adults)"
-
-  - id: cdc-disability
-    title: "Disability and Health Data"
-    url: https://www.cdc.gov/ncbddd/disabilityandhealth/
-    publisher: Centers for Disease Control and Prevention
-    used_for: "Cognitive disability prevalence (~12% US), autism prevalence (~2.8%)"
-
-  - id: ida-dyslexia
-    title: "Dyslexia Basics"
-    url: https://dyslexiaida.org/
-    publisher: International Dyslexia Association
-    used_for: "Dyslexia prevalence (6-8%)"
-
-  - id: microsoft-inclusive-design
-    title: "Microsoft Inclusive Design"
-    url: https://inclusive.microsoft.design/
-    publisher: Microsoft
-    used_for: "Permanent/temporary/situational disability spectrum model"
+sources:
+- id: w3c-coga-usable
+  title: Making Content Usable for People with Cognitive and Learning Disabilities
+  url: https://www.w3.org/TR/coga-usable/
+  publisher: W3C
+  type: W3C Working Group Note
+  used_for: COGA framework, design objectives, personas, plain language guidance
+- id: w3c-coga-data-loss
+  title: Avoid Data Loss and Timeouts — COGA Design Pattern
+  url: https://www.w3.org/WAI/WCAG2/supplemental/patterns/o4p09-data-loss/
+  publisher: W3C WAI
+  used_for: Time pressure, data preservation, cognitive fatigue recovery, 20-hour recommendation
+- id: w3c-wai-user-stories
+  title: Stories of Web Users — How People with Disabilities Use the Web
+  url: https://www.w3.org/WAI/people-use-web/user-stories/
+  publisher: W3C WAI
+  used_for: Personas (Ian, Stefan, Sophie)
+- name: animation from interactions.html
+  url: https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: pause stop hide.html
+  url: https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: three flashes or below threshold.html
+  url: https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: timeouts.html
+  url: https://www.w3.org/WAI/WCAG22/Understanding/timeouts.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: timing adjustable.html
+  url: https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance

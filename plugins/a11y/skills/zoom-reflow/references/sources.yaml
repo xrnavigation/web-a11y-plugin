@@ -1,0 +1,57 @@
+sources:
+- name: WCAG 2.2
+  url: https://www.w3.org/TR/WCAG22/
+  type: specification
+  accessed: '2026-10-10'
+  sections_used:
+  - 1.4.4 Resize Text
+  - 1.4.10 Reflow
+  - 1.4.12 Text Spacing
+- name: Understanding SC 1.4.4 Resize Text
+  url: https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Success Criterion
+  - Intent
+  - Responsive variations
+  - Failures
+- name: Understanding SC 1.4.10 Reflow
+  url: https://www.w3.org/WAI/WCAG22/Understanding/reflow.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Success Criterion
+  - Understanding the scope of exceptions
+  - Tabular data and grid-based UI
+  - Focus Not Obscured (Minimum)
+  - Acknowledging viewport vs resolution discrepancies
+- name: Understanding SC 1.4.12 Text Spacing
+  url: https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Success Criterion
+  - Author Responsibility
+  - User Responsibility
+  - Effects
+- name: C32 Using media queries and grid CSS to reflow columns
+  url: https://www.w3.org/WAI/WCAG22/Techniques/css/C32
+  type: w3c-technique
+  accessed: '2026-10-10'
+  sections_used:
+  - Description
+  - Examples
+  - Tests
+- name: Playwright Emulation
+  url: https://playwright.dev/docs/emulation#viewport
+  type: official-documentation
+  accessed: '2026-10-10'
+  sections_used:
+  - Viewport
+- name: Playwright Locator boundingBox
+  url: https://playwright.dev/docs/api/class-locator#locator-bounding-box
+  type: official-documentation
+  accessed: '2026-10-10'
+  sections_used:
+  - boundingBox

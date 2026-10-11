@@ -1,0 +1,105 @@
+sources:
+- name: WCAG 2.2 - Time-based Media
+  url: https://www.w3.org/TR/WCAG22/#time-based-media
+  type: specification
+  accessed: '2026-10-10'
+  sections_used:
+  - 1.2.1 through 1.2.9
+  - Definitions
+- name: WCAG 2.2
+  url: https://www.w3.org/TR/WCAG22/
+  type: specification
+  accessed: '2026-10-10'
+  sections_used:
+  - 1.4.2 Audio Control
+- name: WAI - Making Audio and Video Media Accessible
+  url: https://www.w3.org/WAI/media/av/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Planning
+  - Description
+  - Captions
+  - Transcripts
+- name: WAI - Planning Audio and Video Media
+  url: https://www.w3.org/WAI/media/av/planning/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Checklists for Audio and Video
+  - Inform Users When Not Needed
+  - WCAG Standard
+- name: WAI - Captions/Subtitles
+  url: https://www.w3.org/WAI/media/av/captions/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Introduction
+  - Automatic Captions are Not Sufficient
+  - Creating Captions
+- name: WAI - Description of Visual Information
+  url: https://www.w3.org/WAI/media/av/description/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Introduction
+  - What Method of Description?
+  - Options for Creating Description
+- name: WAI - Media Players
+  url: https://www.w3.org/WAI/media/av/player/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Player Accessibility Functionality
+  - Support for Description Methods
+- name: WAI - Transcripts
+  url: https://www.w3.org/WAI/media/av/transcripts/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Introduction
+  - Does My Media Need a Transcript?
+  - Creating Transcripts
+- name: Understanding SC 1.2.5 - Audio Description (Prerecorded)
+  url: https://www.w3.org/WAI/WCAG22/Understanding/audio-description-prerecorded.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Intent
+  - Key Terms
+- name: Understanding SC 1.2.3 - Audio Description or Media Alternative (Prerecorded)
+  url: https://www.w3.org/WAI/WCAG22/Understanding/audio-description-or-media-alternative-prerecorded.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Success Criterion
+  - Intent
+  - Key Terms
+- name: Understanding SC 1.2.8 - Media Alternative (Prerecorded)
+  url: https://www.w3.org/WAI/WCAG22/Understanding/media-alternative-prerecorded.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Success Criterion
+  - Intent
+- name: Understanding SC 1.2.9 - Audio-only (Live)
+  url: https://www.w3.org/WAI/WCAG22/Understanding/audio-only-live.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Intent
+  - Examples
+  - Key Terms
+- name: Understanding SC 1.4.7 - Low or No Background Audio
+  url: https://www.w3.org/WAI/WCAG22/Understanding/low-or-no-background-audio.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Success Criterion
+  - Intent
+- name: HTML Standard - The track element
+  url: https://html.spec.whatwg.org/multipage/media.html#the-track-element
+  type: specification
+  accessed: '2026-10-10'
+  sections_used:
+  - 4.8.10 The track element

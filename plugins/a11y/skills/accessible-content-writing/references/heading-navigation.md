@@ -26,7 +26,7 @@ This reference covers how screen reader users navigate by headings, why heading 
 
 ## How Screen Reader Users Navigate
 
-Screen reader users do not read pages top-to-bottom like sighted users scan visually. Their primary heading-based strategies:
+Users may read sequentially or navigate by headings, landmarks, links, and focus. Available heading strategies depend on the screen reader, navigation mode, and user preferences:
 
 ### 1. Navigate by Headings (H key)
 
@@ -34,7 +34,7 @@ The user presses H (JAWS/NVDA) to jump from heading to heading, hearing an outli
 
 > "Heading level 1: Products. Heading level 2: Enterprise Plan. Heading level 3: Features."
 
-They jump to the section they want and start reading from there. **71.6% of screen reader users navigate by headings as their first action on a new page.**
+They jump to the section they want and start reading from there. Heading navigation is one available strategy; behavior varies by screen reader, mode, and user. ([WAI headings](https://www.w3.org/WAI/tutorials/page-structure/headings/))
 
 ### 2. List All Headings
 
@@ -46,7 +46,7 @@ Users press a number key (1-6) to jump only to headings of that level. Pressing 
 
 ### Without Heading Structure
 
-The user's only option is to listen linearly through the entire page. **A 2-minute visual scan becomes a 20-30 minute linear listen.** Many users simply leave.
+Missing headings remove one navigation strategy. Links, landmarks, search, and sequential reading may still be available; do not invent task-time or abandonment measurements.
 
 ([WebAIM Screen Reader Survey #10](https://webaim.org/projects/screenreadersurvey10/); [Yale Headings](https://usability.yale.edu/web-accessibility/articles/headings))
 
@@ -56,9 +56,9 @@ The user's only option is to listen linearly through the entire page. **A 2-minu
 
 ### Rules
 
-1. **One `<h1>` per page**, describing the page topic.
-2. **Nest hierarchically:** h1 > h2 > h3. Do not skip levels (h2 directly to h4).
-3. **Every section of content should have a heading.** If content has no heading, screen reader users cannot jump to it.
+1. **Project convention:** one primary `<h1>` describing the page topic; WCAG does not impose a universal h1 count.
+2. **Reflect hierarchy:** avoid downward rank skips where possible; returning to a higher-level section is normal. This is authoring guidance, not a standalone universal no-skip criterion. ([WAI headings](https://www.w3.org/WAI/tutorials/page-structure/headings/))
+3. **Use headings for substantial sections.** This is project guidance; Section Headings is AAA, while descriptive existing headings/labels are AA. ([WAI headings](https://www.w3.org/WAI/tutorials/page-structure/headings/))
 4. **Headings must be informative.** "How to apply" not "Section 3." The heading IS the user's navigation label.
 5. **Do not use headings for visual styling.** If text should be large/bold but is not a section heading, use CSS — not an `<h3>` tag. False headings pollute the outline.
 6. **Do not style non-headings to look like headings.** Bold/large text that is not marked up as `<h2>` etc. is invisible to heading navigation.
@@ -110,7 +110,7 @@ The user's only option is to listen linearly through the entire page. **A 2-minu
 <h2>Eligibility Requirements</h2>
 ```
 
-Bold text looks like a heading visually but does not appear in the headings list. Screen reader users will never find this section.
+Bold text looks like a heading visually but does not appear in the headings list. The section is unavailable through heading navigation; other navigation strategies may remain.
 
 ### Using Headings for Visual Styling
 

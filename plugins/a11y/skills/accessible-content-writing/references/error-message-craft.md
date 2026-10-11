@@ -26,7 +26,7 @@ This reference covers writing error messages that are accessible, specific, and 
 ### Visibility — The User Must Notice the Error
 
 - Display the message **adjacent to the field** that caused the error, not in a distant banner alone.
-- Use **at least 3 redundant indicators**: bold text, red color, icon, border highlight, field shading. Never rely on color alone (350 million people have color-vision deficiency).
+- Use visible text identifying the error and a programmatic field association. Color, borders, and icons can supplement text; WCAG does not prescribe three indicators. ([WAI validation](https://www.w3.org/WAI/tutorials/forms/validation/))
 - All indicators must meet **WCAG AA contrast requirements** (4.5:1 for text, 3:1 for non-text).
 - **Do not show premature errors** while the user is still typing — this feels hostile and disrupts flow.
 
@@ -39,7 +39,7 @@ This reference covers writing error messages that are accessible, specific, and 
 
 ### Efficiency — The User Must Be Able to Fix the Error
 
-- **Preserve user input.** Never clear a form field on error.
+- **Preserve eligible entries.** Keep safe form state for correction; explain necessary re-entry for credentials or policy-restricted sensitive values.
 - **Suggest corrections** when possible ("Did you mean gmail.com?").
 - **Link to supplementary help** without overwhelming.
 - **Detect common mistakes** proactively (missing email attachment, duplicate submission).
@@ -65,7 +65,7 @@ The GOV.UK Design System provides concrete, tested patterns used across UK gover
 - Show **BOTH** an error summary at the top of the page **AND** an inline error next to the field.
 - Use **identical wording** in both locations so users are not confused by different messages for the same problem.
 - **Prefix error messages** with a visually hidden "Error:" so screen readers announce "Error: Enter your first name."
-- **Do not clear form fields** when displaying errors.
+- **Retain eligible entries** when displaying errors; follow the application's security/privacy policy for credentials and restricted sensitive fields.
 
 ### Specificity by Error Type
 
@@ -114,11 +114,11 @@ Error messages must be programmatically associated with their fields so screen r
 
 ### Dynamic Error Announcements
 
-When errors appear after form submission (without page reload), use `role="alert"` or `aria-live="assertive"` on the error summary so screen readers announce it immediately:
+Project submission pattern: associate visible errors with their fields and move focus deliberately to a focusable error summary. Avoid making every field an assertive live region or combining summary focus with redundant alerts. Test the chosen notification strategy. ([WAI notifications](https://www.w3.org/WAI/tutorials/forms/notifications/))
 
 ```html
-<div role="alert">
-  <h2>There is a problem</h2>
+<div id="error-summary" tabindex="-1" aria-labelledby="error-title">
+  <h2 id="error-title">There is a problem</h2>
   <ul>
     <li><a href="#email">Enter an email address in the correct format, like name@example.com</a></li>
   </ul>

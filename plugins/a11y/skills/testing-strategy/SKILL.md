@@ -1,271 +1,97 @@
 ---
 name: testing-strategy
-description: Guides accessibility testing strategy — what to test automatically vs manually vs with assistive technology. Provides keyboard testing checklists, screen reader testing basics, and acceptance criteria templates. Use when planning testing, writing acceptance criteria, or deciding how to verify accessibility.
+description: Plans web accessibility verification across automation, keyboard, assistive technology, zoom, pointer input and media. Use when defining acceptance criteria, choosing a support matrix, or deciding what evidence a feature needs.
 argument-hint: "[component-or-feature]"
-allowed-tools: Read, Glob, Grep
 ---
 
-# Accessibility Testing Strategy
+# Accessibility testing strategy
 
-> "Automated testing with axe-core identifies 57% of digital accessibility issues by volume."
-> — [Deque, Automated Testing Study (2023)](https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/)
+Define the journey, states, support matrix and evidence needed for the change.
+Combine automated, manual and user evaluation; no fixed percentage describes the
+coverage of an arbitrary product or establishes conformance
+([WAI evaluation](https://www.w3.org/WAI/test-evaluate/),
+[Playwright](https://playwright.dev/docs/accessibility-testing)).
 
-> "Automated scans reliably flag only 13% of WCAG 2.1 AA success criteria."
-> — [Accessible.org](https://accessible.org/automated-scans-wcag/)
+## Map risk to evidence
 
-Automated testing is necessary but insufficient. A complete accessibility testing strategy uses three tiers, each catching different categories of issues.
-
----
-
-## 1. Three Testing Tiers
-
-### Tier 1: Automated Testing (~57% of issues by volume)
-
-**Tools:** axe-core, Lighthouse, WAVE, HTML validators
-**When:** Every build / CI pipeline
-
-Catches well:
-- Color contrast ratios below thresholds ([WCAG 1.4.3](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html))
-- Missing `alt` attributes, form labels, page `lang` ([Deque, 2023](https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/))
-- Invalid ARIA: duplicate IDs, broken references, invalid roles
-- Structural issues: missing bypass blocks, empty/skipped headings
-- Missing page title, missing language declaration
-
-**Key stat:** Seven WCAG criteria account for over 80% of all issues found, with contrast alone at ~30%. ([Deque, 2023](https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/))
-
-### Tier 2: Keyboard Testing
-
-**Tools:** None required beyond a keyboard
-**When:** Every feature / PR
-
-Catches issues automation misses:
-- Focus visibility and indicator quality ([WCAG 2.4.7](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html))
-- Tab order matching visual/reading order ([WCAG 2.4.3](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html))
-- Keyboard traps ([WCAG 2.1.2](https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap.html))
-- Interactive element operability ([WCAG 2.1.1](https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html))
-- Skip links and modal focus management
-
-See: [references/keyboard-testing-checklist.md](references/keyboard-testing-checklist.md)
-
-### Tier 3: Screen Reader Testing
-
-**Tools:** NVDA + Chrome (Windows), VoiceOver + Safari (macOS/iOS), TalkBack + Chrome (Android)
-**When:** New components, significant UI changes, pre-release
-
-Catches issues that require hearing what AT communicates:
-- Reading order and meaningful sequence ([WCAG 1.3.2](https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html))
-- Live region announcements ([WCAG 4.1.3](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html))
-- Name, role, value correctness ([WCAG 4.1.2](https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html))
-- Info and relationships communication ([WCAG 1.3.1](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html))
-
-See: [references/screen-reader-commands.md](references/screen-reader-commands.md)
-
----
-
-## 2. What Automated Testing Catches vs Misses
-
-### Coverage Breakdown (WCAG 2.1 AA, 55 criteria)
-
-| Detection Level | Criteria Count | Percentage |
+| Lane | Useful evidence | Limit |
 |---|---|---|
-| Mostly accurate automated detection | 7 of 55 | 13% |
-| Partially detectable (flags, needs human review) | 25 of 55 | 45% |
-| Cannot be detected by automation | 23 of 55 | 42% |
+| Static and rendered automation | Rule results, accessible names, states and interaction assertions | Detectable rules and tested states only |
+| Keyboard | Full task without pointer, sensible focus order and escape paths | Does not establish speech behavior or touch access |
+| Real screen reader | Observed names, roles, states, reading order, announcements and task completion | Tested OS/browser/AT/settings only |
+| Low vision | Text resizing, reflow, spacing overrides, focus visibility and contrast | Needs visual review and applicable exceptions |
+| Pointer and touch | Single-pointer alternatives, cancellation and target spacing | Keyboard alternatives alone do not verify pointer criteria |
+| Media | Captions, descriptions, alternatives and usable controls | Track presence alone does not verify content quality |
 
-Source: [Accessible.org](https://accessible.org/automated-scans-wcag/)
+Use these lanes as a project testing plan, not a claim that WCAG specifies this
+particular process. See `a11y-audit`, `at-experience-verification`, `zoom-reflow`,
+`pointer-gestures` and `media-a11y` for scoped workflows. WCAG applicability comes
+from the actual success criteria ([WCAG 2.2](https://www.w3.org/TR/WCAG22/)).
 
-### What Automation Cannot Catch
+## Exercise meaningful states
 
-| Category | Why Automation Fails |
-|---|---|
-| Alt text quality | Detects missing `alt` but not whether text is meaningful |
-| Reading order | DOM vs visual order requires human judgment |
-| Keyboard operability | Dynamic interaction sequences can't be fully automated |
-| Focus management | Context-dependent behavior in SPAs, modals |
-| Meaningful labels | "Click here" is technically present but not descriptive |
-| Error message quality | Detects presence but not helpfulness |
-| Cognitive load | Information organization, plain language |
-| Live region behavior | Timing and appropriateness of announcements |
+Include initial/loading, ready, empty, error, validation, expansion, selection,
+modal open/close, async completion and route transitions relevant to the change.
+Reuse existing test helpers and capture readiness before scanning
+([Playwright](https://playwright.dev/docs/accessibility-testing)).
 
-Source: [Deque, Manual vs Automated Testing](https://www.deque.com/blog/how-accessibility-programs-benefit-from-both-manual-and-automated-testing/)
+Verify keyboard operation and meaningful focus order, including reverse traversal.
+Composite widgets may use one Tab stop and arrows internally; do not require every
+option to be a separate Tab stop. A modal's intentional containment needs a working
+exit path, not unrestricted Tab into the background
+([APG keyboard practices](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/),
+[WCAG keyboard trap](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html)).
 
----
+Test visible keyboard focus (2.4.7 AA), author-created focus contrast where
+applicable (1.4.11 AA), and focus not entirely obscured by author content
+(2.4.11 AA). Treat 2.4.13 Focus Appearance's area/change-contrast conditions as AAA,
+not a blanket AA two-pixel rule
+([WCAG 2.2](https://www.w3.org/TR/WCAG22/)).
 
-## 3. Keyboard Testing Summary
+Test text resizing to 200% separately from reflow at 320 CSS pixels wide for
+vertical-scrolling content, or 256 CSS pixels high for horizontal-scrolling
+content. For example, a 1280 CSS pixel viewport at 400% zoom is equivalent to
+320 CSS pixels wide. Record applicable two-dimensional exceptions and test spacing
+overrides without content/function loss
+([Resize text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html),
+[Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html),
+[Text spacing](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html)).
 
-Disconnect the mouse. Start from the browser address bar.
+## Choose the AT support matrix
 
-| Check | What to Verify |
-|---|---|
-| Tab order | Tab moves through all interactive elements in logical order |
-| Focus visibility | Every focused element has a visible indicator (3:1 contrast min) |
-| Operability | Links: Enter. Buttons: Enter/Space. Checkboxes: Space. Radios: Arrows |
-| No traps | Focus never gets stuck; Tab/Shift+Tab/Escape always works |
-| Modals | Focus enters modal, cycles within it, Escape closes, focus returns |
-| Skip links | First focusable element, moves focus past navigation |
+Use product user needs and support commitments. Record exact versions, interaction
+mode, verbosity and settings. Cover the environments affected by a change rather
+than treating an old survey's percentages as present-day coverage. Mark unavailable
+combinations **not tested** and predictions **predicted**
+([APG read me first](https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/)).
 
-**Standard keys:**
+## Write acceptance criteria and report
 
-| Key | Expected Action |
-|---|---|
-| Tab / Shift+Tab | Move forward/backward through interactive elements |
-| Enter | Activate link or button |
-| Space | Activate button, toggle checkbox, open select |
-| Arrow keys | Navigate within widget (radio group, menu, tabs, listbox) |
-| Escape | Close modal, menu, or dialog |
-| Home / End | Jump to first/last item in list or menu |
-
-Sources: [WebAIM Keyboard Accessibility](https://webaim.org/techniques/keyboard/), [UW Keyboard Checklist](https://www.washington.edu/accesstech/checklist/keyboard/), [W3C Easy Checks](https://www.w3.org/WAI/test-evaluate/easy-checks/keyboard-focus/)
-
-Full checklist: [references/keyboard-testing-checklist.md](references/keyboard-testing-checklist.md)
-
----
-
-## 4. Screen Reader Testing Basics
-
-### Which SR + Browser Pairings to Test
-
-Test in priority order based on market share ([WebAIM Survey #10, 2024](https://webaim.org/projects/screenreadersurvey10/)):
-
-| Priority | Combination | Coverage | Cost |
-|---|---|---|---|
-| 1 | NVDA + Chrome (Windows) | 21.3% of users | Free |
-| 2 | VoiceOver + Safari (macOS) | 7.0% + all iOS | Built-in |
-| 3 | JAWS + Chrome (Windows) | 24.7% of users | License required |
-| 4 | TalkBack + Chrome (Android) | 27.6% of mobile | Built-in |
-
-### Desktop Market Share
-
-| Screen Reader | Share |
-|---|---|
-| JAWS | 40.5% |
-| NVDA | 37.7% |
-| VoiceOver | 9.7% |
-
-### What to Listen For
-
-When testing with a screen reader, verify:
-1. **Element identification** — role announced correctly ("button", "link", "heading level 2")
-2. **Accessible name** — label is meaningful and matches visible text ([WCAG 2.5.3](https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html))
-3. **State changes** — expanded/collapsed, checked/unchecked, selected announced on change
-4. **Reading order** — content reads in meaningful sequence
-5. **Live regions** — dynamic updates announced without requiring navigation
-6. **Heading structure** — headings navigable (H key in NVDA), hierarchy logical
-
-Full command reference: [references/screen-reader-commands.md](references/screen-reader-commands.md)
-
----
-
-## 5. WCAG Criteria Requiring Human Judgment
-
-These criteria cannot be verified by automation — they require understanding of meaning, context, and quality.
-
-| Criterion | Why Human Judgment Needed |
-|---|---|
-| 1.1.1 Non-text Content (quality) | Can detect missing `alt` but not accuracy |
-| 1.2.1–1.2.5 Media alternatives | Cannot verify transcript/caption accuracy |
-| 1.3.2 Meaningful Sequence | Cannot determine if reading order preserves meaning |
-| 1.3.3 Sensory Characteristics | Cannot detect reliance on shape/color/location alone |
-| 2.4.5 Multiple Ways | Cannot assess navigation method availability across site |
-| 2.4.6 Headings and Labels (quality) | Detects headings, not whether they are descriptive |
-| 3.1.2 Language of Parts | Cannot determine where language changes occur |
-| 3.2.3 Consistent Navigation | Cannot compare consistency across pages |
-| 3.2.4 Consistent Identification | Cannot verify consistent naming across pages |
-| 3.3.3 Error Suggestion | Cannot evaluate if error messages are helpful |
-| 3.3.4 Error Prevention | Cannot verify confirmation/review for critical transactions |
-
-### Partially Detectable (flagged but need human confirmation)
-
-| Criterion | Automation Flags | Humans Must Verify |
-|---|---|---|
-| 1.3.1 Info and Relationships | Missing semantic markup | Whether markup conveys right relationships |
-| 1.4.5 Images of Text | Presence of images | Whether images contain text that should be HTML |
-| 2.4.4 Link Purpose | Link text exists | Whether text is meaningful in context |
-| 4.1.2 Name, Role, Value | ARIA attributes present | Whether names are accurate and useful |
-
-Source: [Accessible.org](https://accessible.org/automated-scans-wcag/)
-
----
-
-## 6. Writing Acceptance Criteria
-
-### Per-Story Template
-
-Add to each user story:
-
-```
-Acceptance Criteria:
-- [ ] All interactive elements reachable and operable by keyboard
-- [ ] Focus order matches visual/logical order
-- [ ] Screen reader announces [element] as [expected announcement]
-- [ ] Color contrast meets WCAG AA (4.5:1 text, 3:1 large text)
-- [ ] Error messages programmatically associated with fields
-- [ ] State changes announced to assistive technology
+```text
+Journey / component / revision:
+Requirement or project recommendation and primary source:
+Starting state and action:
+Expected semantic information and task outcome:
+Automated evidence:
+Keyboard evidence:
+Observed AT output, environment and settings:
+Zoom / spacing / pointer / media evidence as applicable:
+Exceptions, incomplete results and checks not run:
+Fix / retest evidence:
 ```
 
-### Component-Level Template
+Example: after submitting an empty email field, the visible error identifies the
+problem, the field exposes its invalid state and associated error, focus remains
+useful, and correction succeeds. Verify on the supported combinations; exact
+utterance wording is not the acceptance criterion
+([WAI validation](https://www.w3.org/WAI/tutorials/forms/validation/)).
 
-```
-Component: [Name]
-ARIA Pattern: [APG reference]
+Do not replace unrun manual or AT checks with a passing axe scan. Report findings,
+remaining coverage and blocked checks in plain language
+([Playwright](https://playwright.dev/docs/accessibility-testing)).
 
-Keyboard:
-- [ ] [Key]: [Expected behavior]
-
-Screen Reader:
-- [ ] Role announced as: [expected role]
-- [ ] Name announced as: [expected name]
-- [ ] State changes announced: [list states]
-
-Visual:
-- [ ] Focus indicator visible (3:1 contrast)
-- [ ] Color contrast meets AA
-- [ ] Works at 200% zoom
-```
-
-### Definition of Done Checklist
-
-1. Automated scan passes (axe-core, zero violations)
-2. Keyboard-only operation verified (full workflow)
-3. Focus management correct (modals, route changes, dynamic content)
-4. Screen reader announces all content meaningfully (NVDA or VoiceOver)
-5. Color contrast meets AA thresholds
-6. Content reflows at 200% zoom
-7. Error states announced and associated with fields
-8. Heading hierarchy logical (no skipped levels)
-
-Full templates: [references/acceptance-criteria-templates.md](references/acceptance-criteria-templates.md)
-
-Sources: [TetraLogical](https://tetralogical.com/blog/2022/05/26/how-to-write-user-stories-for-accessibility/), [Section508.gov](https://www.section508.gov/develop/user-stories/), [TPGi](https://www.tpgi.com/how-write-user-stories-accessibility-requirements/)
-
----
-
-## 7. Common Mistakes
-
-See: [references/common-mistakes.md](references/common-mistakes.md)
-
-The most frequent testing anti-patterns:
-
-1. **"Axe passes, so we're accessible"** — Automation catches at most 57% of issues by volume, and only 13% of WCAG criteria with high confidence. ([Deque](https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/), [Accessible.org](https://accessible.org/automated-scans-wcag/))
-
-2. **Testing only with one screen reader** — JAWS, NVDA, and VoiceOver behave differently. A component working in one may fail in another. Test with at least two. ([WebAIM Survey #10](https://webaim.org/projects/screenreadersurvey10/))
-
-3. **Skipping keyboard testing** — The fastest, cheapest tier. No tools needed. Catches focus traps, missing operability, and broken tab order that automation misses entirely.
-
-4. **Testing at the end** — Accessibility debt compounds. Test each tier as part of the PR workflow, not as a pre-release gate.
-
-5. **Writing vague acceptance criteria** — "Must be accessible" is not testable. Specify what the screen reader should announce, what keyboard interaction is expected, and what contrast ratio applies.
-
-6. **Ignoring mobile** — 91.3% of screen reader users use one on mobile. VoiceOver (iOS) and TalkBack (Android) have different interaction models than desktop. ([WebAIM Survey #10](https://webaim.org/projects/screenreadersurvey10/))
-
-7. **Not testing with real assistive technology** — Browser DevTools accessibility inspectors show the accessibility tree but not what users actually hear. Run NVDA or VoiceOver and listen.
-
----
-
-## 8. Cross-References
-
-- `a11y-audit` — Full audit methodology and WCAG conformance checking
-- `aria-decision-framework` — When and how to use ARIA correctly
-- `focus-management` — Focus trapping, restoration, and roving tabindex patterns
-- `form-a11y` — Form labeling, error handling, and validation patterns
-- `live-regions` — `aria-live` region patterns and announcement timing
+Read the [keyboard checklist](references/keyboard-testing-checklist.md),
+[screen reader commands](references/screen-reader-commands.md),
+[acceptance templates](references/acceptance-criteria-templates.md),
+[common mistakes](references/common-mistakes.md) and
+[source registry](references/sources.yaml) as needed.

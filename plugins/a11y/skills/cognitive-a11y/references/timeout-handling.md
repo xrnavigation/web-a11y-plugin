@@ -11,29 +11,29 @@
 - [Checklist](#checklist)
 
 
-Implementation patterns for WCAG-compliant session timeout handling.
+Example patterns to adapt and verify for session timeout handling; markup and timer skeletons alone do not establish conformance.
 
 ---
 
 ## WCAG Requirements
 
-**SC 2.2.1 Timing Adjustable (Level A):** For every time limit, provide at least one of:
+**SC 2.2.1 Timing Adjustable (Level A):** For every time limit set by the content, provide at least one of:
 
 1. **Turn off** — user can disable the limit before encountering it.
-2. **Adjust** — user can set the limit to at least 10x the default.
+2. **Adjust** — before encountering the limit, the user can adjust it over a range at least ten times the default length.
 3. **Extend** — warn before expiration, give at least 20 seconds to extend with a simple action, allow extension at least 10 times.
 
-Exceptions: real-time events (auctions), essential limits (exams), and limits exceeding 20 hours.
+Exceptions: real-time events (auctions), essential limits whose extension would invalidate the activity, and limits exceeding 20 hours.
 ([WCAG SC 2.2.1](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html))
 
-**SC 2.2.6 Timeouts (Level AAA):** Warn users of the inactivity duration that causes data loss, unless data is preserved for 20+ hours.
+**SC 2.2.6 Timeouts (Level AAA):** Warn users of the inactivity duration that causes data loss, unless data is preserved for more than 20 hours without user action.
 ([WCAG SC 2.2.6](https://www.w3.org/WAI/WCAG21/Understanding/timeouts.html))
 
 ---
 
 ## Warning Dialog Pattern
 
-Warn at least 2 minutes before session expiration. Use an alertdialog:
+Project example: warn 2 minutes before session expiration where feasible; WCAG extension requires at least 20 seconds to act. Implement actual modal behavior before claiming an alertdialog is operable:
 
 ```html
 <div role="alertdialog"
@@ -49,13 +49,13 @@ Warn at least 2 minutes before session expiration. Use an alertdialog:
 </div>
 ```
 
-### Requirements
+### Project Implementation Choices for This Extension Example
 
-- Use `role="alertdialog"` — this is announced immediately by screen readers.
+- For a modal warning, implement the dialog pattern and inspect role, name, description, and focus in supported environments. A role alone does not implement behavior.
 - Set `aria-modal="true"` and trap focus within the dialog.
-- The primary action ("Continue session") must receive focus automatically.
-- Extension must work with a single keypress (Enter on the focused button).
-- If using a countdown timer, ensure it is announced to screen readers (use `aria-live="polite"` on the countdown element, updating at reasonable intervals — not every second).
+- Choose initial focus deliberately; the Continue session action is suitable for this short warning. Other dialog contents may justify a different target.
+- The extension route requires a simple action; this example uses Enter on a focused Continue session button.
+- Expose remaining time if displayed. Avoid announcing every second; test whether occasional updates help users without interrupting their task.
 
 ([DWP Design System](https://design-system.dwp.gov.uk/patterns/manage-a-session-timeout))
 
@@ -73,7 +73,7 @@ When a modal would obscure the user's work, use a banner instead:
 </div>
 ```
 
-A banner is less disruptive and allows users to finish their current action before responding.
+A nonmodal banner can preserve the current interaction. Verify users notice it and can reach the extension action within the available time; suitability depends on the workflow and supported environments.
 
 ---
 
@@ -104,13 +104,14 @@ function extendSession() {
 }
 
 function expireSession() {
-  // Save user data to sessionStorage/localStorage FIRST
+  // Save only policy-approved draft fields through the application's persistence layer.
+  // Do not persist credentials or restricted sensitive values.
   preserveFormData();
   // Then redirect or show expired message
 }
 
 function preserveFormData() {
-  // Serialize all form inputs to sessionStorage
+  // Persist an allowlisted subset of eligible draft inputs in the approved store
   // Restore on next page load
 }
 ```
@@ -119,26 +120,25 @@ function preserveFormData() {
 
 ## Data Preservation
 
-If the session does expire, preserve user-entered data:
+If the session expires, recover eligible draft progress under the application's security/privacy policy:
 
-1. Before expiry, serialize all form field values to `sessionStorage` or `localStorage`.
-2. On the next page load (after re-authentication), restore the saved values.
+1. Before expiry, save only eligible draft fields in the approved persistence layer. Exclude credentials and restricted sensitive data; browser storage is not a blanket recommendation.
+2. After re-authentication, restore only the permitted saved values and explain any required re-entry.
 3. Inform the user: "Your previous entries have been restored."
 
-Never silently discard form progress.
+Explain which eligible progress was saved and which policy-restricted fields require re-entry.
 
 ---
 
 ## Known Failures
 
-These patterns violate SC 2.2.1:
+These patterns need evaluation against the chosen SC 2.2.1 route, not a blanket failure classification:
 
-| Pattern | Problem |
-|---------|---------|
-| `<meta http-equiv="refresh" content="1800">` | Automatic reload without warning |
-| Server-side redirect after timeout | No client-side warning possible |
-| `<meta http-equiv="refresh" content="5;url=...">` | Timed redirect without user control |
-| Silent session expiry | User data lost without notice |
+| Pattern | Condition to assess |
+|---------|---------------------|
+| Timed reload or redirect | Does the content-set limit provide turn-off, adjustment, or extension, or meet an exception? Avoid unnecessary interruptions as a project policy. |
+| Server-side expiry or redirect | Server authority can coordinate a client warning and extension endpoint. Verify that the client has accurate expiry information and the server honors extension. |
+| Silent session expiry | A missing applicable timing-control route can fail SC 2.2.1. Inactivity data-loss warning is separately covered by SC 2.2.6 at AAA. |
 
 ([WCAG SC 2.2.1](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html))
 
@@ -146,11 +146,12 @@ These patterns violate SC 2.2.1:
 
 ## Checklist
 
-- [ ] Warning appears at least 2 minutes (or 20 seconds minimum per WCAG) before expiry
-- [ ] Warning uses `role="alertdialog"` or `role="alert"`
-- [ ] Extension requires only a single keypress
-- [ ] Extension is available at least 10 times
-- [ ] User data is preserved if session expires
-- [ ] Countdown (if present) is accessible to screen readers
-- [ ] No `<meta http-equiv="refresh">` used for session management
-- [ ] Users informed of inactivity timeout duration at start of session
+- [ ] Identify each content-set limit and record the chosen turn-off, adjustment, extension route, or justified exception (Level A)
+- [ ] For the selected extension route: warn before expiry and provide at least 20 seconds for a simple extension action, at least 10 times (Level A)
+- [ ] For this project's extension example: prefer a 2-minute warning where feasible; test the chosen notification, focus behavior, and reachable action
+- [ ] Verify the server and client agree on expiry and extension; test delay, stale warnings, and re-authentication
+- [ ] Recover eligible draft progress under policy, excluding credentials and restricted sensitive values; explain required re-entry
+- [ ] If a countdown is displayed, expose its meaning without excessive announcements
+- [ ] At Level AAA, warn about the inactivity duration that can cause data loss before the timeout is encountered, unless data is preserved for more than 20 hours without user action
+
+([Timing Adjustable, Level A](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html); [Timeouts, Level AAA](https://www.w3.org/WAI/WCAG22/Understanding/timeouts.html))

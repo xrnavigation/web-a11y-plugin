@@ -1,7 +1,6 @@
 ---
 name: alt-text-quality
 description: Guides alt text decision-making beyond presence — the W3C decision tree for decorative vs informative vs functional vs complex images, context-dependent descriptions, SVG accessibility, CSS background image alternatives, and icon button labeling. Auto-invokes when adding images, SVGs, icons, or image-based components.
-allowed-tools: Read, Glob, Grep
 ---
 
 # Alt Text Quality
@@ -62,7 +61,7 @@ The same image requires different alt text depending on where it appears. This i
 | Context | Alt Text | Why |
 |---|---|---|
 | Article body, no caption | `alt="Astronaut Ellen Ochoa"` | Provides needed identification |
-| With visible caption identifying her | `alt=""` | Caption already provides the info |
+| With caption conveying all meaningful image information | `alt=""` | No meaningful visual information remains to describe |
 | Linked image to her biography | `alt="Astronaut Ellen Ochoa"` | Link needs an accessible name |
 
 ### Example: Photo of a building
@@ -87,7 +86,7 @@ Sources: [WebAIM Alternative Text](https://webaim.org/techniques/alttext/), [Har
 
 ## 3. SVG Accessibility
 
-SVGs require explicit accessibility markup. Without it, screen readers either ignore them or announce them as unnamed groups.
+Provide an accessible name for meaningful SVGs and hide purely decorative SVGs from accessibility APIs. Mapping and speech vary; missing names can leave meaningful graphics undiscoverable or unnamed ([SVG-AAM name and description](https://www.w3.org/TR/svg-aam-1.0/#mapping_additional_nd)).
 
 ### Meaningful Inline SVG
 
@@ -105,7 +104,7 @@ SVGs require explicit accessibility markup. Without it, screen readers either ig
 ```
 
 Key attributes:
-- `role="img"` — ensures announced as "image" across screen readers
+- `role="img"` — exposes a single image role; spoken role wording varies ([ARIA img](https://www.w3.org/TR/wai-aria-1.2/#img))
 - `aria-labelledby` or `aria-label` — provides the accessible name
 - `aria-hidden="true"` on `<use>` — prevents redundant announcements
 - `focusable="false"` — prevents keyboard focus in IE/old Edge
@@ -201,17 +200,17 @@ Icon-only buttons (no visible text) need an accessible name. The icon itself is 
 </button>
 ```
 
-Caveats: `aria-label` is not translated by automated translation tools. If visible text exists, `aria-label` must contain it (WCAG 2.5.3 Label in Name).
+Caveats: `aria-label` needs explicit localization and translation-pipeline verification. If visible text exists, `aria-label` must contain it (WCAG 2.5.3 Label in Name).
 
 ### Do NOT Label the Icon
 
 ```html
-<!-- WRONG — fails across browser/screen reader combos -->
+<!-- AVOID — dependent on descendant name propagation; test support -->
 <button>
   <svg aria-label="Menu"><!-- icon --></svg>
 </button>
 
-<!-- WRONG — also fails -->
+<!-- AVOID — label the button directly in the preferred pattern -->
 <button>
   <svg aria-labelledby="icon-title">
     <title id="icon-title">Menu</title>
@@ -233,14 +232,14 @@ These are the most common alt text mistakes. Each degrades the screen reader exp
 
 | Anti-Pattern | Why It's Wrong | Fix |
 |---|---|---|
-| Starting with "image of", "photo of" | Screen readers already announce "image" — user hears "Image. Image of..." | Drop the prefix. Exception: medium matters (e.g., "Oil painting of..." on an art page) |
-| Missing `alt` attribute entirely | Screen reader reads the **filename** aloud ("DSC underscore zero four three seven dot jpeg") | Always include `alt`. Use `alt=""` for decorative images |
+| Starting with "image of", "photo of" | Image semantics can make generic prefixes redundant; spoken role wording varies | Drop the prefix. Exception: medium matters (e.g., "Oil painting of..." on an art page) |
+| Missing `alt` attribute entirely | May cause a filename or another unhelpful fallback; output varies by browser and AT | Always include `alt`. Use `alt=""` for decorative images |
 | Filename as alt text | `alt="IMG_0437.jpg"` provides no information | Describe the content or use `alt=""` |
 | Describing decorative images | Forces users to listen to irrelevant content | Use `alt=""` for decorative images |
-| Duplicating caption in alt | Screen reader reads the same information twice | Use `alt=""` when a `<figcaption>` provides the description |
+| Duplicating caption in alt | Screen reader reads the same information twice | Use `alt=""` only when the nearby text conveys all meaningful image information |
 | Describing appearance instead of purpose | Photo used for a news story gets "Woman in blue suit" instead of "Senator Jane Doe" | Match alt text to the image's purpose in context |
 | "company logo" as alt text | Useless — use the company name | `alt="Acme Corporation"` |
-| Overly long alt text | Read as one uninterruptible string; aim for under 150 characters | Use long-description techniques for complex images |
+| Overly long alt text | Keep the short alternative focused; there is no universal 150-character limit | Use long-description techniques for complex images |
 | SEO keyword stuffing | Degrades experience for screen reader users | Alt text is for humans, not crawlers |
 
 For the complete anti-patterns reference with examples, see: [references/common-mistakes.md](references/common-mistakes.md)

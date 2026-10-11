@@ -11,7 +11,7 @@
 - [Dialog Popup](#dialog-popup)
 
 
-Complete keyboard specification per variant. The SKILL.md contains an abbreviated summary; this is the full reference.
+Keyboard summary per variant. APG is implementation guidance; consult the linked pattern/examples for their full alternatives and optional interactions.
 
 All source: [APG Combobox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/)
 

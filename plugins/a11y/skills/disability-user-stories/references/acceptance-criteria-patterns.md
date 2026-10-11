@@ -45,7 +45,7 @@ Define acceptance criteria at three levels to catch issues at every scope (per [
 ### Container Level
 
 ```
-- [ ] Section headings are present and follow a logical hierarchy (no skipped levels)
+- [ ] Section headings are present and follow a logical hierarchy (ranks reflect section relationships; avoiding downward skips is authoring guidance)
 - [ ] Heading text accurately describes the section content
 - [ ] Related form fields are grouped with <fieldset> and <legend>
 - [ ] Lists use semantic list markup (<ul>, <ol>, <dl>)
@@ -73,14 +73,15 @@ These patterns specify what the user experiences rather than what the code does.
 
 ```
 When [trigger event],
-the screen reader announces: "[expected announcement text]"
+the user can identify [required name, role, state, description, or status] in [versioned environment and settings].
+Record actual speech separately as observed evidence; mark unexecuted checks not run.
 ```
 
 **Examples:**
-- When focus moves to the email field, the screen reader announces: "Email address, edit text, required"
-- When the user activates the submit button with errors present, the screen reader announces: "Error: [field name] [specific problem]"
-- When the dialog opens, the screen reader announces: "Dialog: [dialog title]"
-- When the user selects a tab, the screen reader announces: "[tab label], tab [N] of [total]"
+- On email-field focus, the user can identify its name, input role, required state, and associated instructions.
+- After failed submission, errors are discoverable through associated descriptions and the chosen notification/focus strategy.
+- On dialog opening, the user can identify its dialog role, name, and relevant description.
+- On selecting a tab, the user can identify its label, tab role, selected state, and associated panel.
 
 ### Focus Management Pattern
 
@@ -95,7 +96,7 @@ When [trigger event]:
 **Examples:**
 - When dialog opens: focus moves to dialog heading; Tab cycles within dialog; Escape closes dialog and returns focus to the button that opened it
 - When route changes in SPA: focus moves to the new page heading or main content area
-- When inline error appears: focus moves to the first field in error state
+- On failed submission: use the chosen summary or first-invalid-field focus strategy; ordinary inline validation need not move focus.
 
 ### Keyboard Operability Pattern
 
@@ -114,13 +115,13 @@ When [trigger event]:
 ```
 When [state change occurs]:
 - Visual indicator changes to show [new state]
-- Screen reader announces [state change text]
+- Updated state is available to assistive technology and understandable in the specified environment
 - aria-[state attribute] updates to [new value]
 ```
 
 **Examples:**
-- When accordion section expands: chevron rotates, screen reader announces "expanded", `aria-expanded` updates to "true"
-- When checkbox is checked: checkmark appears, screen reader announces "checked", `aria-checked` updates to "true"
+- When an accordion section expands: the visual indicator reflects expansion and `aria-expanded` updates to `true`; the user can determine the expanded state in the specified environment.
+- When a checkbox is checked: its visual and accessible checked state update; native inputs expose their checked state without requiring redundant ARIA. Record observed speech separately.
 
 ---
 
@@ -183,7 +184,7 @@ Then inline error messages describe the problem and how to fix it.
 ```
 Given dynamic content changes occur,
 When content is added, removed, or updated,
-Then the change is announced to screen reader users.
+Then relevant status information is exposed without requiring focus under SC 4.1.3; other changes use an appropriate focus or notification strategy. Avoid announcing every DOM update.
 ```
 
 ### 8. Zoom and Resize
@@ -191,7 +192,7 @@ Then the change is announced to screen reader users.
 ```
 Given I zoom to 200%,
 When I view the page,
-Then all content and functionality remain available without horizontal scrolling.
+Then text can be resized to 200% without loss of content or functionality (SC 1.4.4). Separately verify reflow at 320 CSS pixels width or 256 CSS pixels height, including the essential two-dimensional-content exception (SC 1.4.10).
 ```
 
 ### 9. Alt Text
@@ -222,7 +223,7 @@ Always prefer experience-focused criteria. Use code-focused criteria only as int
 |---|---|---|
 | Image | "Image has `alt` attribute" | "Screen reader announces descriptive text that conveys the image's purpose" |
 | Button | "Button has `aria-label`" | "Screen reader announces the button's visible text and purpose" |
-| Error | "Error div has `role=alert`" | "When I submit invalid data, my screen reader immediately announces what went wrong and how to fix it" |
+| Error | "Error div has `role=alert`" | "When I submit invalid data, I can find which fields have errors and their correction guidance through associated field descriptions and a deliberate submission notification/focus strategy" |
 | Modal | "Dialog has `aria-modal=true`" | "When the dialog opens, focus moves inside; I can tab through contents without reaching the background; Escape closes it and returns focus to the trigger" |
 | Form field | "Input has associated `<label>`" | "When I tab to this field, my screen reader announces its label, whether it is required, and any format instructions" |
 | Link | "Link has text content" | "When I pull up my screen reader's links list, each link text clearly describes its destination" |
@@ -244,9 +245,9 @@ Add these to your team's Definition of Done:
 - [ ] Focus management correct (modals, route changes, dynamic content)
 - [ ] Screen reader announces all content meaningfully (tested with NVDA or VoiceOver)
 - [ ] Color contrast meets WCAG AA (4.5:1 text, 3:1 large text, 3:1 UI components)
-- [ ] Content reflows at 200% zoom without horizontal scrolling
+- [ ] Text resize to 200% retains content/functionality; reflow is separately checked at the SC 1.4.10 viewport thresholds and exceptions
 - [ ] Error states announced and associated with fields
-- [ ] Heading hierarchy logical (no skipped levels)
+- [ ] Heading hierarchy logical (ranks reflect section relationships; avoiding downward skips is authoring guidance)
 ```
 
 Source: [Accessibility for Teams](https://accessibility-for-teams.com/article/accessibility-in-the-definition-of-done)

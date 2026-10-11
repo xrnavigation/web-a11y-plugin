@@ -1,7 +1,6 @@
 ---
 name: cognitive-a11y
 description: Guides cognitive accessibility patterns — clear actionable error messages, consistent navigation, predictable behavior, timeout handling with warnings, progress indicators for multi-step processes, consistent help placement (WCAG 2.2), and plain language. Auto-invokes when writing error messages, multi-step flows, session timeout logic, or navigation structures.
-allowed-tools: Read, Glob, Grep
 ---
 
 # Cognitive Accessibility Patterns
@@ -15,7 +14,7 @@ Cognitive accessibility ensures interfaces are usable by people with memory defi
 
 ## 1. Clear Error Messages
 
-**WCAG SC 3.3.1 Error Identification (Level A)** and **SC 3.3.3 Error Suggestion (Level AA)** require that errors are identified in text and include correction suggestions.
+SC 3.3.1 (A) requires text identifying automatically detected input errors; SC 3.3.3 (AA) adds known correction suggestions unless they jeopardize security or purpose. ([WAI validation](https://www.w3.org/WAI/tutorials/forms/validation/), [Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html))
 
 ### Template
 
@@ -23,7 +22,7 @@ Cognitive accessibility ensures interfaces are usable by people with memory defi
 [Field name]: [What went wrong]. [How to fix it].
 ```
 
-**Keep messages under 14 words.** At 8 words or fewer, comprehension reaches 100%. ([NN/g](https://www.nngroup.com/articles/error-message-guidelines/))
+Keep messages concise and specific; no word count guarantees comprehension. Name the error and give a useful correction when known. ([WAI validation](https://www.w3.org/WAI/tutorials/forms/validation/)) ([NN/g](https://www.nngroup.com/articles/error-message-guidelines/))
 
 ### Examples
 
@@ -46,7 +45,7 @@ Use positive, non-blaming language. Avoid "invalid," "illegal," or "incorrect." 
 
 - Display errors adjacent to the field (above or beside).
 - Mark the field: `aria-invalid="true"` and `aria-describedby` pointing to the error text.
-- For dynamically injected errors: use `role="alert"` or `aria-live="assertive"`.
+- Associate visible field errors with inputs. After failed submission, deliberately focus a summary or first invalid field. Avoid assertive announcements on every field or keystroke. ([WAI notifications](https://www.w3.org/WAI/tutorials/forms/notifications/))
 - Do NOT show errors during exploratory interaction (e.g., on first blur of an empty field before submission).
 
 ```html
@@ -54,18 +53,18 @@ Use positive, non-blaming language. Avoid "invalid," "illegal," or "incorrect." 
 <input id="email" type="email"
        aria-invalid="true"
        aria-describedby="email-error">
-<span id="email-error" role="alert">
+<span id="email-error">
   Email: must include an @ symbol. Example: name@example.com
 </span>
 ```
 
 ### Redundant Cues
 
-Use multiple indicators simultaneously: text + border highlight + icon. Never rely on color alone (~350M people have color-vision deficiency). ([NN/g](https://www.nngroup.com/articles/error-message-guidelines/))
+Use multiple indicators simultaneously: text + border highlight + icon. Never rely on color alone (Color alone does not identify errors to all users). ([NN/g](https://www.nngroup.com/articles/error-message-guidelines/))
 
 ### Preserve User Input
 
-Always allow correction by editing the original entry. Never clear form fields on validation failure. Display the user's original text even if non-compliant.
+Retain eligible non-sensitive form entries through validation failure so users can correct them in place. Handle credentials and other restricted fields according to the application's security/privacy policy; explain necessary re-entry. Render retained values safely rather than inserting untrusted HTML.
 
 For detailed error message patterns, see: [references/error-message-patterns.md](references/error-message-patterns.md)
 
@@ -73,11 +72,11 @@ For detailed error message patterns, see: [references/error-message-patterns.md]
 
 ## 2. Consistent Navigation
 
-**WCAG Guideline 3.2 Predictable:** Navigation elements must appear in the same relative order across all pages within a set.
+SC 3.2.3 (AA): repeated navigation mechanisms retain their relative order across pages in a set unless the user initiates a change. ([Consistent Navigation](https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation.html))
 
 ### Requirements
 
-- Navigation elements (menus, search bars, home buttons) must be in the same position on every page. Same order, same location.
+- Repeated navigation mechanisms must retain their relative order within a set of pages unless the user initiates the change. Responsive layout need not use identical pixel positions. ([Consistent Navigation](https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation.html))
 - Use descriptive labels for menu items, not generic text.
 - Maintain consistent terminology — do not call the same thing by different names on different pages (e.g., "Cart" on one page, "Basket" on another).
 - Provide orientation aids: "you are here" indicators, breadcrumbs, and highlighted current-page links.
@@ -112,15 +111,16 @@ When a component receives focus, it must NOT initiate a change of context. Prohi
 Changing the setting of a component must NOT automatically cause a context change unless the user was advised beforehand.
 
 ```html
-<!-- WRONG — auto-submits on selection -->
+<!-- WRONG — changes context on selection without advance advice -->
 <select onchange="this.form.submit()">
 
 <!-- RIGHT — explicit submit -->
-<select id="country">
+<label for="country">Country</label>
+<select id="country"><option>Canada</option><option>United States</option></select>
 <button type="submit">Apply</button>
 ```
 
-**Always provide explicit submit buttons.** If auto-advance behavior exists (e.g., phone number fields advancing automatically), disclose this before the form. ([WCAG SC 3.2.2](https://www.w3.org/WAI/WCAG22/Understanding/on-input.html))
+Project default: provide explicit submit buttons. If auto-advance behavior exists (e.g., phone number fields advancing automatically), disclose this before the form. ([WCAG SC 3.2.2](https://www.w3.org/WAI/WCAG22/Understanding/on-input.html))
 
 ### Warn Before Irreversible Actions
 
@@ -130,19 +130,19 @@ Confirm before deletions, financial commitments, and other non-undoable operatio
 
 ## 4. Timeout Handling
 
-**WCAG SC 2.2.1 Timing Adjustable (Level A)** requires that for every time limit, at least one of these is true:
+**WCAG SC 2.2.1 Timing Adjustable (Level A)** requires that for every time limit set by the content, at least one of these is true:
 
 1. **Turn off:** User can disable the limit before encountering it.
-2. **Adjust:** User can set the limit to at least 10x the default.
+2. **Adjust:** Before encountering the limit, the user can adjust it over a range at least ten times the default length.
 3. **Extend:** User is warned before expiration, given at least 20 seconds to extend with a simple action (e.g., pressing Space), and extension is available at least 10 times.
 
 Exceptions: real-time events, essential time limits, and limits exceeding 20 hours.
 
-### Warning Pattern
+### Extension Route: Warning Pattern (Level A)
 
-- Warn at least **2 minutes** before session expiration.
-- Use a modal dialog or banner with clear language: state what will happen and offer a single action to extend.
-- Use `role="alertdialog"` or `role="alert"` for the warning.
+- Project preference: warn 2 minutes before session expiration where feasible. The SC 2.2.1 extension route requires at least 20 seconds to act; 2 minutes is not a WCAG threshold.
+- Use a modal dialog or nonmodal warning with clear language: state what will happen and offer a single action to extend.
+- Choose and test an appropriate warning and focus strategy. A modal alertdialog must implement modal behavior; a nonmodal warning needs an accessible notification and reachable extension control.
 - The extension action must be achievable with a simple keypress (Space or Enter).
 
 ```html
@@ -159,14 +159,12 @@ Exceptions: real-time events, essential time limits, and limits exceeding 20 hou
 
 ### Data Preservation
 
-- Preserve all user-entered data if the session expires — do not discard form progress.
-- **SC 2.2.6 Timeouts (Level AAA):** Warn users of inactivity duration that causes data loss, or preserve data for at least 20 hours.
+- Preserve eligible draft progress across expiration under the application's security/privacy policy. Do not persist credentials or restricted sensitive values; explain any fields that require re-entry.
+- **SC 2.2.6 Timeouts (AAA):** Warn about inactivity duration that could cause data loss unless data is preserved for more than 20 hours without user action. Longer retention is a project/product decision, not a universal A/AA requirement. ([Timeouts](https://www.w3.org/WAI/WCAG22/Understanding/timeouts.html))
 
-### Never Do This
+### Timeout Risks
 
-- `<meta http-equiv="refresh">` for automatic page reloading
-- Server-side redirects after timeout without warning
-- Silent session expiry that discards user data
+For content-set time limits, document the chosen turn-off, adjustment, or extension route, or a valid exception. A redirect or expiry is not automatically a failure; missing the applicable timing control is. Server-managed expiry can coordinate a client warning and extension endpoint. Avoid unnecessary timed reloads and recover eligible progress under policy.
 
 For implementation details, see: [references/timeout-handling.md](references/timeout-handling.md)
 
@@ -223,7 +221,7 @@ Include step progress before other title content — screen reader users encount
 
 - Provide links to completed steps so users can review and correct previous entries.
 - Use descriptive link text: "Back to payment information" not "Previous."
-- Preserve all previously entered data when returning to a completed step.
+- Restore eligible entries when returning to a completed step; explain policy-required re-entry for sensitive/restricted fields.
 - Set focus on the next relevant form element when navigating between steps.
 
 ### HTML5 Progress Element
@@ -234,7 +232,7 @@ For variable-length processes:
 <progress max="7" value="2">(Step 2 of circa 7)</progress>
 ```
 
-Disable automatic animations on custom progress bars (WCAG SC 2.2.2). ([W3C WAI Forms Tutorial](https://www.w3.org/WAI/tutorials/forms/multi-page/))
+Provide appropriate progress feedback; SC 2.2.2 has conditional pause/stop/hide requirements, not a blanket ban on all progress animation. ([Pause Stop Hide](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html)) ([W3C WAI Forms Tutorial](https://www.w3.org/WAI/tutorials/forms/multi-page/))
 
 ---
 
@@ -268,7 +266,7 @@ Disable automatic animations on custom progress bars (WCAG SC 2.2.2). ([W3C WAI 
 
 ## 7. Plain Language
 
-**Target: approximately 8th-grade reading level.** WCAG SC 3.1.5 (Level AAA) recommends content be understandable at a lower secondary education level.
+**Target: approximately 8th-grade reading level.** SC 3.1.5 (AAA) requires supplemental content or a simpler version when text exceeds lower secondary reading level after removing proper names/titles. ([Reading Level](https://www.w3.org/WAI/WCAG22/Understanding/reading-level.html))
 
 ### Sentence Structure
 
@@ -302,12 +300,12 @@ These are the most frequent cognitive accessibility failures. Each is cited to p
 
 | # | Mistake | Why It Fails | Source |
 |---|---------|-------------|--------|
-| 1 | Relying solely on color to indicate errors | ~350M people have color-vision deficiency | [NN/g](https://www.nngroup.com/articles/error-message-guidelines/) |
+| 1 | Relying solely on color to indicate errors | Color alone does not identify errors to all users | [NN/g](https://www.nngroup.com/articles/error-message-guidelines/) |
 | 2 | Premature error display (on blur before submission) | Punishes exploration, increases cognitive load | [NN/g](https://www.nngroup.com/articles/error-message-guidelines/) |
 | 3 | Generic error messages ("An error occurred") | Users with cognitive disabilities cannot infer the problem | [WCAG SC 3.3.3](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html) |
-| 4 | Auto-submitting forms on input change | Violates SC 3.2.2 | [WCAG SC 3.2.2](https://www.w3.org/WAI/WCAG22/Understanding/on-input.html) |
+| 4 | Auto-submitting forms on input change without advance advice | Fails SC 3.2.2 when changing a setting causes a change of context and the user was not advised beforehand | [WCAG SC 3.2.2](https://www.w3.org/WAI/WCAG22/Understanding/on-input.html) |
 | 5 | Context changes on focus | Violates SC 3.2.1 | [WCAG SC 3.2.1](https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html) |
-| 6 | Silent session expiry | Violates SC 2.2.1; user data lost | [WCAG SC 2.2.1](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html) |
+| 6 | Expiry without applicable timing controls | Fails SC 2.2.1 when a content-set limit lacks a turn-off, adjustment, or extension route and no exception applies; data-loss warning is separately addressed at AAA | [WCAG SC 2.2.1](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html) |
 | 7 | Inconsistent help placement across pages | Violates SC 3.2.6 | [WCAG SC 3.2.6](https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html) |
 | 8 | Inconsistent terminology across pages | Forces users to re-learn vocabulary | [A11Y Collective](https://www.a11y-collective.com/blog/cognitive-accessibility/) |
 | 9 | No progress indication in multi-step processes | Users lose track; abandonment increases | [WebAIM](https://webaim.org/articles/cognitive/design) |

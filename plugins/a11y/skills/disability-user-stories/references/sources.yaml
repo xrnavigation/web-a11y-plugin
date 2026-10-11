@@ -1,160 +1,100 @@
-# Sources for disability-user-stories skill
-# All claims in SKILL.md and references are traceable to these sources.
-
-persona_frameworks:
-  - id: w3c-wai-user-stories
-    title: "How People with Disabilities Use the Web: User Stories"
-    url: https://www.w3.org/WAI/people-use-web/user-stories/
-    publisher: W3C WAI
-    used_for: "W3C WAI personas (Ade, Ian, Lakshmi, Lexie, Sophie, Dhruv, Marta, Stefan, Elias)"
-
-  - id: gds-persona-profiles
-    title: "Using persona profiles to test accessibility"
-    url: https://accessibility.blog.gov.uk/2019/02/11/using-persona-profiles-to-test-accessibility/
-    publisher: GOV.UK Government Digital Service
-    date: 2019-02-11
-    used_for: "GOV.UK accessibility personas, 50-minute session method, simulation caveat"
-
-  - id: govuk-accessibility-personas
-    title: "Accessibility Personas"
-    url: https://alphagov.github.io/accessibility-personas/
-    publisher: GOV.UK Alpha
-    used_for: "Chrome browser profile simulations for persona testing"
-
-  - id: gds-remote-persona-testing
-    title: "Remote accessibility persona testing"
-    url: https://accessibility.blog.gov.uk/2021/03/30/remote-accessibility-persona-testing/
-    publisher: GOV.UK Government Digital Service
-    date: 2021-03-30
-    used_for: "Remote Chrome profile persona testing method"
-
-  - id: microsoft-inclusive-design
-    title: "Microsoft Inclusive Design"
-    url: https://inclusive.microsoft.design/
-    publisher: Microsoft
-    used_for: "Persona spectrum (permanent/temporary/situational), three principles, disability-as-mismatch framing"
-
-  - id: ux-booth-persona-spectrums
-    title: "Persona Spectrums: Building for Inclusion and Accessibility"
-    url: https://uxbooth.com/articles/persona-spectrums-building-for-inclusion-and-accessibility/
-    publisher: UX Booth
-    used_for: "Persona spectrum examples, cascading benefits framing"
-
-  - id: dubbot-personas
-    title: "Personas: A Human-Centered Approach to Accessibility"
-    url: https://dubbot.com/dubblog/2025/personas-a-human-centered-approach-to-accessibility.html
-    publisher: DubBot
-    date: 2025
-    used_for: "Custom persona building guidelines, positive framing, AT specificity"
-
-user_stories:
-  - id: section508-user-stories
-    title: "Develop Accessible User Stories"
-    url: https://www.section508.gov/develop/user-stories/
-    publisher: Section 508 / GSA
-    used_for: "Example stories by disability category (vision, keyboard, hearing, cognitive, motor, photosensitive)"
-
-  - id: tetralogical-user-stories
-    title: "How to write user stories for accessibility"
-    url: https://tetralogical.com/blog/2022/05/26/how-to-write-user-stories-for-accessibility/
-    publisher: TetraLogical
-    date: 2022-05-26
-    used_for: "Story template, experience-focused vs code-focused criteria, AT verification approach"
-
-  - id: tpgi-user-stories
-    title: "How to Write User Stories for Accessibility Requirements"
-    url: https://www.tpgi.com/how-write-user-stories-accessibility-requirements/
-    publisher: TPGi
-    used_for: "User story patterns, acceptance criteria that verify AT experience"
-
-  - id: accessibility-com-user-stories
-    title: "Developing Accessible User Stories"
-    url: https://www.accessibility.com/blog/developing-accessible-user-stories
-    publisher: Accessibility.com
-    used_for: "Story development process"
-
-acceptance_criteria:
-  - id: cerovac-acceptance-criteria
-    title: "Acceptance criteria and accessibility"
-    url: https://cerovac.com/a11y/2020/10/acceptance-criteria-and-accessibility/
-    publisher: Bogdan Cerovac
-    date: 2020-10
-    used_for: "Three-level model (page, container, component)"
-
-  - id: canaxess-coles-aac
-    title: "Accessibility Acceptance Criteria"
-    url: https://www.canaxess.com.au/articles/accessibility-acceptance-criteria/
-    publisher: CANAXESS / Coles Supermarket
-    used_for: "10 critical AACs, Given-When-Then format, progress-over-perfection approach"
-
-  - id: accessibility-for-teams-dod
-    title: "Accessibility in the Definition of Done"
-    url: https://accessibility-for-teams.com/article/accessibility-in-the-definition-of-done
-    publisher: Accessibility for Teams
-    used_for: "Four-item DoD checklist (automated testing, manual review, statement, content guide)"
-
-bdd_gherkin:
-  - id: hassell-gherkin
-    title: "Gherkin accessibility tests"
-    url: https://www.hassellinclusion.com/blog/gherkin-accessibility-tests/
-    publisher: Hassell Inclusion
-    used_for: "When to use Gherkin for accessibility, behavior vs markup rule of thumb"
-
-  - id: accessibility-gherkin-github
-    title: "accessibility-gherkin"
-    url: https://github.com/bshack/accessibility-gherkin
-    publisher: GitHub (bshack)
-    used_for: "Gherkin scenario examples for accessibility"
-
-shift_left:
-  - id: iapm-shift-left
-    title: "Shift-Left Accessibility"
-    url: https://www.iapm.net/en/blog/shift-left-accessibility/
-    publisher: IAPM
-    used_for: "Cost of delay (10-100x), shift-left integration points"
-
-user_frustrations:
-  - id: webaim-survey-10
-    title: "Screen Reader User Survey #10"
-    url: https://webaim.org/projects/screenreadersurvey10/
-    publisher: WebAIM
-    date: 2024
-    used_for: "Top frustrations (CAPTCHA, ambiguous links, unexpected changes), heading navigation stat (71.6%), accessibility perception trends"
-
-  - id: allyant-blind-user
-    title: "My Experience of Navigating the Web as a Blind User"
-    url: https://allyant.com/blog/my-experience-of-navigating-the-web-as-a-blind-user/
-    publisher: Allyant
-    used_for: "Screen reader user quotes, quick abandonment triggers, overlay interruption experience"
-
-  - id: usablenet-honest-take
-    title: "A Screen Reader User's Honest Take"
-    url: https://blog.usablenet.com/a-screen-reader-users-honest-take
-    publisher: UsableNet
-    used_for: "Emotional impact quotes, trepidation in digital tasks, travel booking abandonment"
-
-  - id: audioeye-dhh
-    title: "Digital Accessibility for Deaf and Hard of Hearing"
-    url: https://www.audioeye.com/post/digital-accessibility-deaf-hard-of-hearing/
-    publisher: AudioEye
-    used_for: "Deaf user frustrations, mental health impact statistic"
-
-testing:
-  - id: accessible-org-automated
-    title: "Automated Scans and WCAG"
-    url: https://accessible.org/automated-scans-wcag/
-    publisher: Accessible.org
-    used_for: "13% automated detection stat for WCAG criteria"
-
-  - id: deque-automated-study
-    title: "Automated Testing Study"
-    url: https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/
-    publisher: Deque
-    date: 2023
-    used_for: "57% issue detection by volume stat"
-
-  - id: tpgi-sr-testing
-    title: "Accessibility testing as a screen reader user"
-    url: https://www.tpgi.com/accessibility-testing-as-a-screen-reader-user/
-    publisher: TPGi
-    used_for: "Screen reader user can test ~2/3 of WCAG 2.1 criteria"
+sources:
+- id: w3c-wai-user-stories
+  title: 'How People with Disabilities Use the Web: User Stories'
+  url: https://www.w3.org/WAI/people-use-web/user-stories/
+  publisher: W3C WAI
+  used_for: W3C WAI personas (Ade, Ian, Lakshmi, Lexie, Sophie, Dhruv, Marta, Stefan, Elias)
+- id: gds-persona-profiles
+  title: Using persona profiles to test accessibility
+  url: https://accessibility.blog.gov.uk/2019/02/11/using-persona-profiles-to-test-accessibility/
+  publisher: GOV.UK Government Digital Service
+  date: 2019-02-11
+  used_for: GOV.UK accessibility personas, 50-minute session method, simulation caveat
+- id: govuk-accessibility-personas
+  title: Accessibility Personas
+  url: https://alphagov.github.io/accessibility-personas/
+  publisher: GOV.UK Alpha
+  used_for: Chrome browser profile simulations for persona testing
+- id: microsoft-inclusive-design
+  title: Microsoft Inclusive Design
+  url: https://inclusive.microsoft.design/
+  publisher: Microsoft
+  used_for: Persona spectrum (permanent/temporary/situational), three principles, disability-as-mismatch
+    framing
+- id: ux-booth-persona-spectrums
+  title: 'Persona Spectrums: Building for Inclusion and Accessibility'
+  url: https://uxbooth.com/articles/persona-spectrums-building-for-inclusion-and-accessibility/
+  publisher: UX Booth
+  used_for: Persona spectrum examples, cascading benefits framing
+- id: dubbot-personas
+  title: 'Personas: A Human-Centered Approach to Accessibility'
+  url: https://dubbot.com/dubblog/2025/personas-a-human-centered-approach-to-accessibility.html
+  publisher: DubBot
+  date: 2025
+  used_for: Custom persona building guidelines, positive framing, AT specificity
+- id: section508-user-stories
+  title: Develop Accessible User Stories
+  url: https://www.section508.gov/develop/user-stories/
+  publisher: Section 508 / GSA
+  used_for: Example stories by disability category (vision, keyboard, hearing, cognitive, motor, photosensitive)
+- id: tetralogical-user-stories
+  title: How to write user stories for accessibility
+  url: https://tetralogical.com/blog/2022/05/26/how-to-write-user-stories-for-accessibility/
+  publisher: TetraLogical
+  date: 2022-05-26
+  used_for: Story template, experience-focused vs code-focused criteria, AT verification approach
+- id: cerovac-acceptance-criteria
+  title: Acceptance criteria and accessibility
+  url: https://cerovac.com/a11y/2020/10/acceptance-criteria-and-accessibility/
+  publisher: Bogdan Cerovac
+  date: 2020-10
+  used_for: Three-level model (page, container, component)
+- id: canaxess-coles-aac
+  title: Accessibility Acceptance Criteria
+  url: https://www.canaxess.com.au/articles/accessibility-acceptance-criteria/
+  publisher: CANAXESS / Coles Supermarket
+  used_for: 10 critical AACs, Given-When-Then format, progress-over-perfection approach
+- id: accessibility-for-teams-dod
+  title: Accessibility in the Definition of Done
+  url: https://accessibility-for-teams.com/article/accessibility-in-the-definition-of-done
+  publisher: Accessibility for Teams
+  used_for: Four-item DoD checklist (automated testing, manual review, statement, content guide)
+- id: hassell-gherkin
+  title: Gherkin accessibility tests
+  url: https://www.hassellinclusion.com/blog/gherkin-accessibility-tests/
+  publisher: Hassell Inclusion
+  used_for: When to use Gherkin for accessibility, behavior vs markup rule of thumb
+- id: accessibility-gherkin-github
+  title: accessibility-gherkin
+  url: https://github.com/bshack/accessibility-gherkin
+  publisher: GitHub (bshack)
+  used_for: Gherkin scenario examples for accessibility
+- id: iapm-shift-left
+  title: Shift-Left Accessibility
+  url: https://www.iapm.net/en/blog/shift-left-accessibility/
+  publisher: IAPM
+  used_for: Cost of delay (10-100x), shift-left integration points
+- name: dragging movements.html
+  url: https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: involving users
+  url: https://www.w3.org/WAI/test-evaluate/involving-users/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: selecting
+  url: https://www.w3.org/WAI/test-evaluate/tools/selecting/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: notifications
+  url: https://www.w3.org/WAI/tutorials/forms/notifications/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance

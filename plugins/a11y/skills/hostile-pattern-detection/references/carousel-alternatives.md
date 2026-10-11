@@ -12,7 +12,7 @@
 
 ## Why You Are Here
 
-You are about to build a carousel. Less than 1% of users click carousel features ([Notre Dame study](https://www.nngroup.com/articles/designing-effective-carousels/)). NNGroup usability testing found a user failed to find a prominent 100-pound discount displayed in the largest element on the homepage because "it keeps flashing too quickly." Eye-tracking shows animated content gets looked at only 27% of the time due to banner blindness.
+Prefer static or user-controlled content as project guidance. Evaluate whether users can discover, read, and operate all panels rather than extrapolating click or eye-tracking percentages from a single study. ([APG carousel](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/))
 
 This page helps you build something better.
 
@@ -117,9 +117,9 @@ If stakeholders insist, apply these minimum requirements:
 3. **Hide non-visible slides** from the accessibility tree entirely (`hidden` attribute or `display: none`).
 4. **Announce position** on user-initiated changes: `aria-live="polite"` region with "Slide 2 of 5."
 5. **Respect `prefers-reduced-motion`** — disable all slide transitions and auto-advance.
-6. **Navigation targets** — minimum 44x44px for dots/arrows ([WCAG 2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)).
-7. **Keyboard navigation** — arrow keys between slides, Tab to controls, Enter/Space to activate.
-8. **Focus management** — focus follows the visible slide. Focus never lands on hidden content.
+6. **Navigation targets** — project preference 44x44 CSS px; SC 2.5.8 AA is 24x24 CSS px or an applicable exception ([WCAG 2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)).
+7. **Keyboard navigation** — follow the chosen basic/tabbed/grouped APG pattern; native buttons use Tab and activation. Arrow keys are not a universal carousel requirement. ([APG carousel](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/))
+8. **Focus management** — retain focus on the activated navigation control; do not move focus automatically on slide changes. Prevent focus in inactive content. ([APG carousel](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/))
 
 ### Sources
 

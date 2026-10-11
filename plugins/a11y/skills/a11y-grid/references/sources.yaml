@@ -1,116 +1,112 @@
 sources:
-  - name: "APG Grid Pattern"
-    url: "https://www.w3.org/WAI/ARIA/apg/patterns/grid/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Grid pattern overview — when to use grid role"
-      - "Keyboard interaction — full navigation spec"
-      - "Required ARIA roles and states"
-      - "Focus management patterns"
-
-  - name: "APG Table Pattern"
-    url: "https://www.w3.org/WAI/ARIA/apg/patterns/table/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Table definition — static tabular structure"
-      - "Distinction from grid role"
-
-  - name: "APG Sortable Table Example"
-    url: "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Sortable table HTML structure"
-      - "aria-sort usage on th elements"
-      - "Caption with sort instructions"
-
-  - name: "WAI-ARIA 1.2 — grid role"
-    url: "https://www.w3.org/TR/wai-aria-1.2/#grid"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "grid role definition"
-      - "Required owned elements (row)"
-      - "Required states and properties"
-      - "Parent-child relationships"
-
-  - name: "W3C Tables Tutorial"
-    url: "https://www.w3.org/WAI/tutorials/tables/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Table caption usage"
-      - "th scope attribute — col, row, colgroup, rowgroup"
-      - "headers attribute for complex tables"
-
-  - name: "Adrian Roselli — ARIA Grid As an Anti-Pattern"
-    url: "https://adrianroselli.com/2020/07/aria-grid-as-an-anti-pattern.html"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "When grid role is appropriate (Excel-like)"
-      - "Responsive design breaks grid navigation"
-      - "Keyboard-only user confusion"
-      - "Library accessibility claims"
-
-  - name: "Adrian Roselli — Don't Turn a Table into an ARIA Grid Just for a Clickable Row"
-    url: "https://adrianroselli.com/2023/11/dont-turn-a-table-into-an-aria-grid-just-for-a-clickable-row.html"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Clickable rows do not require grid semantics"
-      - "Alternative patterns for row selection"
-
-  - name: "Adrian Roselli — Sortable Table Columns"
-    url: "https://adrianroselli.com/2021/04/sortable-table-columns.html"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Recommended sortable table HTML structure"
-      - "aria-sort placement rules"
-      - "Button in th for keyboard access"
-
-  - name: "Sarah Higley — Grids Part 1: To grid or not to grid"
-    url: "https://sarahmhigley.com/writing/grids-part1/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Decision criteria: table vs grid"
-      - "Tables with interactivity are still tables"
-      - "Misconception that interactivity requires grid"
-
-  - name: "Sarah Higley — Grids Part 2: Semantics"
-    url: "https://sarahmhigley.com/writing/grids-part2/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "CSS display overrides break table semantics"
-      - "Browser/AT combinations affected"
-
-  - name: "PowerMapper — Data table with role=grid screen reader compatibility"
-    url: "https://www.powermapper.com/tests/screen-readers/tables/table-role-grid/"
-    type: test-results
-    accessed: "2026-03-27"
-    sections_used:
-      - "JAWS grid announcement behavior"
-      - "NVDA grid announcement behavior"
-      - "VoiceOver grid announcement behavior"
-      - "Forms mode / application mode differences"
-
-  - name: "a11ysupport.io — aria-sort attribute"
-    url: "https://a11ysupport.io/tech/aria/aria-sort_attribute"
-    type: test-results
-    accessed: "2026-03-27"
-    sections_used:
-      - "Screen reader support for aria-sort announcements"
-      - "VoiceOver macOS does not announce sort changes"
-      - "TalkBack does not announce sort changes"
-
-  - name: "MDN — ARIA: aria-sort attribute"
-    url: "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-sort"
-    type: reference
-    accessed: "2026-03-27"
-    sections_used:
-      - "aria-sort values and usage"
+- name: APG Grid Pattern
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/grid/
+  type: w3c-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Grid pattern overview — when to use grid role
+  - Keyboard interaction — full navigation spec
+  - Required ARIA roles and states
+  - Focus management patterns
+- name: APG Table Pattern
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/table/
+  type: w3c-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Table definition — static tabular structure
+  - Distinction from grid role
+- name: APG Sortable Table Example
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/
+  type: w3c-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Sortable table HTML structure
+  - aria-sort usage on th elements
+  - Caption with sort instructions
+- name: WAI-ARIA 1.2 — grid role
+  url: https://www.w3.org/TR/wai-aria-1.2/#grid
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - grid role definition
+  - Required owned elements (row)
+  - Required states and properties
+  - Parent-child relationships
+- name: W3C Tables Tutorial
+  url: https://www.w3.org/WAI/tutorials/tables/
+  type: w3c-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Table caption usage
+  - th scope attribute — col, row, colgroup, rowgroup
+  - headers attribute for complex tables
+- name: Adrian Roselli — ARIA Grid As an Anti-Pattern
+  url: https://adrianroselli.com/2020/07/aria-grid-as-an-anti-pattern.html
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - When grid role is appropriate (Excel-like)
+  - Responsive design breaks grid navigation
+  - Keyboard-only user confusion
+  - Library accessibility claims
+- name: Adrian Roselli — Don't Turn a Table into an ARIA Grid Just for a Clickable Row
+  url: https://adrianroselli.com/2023/11/dont-turn-a-table-into-an-aria-grid-just-for-a-clickable-row.html
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Clickable rows do not require grid semantics
+  - Alternative patterns for row selection
+- name: Adrian Roselli — Sortable Table Columns
+  url: https://adrianroselli.com/2021/04/sortable-table-columns.html
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Recommended sortable table HTML structure
+  - aria-sort placement rules
+  - Button in th for keyboard access
+- name: 'Sarah Higley — Grids Part 1: To grid or not to grid'
+  url: https://sarahmhigley.com/writing/grids-part1/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - 'Decision criteria: table vs grid'
+  - Tables with interactivity are still tables
+  - Misconception that interactivity requires grid
+- name: 'Sarah Higley — Grids Part 2: Semantics'
+  url: https://sarahmhigley.com/writing/grids-part2/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - CSS display overrides break table semantics
+  - Browser/AT combinations affected
+- name: PowerMapper — Data table with role=grid screen reader compatibility
+  url: https://www.powermapper.com/tests/screen-readers/tables/table-role-grid/
+  type: test-results
+  accessed: '2026-03-27'
+  sections_used:
+  - JAWS grid announcement behavior
+  - NVDA grid announcement behavior
+  - VoiceOver grid announcement behavior
+  - Forms mode / application mode differences
+- name: a11ysupport.io — aria-sort attribute
+  url: https://a11ysupport.io/tech/aria/aria-sort_attribute
+  type: test-results
+  accessed: '2026-03-27'
+  sections_used:
+  - Screen reader support for aria-sort announcements
+  - VoiceOver macOS does not announce sort changes
+  - TalkBack does not announce sort changes
+- name: 'MDN — ARIA: aria-sort attribute'
+  url: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-sort
+  type: reference
+  accessed: '2026-03-27'
+  sections_used:
+  - aria-sort values and usage
+- name: WAI-ARIA aria-sort
+  url: https://www.w3.org/TR/wai-aria-1.2/#aria-sort
+  used_in:
+  - references/sortable-tables.md
+  accessed: '2026-03-27'
+  type: specification
+  notes: Exact citation registered; existing source metadata retained. Registration is not a new compatibility
+    test.

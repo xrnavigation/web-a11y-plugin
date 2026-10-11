@@ -1,4 +1,4 @@
-# Autocomplete Attribute Values (Complete Reference)
+# Autocomplete Attribute Values
 ## Contents
 
 - [Personal Information](#personal-information)
@@ -16,7 +16,7 @@
 - [Token Order](#token-order)
 
 
-The `autocomplete` attribute enables browsers and password managers to auto-fill fields. Required for WCAG 1.3.5 (Identify Input Purpose) and supports accessible authentication (WCAG 3.3.8/3.3.9).
+Use supported `autocomplete` tokens to expose applicable input purposes. SC 1.3.5 covers fields collecting information about the user, with purposes in its taxonomy and supported technology; it does not require this attribute on every field. Whether a browser actually autofills is separate from exposing purpose ([Identify Input Purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html)).
 
 Source: [HTML Spec: Autofill](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill)
 

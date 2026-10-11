@@ -19,7 +19,7 @@ Expanded anti-patterns with code examples and fixes. Each is cited to primary so
 
 ## 1. Relying Solely on Color to Indicate Errors
 
-Color-vision deficiency affects approximately 350 million people worldwide.
+Identify errors in text and expose field associations; color alone is insufficient. ([WAI validation](https://www.w3.org/WAI/tutorials/forms/validation/))
 
 ```html
 <!-- WRONG — red border only -->
@@ -27,10 +27,10 @@ Color-vision deficiency affects approximately 350 million people worldwide.
 
 <!-- RIGHT — text + border + icon -->
 <input style="border-color: red" aria-invalid="true" aria-describedby="err1">
-<span id="err1" role="alert">&#9888; Email: must include an @ symbol.</span>
+<span id="err1">&#9888; Email: must include an @ symbol.</span>
 ```
 
-Always combine: text description + visual indicator (border/icon) + ARIA markup.
+Provide text identifying the error and programmatic field association; border/icons can supplement it. WCAG does not prescribe a number of visual indicators. ([WAI validation](https://www.w3.org/WAI/tutorials/forms/validation/))
 ([NN/g](https://www.nngroup.com/articles/error-message-guidelines/))
 
 ---
@@ -67,7 +67,7 @@ Premature validation punishes exploration and increases cognitive load. Users ne
 <div class="error">Please check your entries.</div>
 
 <!-- RIGHT -->
-<div class="error" role="alert">
+<div class="error">
   Email: must include an @ symbol. Example: name@example.com
 </div>
 ```
@@ -80,7 +80,7 @@ Users with cognitive disabilities cannot infer which field has the problem or wh
 ## 4. Auto-Submitting Forms on Input Change
 
 ```html
-<!-- WRONG — auto-submits on selection -->
+<!-- WRONG — changes context on selection without advance advice -->
 <select onchange="this.form.submit()">
   <option>United States</option>
   <option>Canada</option>
@@ -94,7 +94,7 @@ Users with cognitive disabilities cannot infer which field has the problem or wh
 <button type="submit">Apply</button>
 ```
 
-Keyboard users cycling through options with arrow keys trigger submission on every option. Screen reader users navigating options cannot preview choices. Violates SC 3.2.2.
+Submission during selection can disrupt option exploration. SC 3.2.2 fails when changing a setting causes a change of context without advising the user beforehand; advance advice can satisfy that condition. Explicit submission is the project default.
 ([WCAG SC 3.2.2](https://www.w3.org/WAI/WCAG22/Understanding/on-input.html))
 
 ---
@@ -132,7 +132,7 @@ setTimeout(() => {
 }, 28 * 60 * 1000);
 ```
 
-Users who step away to collect documents, take medication, or rest lose all their work. Violates SC 2.2.1.
+Expiry can interrupt users gathering information or taking a break. SC 2.2.1 fails only when a content-set limit lacks an applicable turn-off, adjustment, or extension route and no exception applies. Warn about data-loss timeouts at AAA as required by SC 2.2.6; recover eligible progress under security/privacy policy.
 ([WCAG SC 2.2.1](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html))
 
 ---
@@ -184,7 +184,7 @@ Using different words for the same concept forces users to re-learn vocabulary o
 <h1>Shipping Address (Step 2 of 4)</h1>
 ```
 
-Users with memory deficits lose track of where they are and how much remains. Without step indicators, abandonment rates increase significantly.
+Users with memory deficits lose track of where they are and how much remains. Project guidance: make current step and remaining work clear; do not claim measured abandonment rates without study evidence.
 ([WebAIM](https://webaim.org/articles/cognitive/design))
 
 ---
@@ -192,17 +192,17 @@ Users with memory deficits lose track of where they are and how much remains. Wi
 ## 10. Destroying User Input on Validation Error
 
 ```javascript
-// WRONG — clears the form on error
+// WRONG — clears eligible non-sensitive entries on error
 if (!isValid(form)) {
   form.reset();
   showErrors();
 }
 
-// RIGHT — preserve input, show errors inline
+// RIGHT — retain eligible safe form state; exclude policy-restricted fields
 if (!isValid(form)) {
-  showErrorsInline(); // fields retain their values
+  showErrorsInline(); // eligible non-sensitive fields retain their values
 }
 ```
 
-Clearing fields forces users to re-enter everything from scratch. Users with memory or attention difficulties may not remember what they entered. Always preserve input and let users correct in place.
+Clearing fields forces users to re-enter everything from scratch. Users with memory or attention difficulties may not remember what they entered. Preserve eligible entries and let users correct in place; explain security/privacy-required re-entry for restricted fields.
 ([NN/g](https://www.nngroup.com/articles/error-message-guidelines/))

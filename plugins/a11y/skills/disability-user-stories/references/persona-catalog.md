@@ -163,7 +163,7 @@ Treats disability as a mismatch between person and environment. Maps each abilit
 
 1. **Recognize exclusion** -- identify who is excluded and why
 2. **Learn from diversity** -- people who adapt to barriers are experts in innovation
-3. **Solve for one, extend to many** -- solutions for permanent disabilities benefit everyone
+3. **Solve for one, extend to many** -- solutions can support additional users; validate rather than assuming universal benefit
 
 ### Spectrum Table
 

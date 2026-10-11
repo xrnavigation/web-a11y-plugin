@@ -1,237 +1,42 @@
-# Playwright + axe-core Integration
-## Contents
+# Playwright scan integration
 
-- [Install](#install)
-- [Full Page Scan](#full-page-scan)
-- [WCAG Level Filtering](#wcag-level-filtering)
-- [Targeted Scan (include/exclude)](#targeted-scan-includeexclude)
-- [Disabling Specific Rules](#disabling-specific-rules)
-- [Reusable Test Fixture](#reusable-test-fixture)
-- [Attaching Results for Debugging](#attaching-results-for-debugging)
-- [Scanning After Interaction](#scanning-after-interaction)
-- [Scanning Multiple States](#scanning-multiple-states)
-- [CI Configuration](#ci-configuration)
-  - [Playwright config for a11y tests](#playwright-config-for-a11y-tests)
-  - [Run a11y tests separately](#run-a11y-tests-separately)
-
-
-Patterns for integrating accessibility testing into Playwright E2E test suites.
-
----
-
-## Install
-
-```bash
-npm install --save-dev @axe-core/playwright
-```
-
----
-
-## Full Page Scan
+Reuse the project's existing fixtures and baseURL. Scan the actual state after an
+explicit readiness assertion, retaining full results. These samples detect rules
+in tested states; they do not establish WCAG conformance
+([Playwright](https://playwright.dev/docs/accessibility-testing)).
 
 ```typescript
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-test('page has no accessibility violations', async ({ page }) => {
-  await page.goto('https://example.com');
-
-  const results = await new AxeBuilder({ page }).analyze();
-
-  expect(results.violations).toEqual([]);
-});
-```
-
----
-
-## WCAG Level Filtering
-
-```typescript
-test('page meets WCAG 2.1 AA', async ({ page }) => {
-  await page.goto('https://example.com');
-
-  const results = await new AxeBuilder({ page })
-    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-    .analyze();
-
-  expect(results.violations).toEqual([]);
-});
-```
-
----
-
-## Targeted Scan (include/exclude)
-
-```typescript
-test('main content is accessible', async ({ page }) => {
-  await page.goto('https://example.com');
-
-  const results = await new AxeBuilder({ page })
-    .include('#main-content')
-    .exclude('.known-issue-component')
-    .exclude('.third-party-widget')
-    .analyze();
-
-  expect(results.violations).toEqual([]);
-});
-```
-
----
-
-## Disabling Specific Rules
-
-```typescript
-test('page accessible (ignoring color contrast)', async ({ page }) => {
-  await page.goto('https://example.com');
-
-  const results = await new AxeBuilder({ page })
-    .disableRules(['color-contrast'])
-    .analyze();
-
-  expect(results.violations).toEqual([]);
-});
-```
-
----
-
-## Reusable Test Fixture
-
-Create a shared fixture so all tests use consistent configuration:
-
-```typescript
-// a11y-fixtures.ts
-import { test as base } from '@playwright/test';
-import AxeBuilder from '@axe-core/playwright';
-
-type A11yFixtures = {
-  makeAxeBuilder: () => AxeBuilder;
-};
-
-export const test = base.extend<A11yFixtures>({
-  makeAxeBuilder: async ({ page }, use) => {
-    await use(() =>
-      new AxeBuilder({ page })
-        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-        .exclude('.third-party-widget')
-    );
-  },
-});
-
-export { expect } from '@playwright/test';
-```
-
-Usage:
-
-```typescript
-// my-page.spec.ts
-import { test, expect } from './a11y-fixtures';
-
-test('homepage is accessible', async ({ page, makeAxeBuilder }) => {
+test('open settings has no detected axe violations', async ({ page }, testInfo) => {
   await page.goto('/');
-  const results = await makeAxeBuilder().analyze();
-  expect(results.violations).toEqual([]);
-});
-
-test('about page is accessible', async ({ page, makeAxeBuilder }) => {
-  await page.goto('/about');
-  const results = await makeAxeBuilder().analyze();
-  expect(results.violations).toEqual([]);
-});
-```
-
----
-
-## Attaching Results for Debugging
-
-Attach scan results to the Playwright test report for post-run analysis:
-
-```typescript
-test('a11y audit with attached results', async ({ page }, testInfo) => {
-  await page.goto('https://example.com');
-
+  await page.getByRole('button', { name: 'Settings', exact: true }).click();
+  await expect(page.getByRole('dialog', { name: 'Settings', exact: true })).toBeVisible();
   const results = await new AxeBuilder({ page }).analyze();
-
-  await testInfo.attach('a11y-results', {
-    body: JSON.stringify(results, null, 2),
-    contentType: 'application/json',
+  await testInfo.attach('axe-settings', {
+    body: JSON.stringify(results, null, 2), contentType: 'application/json'
   });
-
   expect(results.violations).toEqual([]);
 });
 ```
 
----
+Extend the repository's actual test harness for keyboard entry, containment,
+close and restoration. Report screen reader checks separately; DOM assertions do
+not establish speech output
+([Playwright](https://playwright.dev/docs/accessibility-testing)).
 
-## Scanning After Interaction
+## Scope and known issues
 
-For SPAs and dynamic content, scan after the page reaches the desired state:
+Use include for an intentionally component-scoped scan, and name its scope in the
+report. Exclude suppresses every rule for the subtree: an excluded third-party
+widget or known defect remains unverified. Prefer stable fingerprints with an
+owned issue/review date rather than blanket exclusions or full result snapshots
+([Playwright known issues](https://playwright.dev/docs/accessibility-testing)).
 
-```typescript
-test('modal dialog is accessible', async ({ page }) => {
-  await page.goto('/');
-  await page.click('button#open-settings');
-  await page.waitForSelector('[role="dialog"]');
+## Rule tags
 
-  const results = await new AxeBuilder({ page })
-    .include('[role="dialog"]')
-    .analyze();
-
-  expect(results.violations).toEqual([]);
-});
-```
-
----
-
-## Scanning Multiple States
-
-Test accessibility across different component states:
-
-```typescript
-test('form accessibility across states', async ({ page }) => {
-  await page.goto('/register');
-
-  // Empty form state
-  const emptyResults = await new AxeBuilder({ page })
-    .include('form')
-    .analyze();
-  expect(emptyResults.violations).toEqual([]);
-
-  // Validation error state
-  await page.click('button[type="submit"]');
-  await page.waitForSelector('.error-message');
-
-  const errorResults = await new AxeBuilder({ page })
-    .include('form')
-    .analyze();
-  expect(errorResults.violations).toEqual([]);
-});
-```
-
----
-
-## CI Configuration
-
-### Playwright config for a11y tests
-
-```typescript
-// playwright.config.ts
-import { defineConfig } from '@playwright/test';
-
-export default defineConfig({
-  testDir: './tests/a11y',
-  use: {
-    baseURL: 'http://localhost:3000',
-  },
-  webServer: {
-    command: 'npm start',
-    url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
-  },
-});
-```
-
-### Run a11y tests separately
-
-```bash
-npx playwright test --config playwright.a11y.config.ts
-```
+Choose supported rule tags from the installed axe version for the requested WCAG
+version/level. Tags are not impact filtering, and best-practice rules are not
+criteria. Retain incomplete/manual-review results as well as violations
+([axe API](https://github.com/dequelabs/axe-core/blob/develop/doc/API.md)).

@@ -1,238 +1,251 @@
-# Sources for at-experience-verification skill
-# Every claim in the skill and reference files is backed by one or more of these sources.
-
-screen_reader_behavior:
-  - name: "Deque NVDA Keyboard Shortcuts"
-    url: "https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts"
-    accessed: "2026-03-27"
-    used_for: "NVDA announcement patterns, navigation shortcuts"
-
-  - name: "Illinois Screen Reader Guide"
-    url: "https://doit.illinois.gov/initiatives/accessibility/testing/screen-reader-guide.html"
-    accessed: "2026-03-27"
-    used_for: "Screen reader output comparisons"
-
-  - name: "CSS-Tricks: Comparing JAWS, NVDA, and VoiceOver"
-    url: "https://css-tricks.com/comparing-jaws-nvda-and-voiceover/"
-    accessed: "2026-03-27"
-    used_for: "Cross-screen-reader announcement differences"
-
-surveys_and_statistics:
-  - name: "WebAIM Screen Reader Survey #10 (2024)"
-    url: "https://webaim.org/projects/screenreadersurvey10/"
-    accessed: "2026-03-27"
-    used_for: "71.6% navigate by headings; 86% want more accessible sites; overlay ratings; frustration rankings"
-
-  - name: "WebAIM Million 2022"
-    url: "https://webaim.org/projects/million/"
-    accessed: "2026-03-27"
-    used_for: "83.9% of homepages have low-contrast text; 31.6 average instances per page"
-
-first_person_accounts:
-  - name: "UsableNet: A Screen Reader User's Honest Take"
-    url: "https://blog.usablenet.com/a-screen-reader-users-honest-take"
-    accessed: "2026-03-27"
-    used_for: "Will it work for me; travel booking abandonment; half of apps unusable"
-
-  - name: "UsableNet: Growing Up with Accessibility Gaps"
-    url: "https://blog.usablenet.com/growing-up-with-accessibility-gaps-a-screen-reader-user-reflects"
-    accessed: "2026-03-27"
-    used_for: "Social media isolation; education barriers; form abandonment"
-
-  - name: "UsableNet: Summer 2025 Digital Accessibility Review"
-    url: "https://blog.usablenet.com/summer-2025-digital-accessibility-a-screen-readers-review"
-    accessed: "2026-03-27"
-    used_for: "Restaurant QR code failure"
-
-  - name: "Allyant: My Experience Navigating the Web as a Blind User"
-    url: "https://allyant.com/blog/my-experience-of-navigating-the-web-as-a-blind-user/"
-    accessed: "2026-03-27"
-    used_for: "Instant-leave triggers; asymmetry of effort; overlay as unwanted glasses"
-
-  - name: "Overlay Fact Sheet"
-    url: "https://overlayfactsheet.com/en/"
-    accessed: "2026-03-27"
-    used_for: "Overlay hellish experience quote; 1001+ signatories"
-
-headings_and_structure:
-  - name: "Yale: Headings"
-    url: "https://usability.yale.edu/web-accessibility/articles/headings"
-    accessed: "2026-03-27"
-    used_for: "Heading navigation, 2-min vs 20-30 min comparison"
-
-  - name: "WebAIM: Headings"
-    url: "https://webaim.org/techniques/headings/"
-    accessed: "2026-03-27"
-    used_for: "Heading structure as navigation"
-
-  - name: "web.dev: Headings and Landmarks"
-    url: "https://web.dev/articles/headings-and-landmarks"
-    accessed: "2026-03-27"
-    used_for: "Heading structure best practices"
-
-forms_and_labels:
-  - name: "W3C WAI: Form Labels"
-    url: "https://www.w3.org/WAI/tutorials/forms/labels/"
-    accessed: "2026-03-27"
-    used_for: "Unlabeled form field experience"
-
-  - name: "BeAccessible: Forms Accessibility"
-    url: "https://beaccessible.com/post/forms-accessibility/"
-    accessed: "2026-03-27"
-    used_for: "Form field labeling patterns"
-
-  - name: "Deque: The Problem with Placeholders"
-    url: "https://www.deque.com/blog/accessible-forms-the-problem-with-placeholders/"
-    accessed: "2026-03-27"
-    used_for: "Placeholder contrast and persistence issues"
-
-  - name: "W3C: Placeholder Research"
-    url: "https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Placeholder_Research"
-    accessed: "2026-03-27"
-    used_for: "Placeholder text accessibility problems"
-
-images_and_alt_text:
-  - name: "WebAIM: Alternative Text"
-    url: "https://webaim.org/techniques/alttext/"
-    accessed: "2026-03-27"
-    used_for: "Missing alt text experience, filename reading"
-
-  - name: "WCAG.com: Good Alt Text, Bad Alt Text"
-    url: "https://www.wcag.com/blog/good-alt-text-bad-alt-text-making-your-content-perceivable/"
-    accessed: "2026-03-27"
-    used_for: "Alt text quality comparison"
-
-  - name: "TestParty: Alt Text Best Practices"
-    url: "https://testparty.ai/blog/alt-text-best-practices"
-    accessed: "2026-03-27"
-    used_for: "Alt text writing guidance"
-
-aria_and_roles:
-  - name: "W3C APG: Read Me First"
-    url: "https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/"
-    accessed: "2026-03-27"
-    used_for: "A role is a promise; no ARIA is better than bad ARIA"
-
-  - name: "MDN: ARIA button role"
-    url: "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/button_role"
-    accessed: "2026-03-27"
-    used_for: "div role=button without keyboard handler"
-
-  - name: "aditus: aria-label"
-    url: "https://www.aditus.io/aria/aria-label/"
-    accessed: "2026-03-27"
-    used_for: "aria-label mismatch with visible text"
-
-  - name: "BOIA: ARIA Mistakes"
-    url: "https://www.boia.org/blog/4-mistakes-to-avoid-when-using-aria-roles"
-    accessed: "2026-03-27"
-    used_for: "Wrong ARIA worse than no ARIA"
-
-  - name: "WCAG 2.1 SC 2.5.3: Label in Name"
-    url: "https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html"
-    accessed: "2026-03-27"
-    used_for: "aria-label must contain visible text"
-
-focus_and_keyboard:
-  - name: "TestParty: Modal Dialog Accessibility"
-    url: "https://testparty.ai/blog/modal-dialog-accessibility"
-    accessed: "2026-03-27"
-    used_for: "Focus stays behind modal, focus not returned"
-
-  - name: "Focus Containment - DEV"
-    url: "https://dev.to/jantimon/focus-containment-the-broken-state-of-keyboard-navigation-45l1"
-    accessed: "2026-03-27"
-    used_for: "GitLab search bar focus loss quote"
-
-  - name: "OpenReplay: Modal Accessibility Issues"
-    url: "https://blog.openreplay.com/common-accessibility-issues-modals-fix/"
-    accessed: "2026-03-27"
-    used_for: "Modal focus management patterns"
-
-  - name: "216digital: Keyboard Traps"
-    url: "https://216digital.com/lost-in-focus-blame-keyboard-traps/"
-    accessed: "2026-03-27"
-    used_for: "Keyboard trap quote, trap patterns"
-
-  - name: "BOIA: Keyboard Traps"
-    url: "https://www.boia.org/blog/why-keyboard-traps-are-one-of-the-most-frustrating-accessibility-issues"
-    accessed: "2026-03-27"
-    used_for: "Keyboard trap frustration"
-
-  - name: "A11Y Collective: Keyboard Trap"
-    url: "https://www.a11y-collective.com/blog/keyboard-trap/"
-    accessed: "2026-03-27"
-    used_for: "Keyboard trap patterns and fixes"
-
-  - name: "A11Y Project: Never Remove CSS Outlines"
-    url: "https://www.a11yproject.com/posts/never-remove-css-outlines/"
-    accessed: "2026-03-27"
-    used_for: "Focus indicator removal as anti-pattern"
-
-  - name: "OutlineNone.com"
-    url: "https://www.outlinenone.com/"
-    accessed: "2026-03-27"
-    used_for: "Focus indicator removal consequences"
-
-  - name: "MDN: :focus-visible"
-    url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-visible"
-    accessed: "2026-03-27"
-    used_for: "focus-visible as the correct solution"
-
-  - name: "WebAIM: Keyboard Accessibility"
-    url: "https://webaim.org/techniques/keyboard/"
-    accessed: "2026-03-27"
-    used_for: "Excessive tabbing, skip links"
-
-  - name: "NNGroup: Keyboard Accessibility"
-    url: "https://www.nngroup.com/articles/keyboard-accessibility/"
-    accessed: "2026-03-27"
-    used_for: "Keyboard navigation best practices"
-
-  - name: "Level Access: Keyboard Navigation Guide"
-    url: "https://www.levelaccess.com/blog/keyboard-navigation-complete-web-accessibility-guide/"
-    accessed: "2026-03-27"
-    used_for: "Who relies on keyboard navigation"
-
-low_vision_and_contrast:
-  - name: "NNGroup: Low Contrast"
-    url: "https://www.nngroup.com/articles/low-contrast/"
-    accessed: "2026-03-27"
-    used_for: "Users blame themselves quote, straining eyes quote"
-
-  - name: "W3C: Resize Content"
-    url: "https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Resize_content"
-    accessed: "2026-03-27"
-    used_for: "40-100x reading effort for horizontal scrolling"
-
-  - name: "BOIA: Low Contrast Text"
-    url: "https://www.boia.org/blog/low-contrast-text-remains-the-most-common-accessibility-issue-in-2023"
-    accessed: "2026-03-27"
-    used_for: "Most common violation statistics"
-
-error_messages:
-  - name: "TetraLogical: Form Validation and Error Messages"
-    url: "https://tetralogical.com/blog/2024/10/21/foundations-form-validation-and-error-messages/"
-    accessed: "2026-03-27"
-    used_for: "Error message patterns"
-
-  - name: "Smashing Magazine: Accessible Form Validation"
-    url: "https://www.smashingmagazine.com/2023/02/guide-accessible-form-validation/"
-    accessed: "2026-03-27"
-    used_for: "Error message best practices"
-
-  - name: "WebAIM: Form Validation"
-    url: "https://webaim.org/techniques/formvalidation/"
-    accessed: "2026-03-27"
-    used_for: "Error announcement patterns"
-
-links_and_content:
-  - name: "Yale: Accessible Links"
-    url: "https://usability.yale.edu/web-accessibility/articles/links"
-    accessed: "2026-03-27"
-    used_for: "Link text quality"
-
-  - name: "WCAG.com: Meaningful Link Text"
-    url: "https://www.wcag.com/blog/writing-meaningful-link-text/"
-    accessed: "2026-03-27"
-    used_for: "Link text best practices"
+sources:
+- name: Deque NVDA Keyboard Shortcuts
+  url: https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts
+  accessed: '2026-03-27'
+  used_for: NVDA announcement patterns, navigation shortcuts
+- name: Illinois Screen Reader Guide
+  url: https://doit.illinois.gov/initiatives/accessibility/testing/screen-reader-guide.html
+  accessed: '2026-03-27'
+  used_for: Screen reader output comparisons
+- name: 'CSS-Tricks: Comparing JAWS, NVDA, and VoiceOver'
+  url: https://css-tricks.com/comparing-jaws-nvda-and-voiceover/
+  accessed: '2026-03-27'
+  used_for: Cross-screen-reader announcement differences
+- name: 'WebAIM Screen Reader Survey #10 (2024)'
+  url: https://webaim.org/projects/screenreadersurvey10/
+  accessed: '2026-03-27'
+  used_for: 71.6% navigate by headings; 86% want more accessible sites; overlay ratings; frustration rankings
+- name: WebAIM Million 2022
+  url: https://webaim.org/projects/million/
+  accessed: '2026-03-27'
+  used_for: 83.9% of homepages have low-contrast text; 31.6 average instances per page
+- name: 'UsableNet: A Screen Reader User''s Honest Take'
+  url: https://blog.usablenet.com/a-screen-reader-users-honest-take
+  accessed: '2026-03-27'
+  used_for: Will it work for me; travel booking abandonment; half of apps unusable
+- name: 'UsableNet: Growing Up with Accessibility Gaps'
+  url: https://blog.usablenet.com/growing-up-with-accessibility-gaps-a-screen-reader-user-reflects
+  accessed: '2026-03-27'
+  used_for: Social media isolation; education barriers; form abandonment
+- name: 'UsableNet: Summer 2025 Digital Accessibility Review'
+  url: https://blog.usablenet.com/summer-2025-digital-accessibility-a-screen-readers-review
+  accessed: '2026-03-27'
+  used_for: Restaurant QR code failure
+- name: 'Allyant: My Experience Navigating the Web as a Blind User'
+  url: https://allyant.com/blog/my-experience-of-navigating-the-web-as-a-blind-user/
+  accessed: '2026-03-27'
+  used_for: Instant-leave triggers; asymmetry of effort; overlay as unwanted glasses
+- name: Overlay Fact Sheet
+  url: https://overlayfactsheet.com/en/
+  accessed: '2026-03-27'
+  used_for: Overlay hellish experience quote; 1001+ signatories
+- name: 'Yale: Headings'
+  url: https://usability.yale.edu/web-accessibility/articles/headings
+  accessed: '2026-03-27'
+  used_for: Heading navigation, 2-min vs 20-30 min comparison
+- name: 'WebAIM: Headings'
+  url: https://webaim.org/techniques/headings/
+  accessed: '2026-03-27'
+  used_for: Heading structure as navigation
+- name: 'web.dev: Headings and Landmarks'
+  url: https://web.dev/articles/headings-and-landmarks
+  accessed: '2026-03-27'
+  used_for: Heading structure best practices
+- name: 'W3C WAI: Form Labels'
+  url: https://www.w3.org/WAI/tutorials/forms/labels/
+  accessed: '2026-03-27'
+  used_for: Unlabeled form field experience
+- name: 'BeAccessible: Forms Accessibility'
+  url: https://beaccessible.com/post/forms-accessibility/
+  accessed: '2026-03-27'
+  used_for: Form field labeling patterns
+- name: 'Deque: The Problem with Placeholders'
+  url: https://www.deque.com/blog/accessible-forms-the-problem-with-placeholders/
+  accessed: '2026-03-27'
+  used_for: Placeholder contrast and persistence issues
+- name: 'W3C: Placeholder Research'
+  url: https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Placeholder_Research
+  accessed: '2026-03-27'
+  used_for: Placeholder text accessibility problems
+- name: 'WebAIM: Alternative Text'
+  url: https://webaim.org/techniques/alttext/
+  accessed: '2026-03-27'
+  used_for: Missing alt text experience, filename reading
+- name: 'WCAG.com: Good Alt Text, Bad Alt Text'
+  url: https://www.wcag.com/blog/good-alt-text-bad-alt-text-making-your-content-perceivable/
+  accessed: '2026-03-27'
+  used_for: Alt text quality comparison
+- name: 'TestParty: Alt Text Best Practices'
+  url: https://testparty.ai/blog/alt-text-best-practices
+  accessed: '2026-03-27'
+  used_for: Alt text writing guidance
+- name: 'W3C APG: Read Me First'
+  url: https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/
+  accessed: '2026-03-27'
+  used_for: A role is a promise; no ARIA is better than bad ARIA
+- name: 'MDN: ARIA button role'
+  url: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/button_role
+  accessed: '2026-03-27'
+  used_for: div role=button without keyboard handler
+- name: 'aditus: aria-label'
+  url: https://www.aditus.io/aria/aria-label/
+  accessed: '2026-03-27'
+  used_for: aria-label mismatch with visible text
+- name: 'BOIA: ARIA Mistakes'
+  url: https://www.boia.org/blog/4-mistakes-to-avoid-when-using-aria-roles
+  accessed: '2026-03-27'
+  used_for: Wrong ARIA worse than no ARIA
+- name: 'WCAG 2.1 SC 2.5.3: Label in Name'
+  url: https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html
+  accessed: '2026-03-27'
+  used_for: aria-label must contain visible text
+- name: 'TestParty: Modal Dialog Accessibility'
+  url: https://testparty.ai/blog/modal-dialog-accessibility
+  accessed: '2026-03-27'
+  used_for: Focus stays behind modal, focus not returned
+- name: Focus Containment - DEV
+  url: https://dev.to/jantimon/focus-containment-the-broken-state-of-keyboard-navigation-45l1
+  accessed: '2026-03-27'
+  used_for: GitLab search bar focus loss quote
+- name: 'OpenReplay: Modal Accessibility Issues'
+  url: https://blog.openreplay.com/common-accessibility-issues-modals-fix/
+  accessed: '2026-03-27'
+  used_for: Modal focus management patterns
+- name: '216digital: Keyboard Traps'
+  url: https://216digital.com/lost-in-focus-blame-keyboard-traps/
+  accessed: '2026-03-27'
+  used_for: Keyboard trap quote, trap patterns
+- name: 'BOIA: Keyboard Traps'
+  url: https://www.boia.org/blog/why-keyboard-traps-are-one-of-the-most-frustrating-accessibility-issues
+  accessed: '2026-03-27'
+  used_for: Keyboard trap frustration
+- name: 'A11Y Collective: Keyboard Trap'
+  url: https://www.a11y-collective.com/blog/keyboard-trap/
+  accessed: '2026-03-27'
+  used_for: Keyboard trap patterns and fixes
+- name: 'A11Y Project: Never Remove CSS Outlines'
+  url: https://www.a11yproject.com/posts/never-remove-css-outlines/
+  accessed: '2026-03-27'
+  used_for: Focus indicator removal as anti-pattern
+- name: OutlineNone.com
+  url: https://www.outlinenone.com/
+  accessed: '2026-03-27'
+  used_for: Focus indicator removal consequences
+- name: 'MDN: :focus-visible'
+  url: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-visible
+  accessed: '2026-03-27'
+  used_for: focus-visible as the correct solution
+- name: 'WebAIM: Keyboard Accessibility'
+  url: https://webaim.org/techniques/keyboard/
+  accessed: '2026-03-27'
+  used_for: Excessive tabbing, skip links
+- name: 'NNGroup: Keyboard Accessibility'
+  url: https://www.nngroup.com/articles/keyboard-accessibility/
+  accessed: '2026-03-27'
+  used_for: Keyboard navigation best practices
+- name: 'Level Access: Keyboard Navigation Guide'
+  url: https://www.levelaccess.com/blog/keyboard-navigation-complete-web-accessibility-guide/
+  accessed: '2026-03-27'
+  used_for: Who relies on keyboard navigation
+- name: 'NNGroup: Low Contrast'
+  url: https://www.nngroup.com/articles/low-contrast/
+  accessed: '2026-03-27'
+  used_for: Users blame themselves quote, straining eyes quote
+- name: 'W3C: Resize Content'
+  url: https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Resize_content
+  accessed: '2026-03-27'
+  used_for: 40-100x reading effort for horizontal scrolling
+- name: 'BOIA: Low Contrast Text'
+  url: https://www.boia.org/blog/low-contrast-text-remains-the-most-common-accessibility-issue-in-2023
+  accessed: '2026-03-27'
+  used_for: Most common violation statistics
+- name: 'TetraLogical: Form Validation and Error Messages'
+  url: https://tetralogical.com/blog/2024/10/21/foundations-form-validation-and-error-messages/
+  accessed: '2026-03-27'
+  used_for: Error message patterns
+- name: 'Smashing Magazine: Accessible Form Validation'
+  url: https://www.smashingmagazine.com/2023/02/guide-accessible-form-validation/
+  accessed: '2026-03-27'
+  used_for: Error message best practices
+- name: 'WebAIM: Form Validation'
+  url: https://webaim.org/techniques/formvalidation/
+  accessed: '2026-03-27'
+  used_for: Error announcement patterns
+- name: 'Yale: Accessible Links'
+  url: https://usability.yale.edu/web-accessibility/articles/links
+  accessed: '2026-03-27'
+  used_for: Link text quality
+- name: 'WCAG.com: Meaningful Link Text'
+  url: https://www.wcag.com/blog/writing-meaningful-link-text/
+  accessed: '2026-03-27'
+  used_for: Link text best practices
+- name: WCAG status messages
+  url: https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  - references/good-vs-bad-examples.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: APG modal dialog
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal
+  used_in:
+  - references/good-vs-bad-examples.md
+  - references/keyboard-experience.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: APG keyboard interface
+  url: https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface
+  used_in:
+  - references/keyboard-experience.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Resize text
+  url: https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html
+  used_in:
+  - references/low-vision-experience.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Reflow
+  url: https://www.w3.org/WAI/WCAG22/Understanding/reflow.html
+  used_in:
+  - references/low-vision-experience.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Text spacing
+  url: https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html
+  used_in:
+  - references/low-vision-experience.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: WAI-ARIA
+  url: https://www.w3.org/TR/wai-aria-1.2
+  used_in:
+  - SKILL.md
+  - references/screen-reader-output-catalog.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: WAI evaluation
+  url: https://www.w3.org/WAI/test-evaluate
+  used_in:
+  - SKILL.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: WCAG meaningful sequence
+  url: https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html
+  used_in:
+  - SKILL.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: WCAG keyboard
+  url: https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html
+  used_in:
+  - SKILL.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: WCAG name role value
+  url: https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html
+  used_in:
+  - SKILL.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.

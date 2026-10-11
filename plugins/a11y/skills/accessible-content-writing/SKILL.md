@@ -1,15 +1,11 @@
 ---
 name: accessible-content-writing
 description: Guides accessible content writing — link text, error messages, alt text as craft, plain language, headings as navigation, and microcopy. Auto-invokes when writing UI text, link labels, error messages, button labels, form instructions, or heading structures. Content is an interface — bad content is an accessibility barrier.
-allowed-tools: Read, Glob, Grep
 ---
 
 # Accessible Content Writing
 
-> "Content IS the interface. For screen reader users, there is no visual layout, no color coding, no spatial relationships. The words are the entire experience."
-
-> "86% said more accessible websites would have a bigger impact than better assistive technology."
-> — [WebAIM Screen Reader Survey #10](https://webaim.org/projects/screenreadersurvey10/)
+Content communicates labels, destinations, structure, instructions, and corrections. Users may access it through vision, speech, braille, or combinations. ([WAI user stories](https://www.w3.org/WAI/people-use-web/user-stories/))
 
 Bad content is an accessibility barrier, not just bad UX. Correct markup with vague link text, hostile error messages, or missing heading structure is still inaccessible. Every piece of text — label, heading, link, error, alt text — is interface design.
 
@@ -17,7 +13,7 @@ Bad content is an accessibility barrier, not just bad UX. Correct markup with va
 
 ## 1. Content Is an Interface
 
-Screen reader users do not see your layout. They hear a linear stream of text, navigate by headings, pull up link lists, and tab through interactive elements. Every word you write is a navigation aid or a navigation obstacle.
+Screen reader users may use speech, braille, and vision, with sequential reading, headings, landmarks, links, or focus navigation. Do not assume a single experience. ([WAI user stories](https://www.w3.org/WAI/people-use-web/user-stories/)) Every word you write is a navigation aid or a navigation obstacle.
 
 **The test for all content:** Does it make sense when ripped from its surrounding context — in a links list, a headings outline, or a screen reader announcement? If not, rewrite it.
 
@@ -27,7 +23,7 @@ Screen reader users do not see your layout. They hear a linear stream of text, n
 
 ### What Bad Links Sound Like
 
-Screen reader users pull up a **links list** — every link on the page, stripped of context, sorted alphabetically. Generic link text produces this:
+Screen reader users pull up a **links list** whose presentation and ordering depend on the screen reader and settings. Generic link text produces this:
 
 ```
 Click here
@@ -41,11 +37,11 @@ Read more
 Read more
 ```
 
-The user has no idea where any link goes. This is a primary navigation strategy rendered useless. ([WebAIM Survey #10](https://webaim.org/projects/screenreadersurvey10/) — 71.6% navigate by headings; link lists are comparably common.)
+The user has no idea where any link goes. This is a primary navigation strategy rendered useless. ([WebAIM Survey #10](https://webaim.org/projects/screenreadersurvey10/) — heading navigation is one available strategy; do not infer link-list frequency from it.)
 
 ### WCAG Requirement
 
-**2.4.4 Link Purpose (In Context), Level A:** Purpose determinable from link text alone or with programmatic context. **2.4.9 Link Purpose (Link Only), Level AAA:** Purpose determinable from link text alone. ([W3C SC 2.4.4](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html))
+**2.4.4 Link Purpose (In Context), Level A:** Purpose determinable from link text alone or with programmatic context. **2.4.9 Link Purpose (Link Only), Level AAA:** Purpose determinable from link text alone. ([W3C SC 2.4.4](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html); [SC 2.4.9](https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-link-only.html))
 
 ### Bad vs. Good
 
@@ -54,11 +50,11 @@ The user has no idea where any link goes. This is a primary navigation strategy 
 | "Click here to view our annual report" | "2025 annual report" | Screen readers already announce "link." "Click here" is noise. |
 | "Read more" (repeated 8 times) | "How we reduced carbon emissions by 40%" | Eight "Read more" entries are indistinguishable in a links list. |
 | "here" in "Download the PDF here" | "Download the quarterly earnings PDF" | "here" conveys zero information out of context. |
-| `https://www.example.com/reports/q3.pdf` | "Q3 2025 earnings report (PDF, 2.4 MB)" | Raw URLs force screen readers to read every character. |
+| `https://www.example.com/reports/q3.pdf` | "Q3 2025 earnings report (PDF, 2.4 MB)" | A descriptive title makes the destination clearer than a raw URL; pronunciation varies. |
 
 ### Rules
 
-- **Do not include "link" in link text.** Screen readers announce "link" before reading the text. "Link to our products page" becomes "link, link to our products page."
+- **Do not include "link" in link text.** Role output varies; repeating generic role words can add unnecessary verbosity.
 - **Be concise.** Users must listen to the entire link text. "Today's weather" beats "click here to access today's weather forecast for your area."
 - **Images as links:** The `alt` attribute serves as the link text. Describe the destination, not the image. `alt="Product catalog"` not `alt="photo of books."`
 - **Unique text for unique destinations.** If two links go to different places, they must have different text.
@@ -75,7 +71,7 @@ For detailed examples and techniques, see: [references/link-text-guide.md](refer
 
 **Visibility** — the user must notice the error:
 - Display adjacent to the field, not in a distant banner.
-- Use 3+ redundant indicators: bold, color, icon, border. Never color alone (350M people have color-vision deficiency).
+- Use visible text to identify the error and associate it with its field. Color and icons can supplement text; WCAG does not prescribe three indicators. ([WAI validation](https://www.w3.org/WAI/tutorials/forms/validation/))
 - Do not show premature errors while the user is still typing.
 
 **Communication** — the user must understand the error:
@@ -84,7 +80,7 @@ For detailed examples and techniques, see: [references/link-text-guide.md](refer
 - Non-blaming tone. No "invalid," "illegal," "you failed to."
 
 **Efficiency** — the user must be able to fix the error:
-- Preserve user input. Never clear a field on error.
+- Retain eligible safe entries for correction; explain required re-entry for credentials or policy-restricted sensitive fields.
 - Suggest corrections when possible ("Did you mean gmail.com?").
 
 ([NN/g Error-Message Guidelines](https://www.nngroup.com/articles/error-message-guidelines/))
@@ -120,7 +116,7 @@ Screen reader users press H to jump heading to heading, hearing an outline:
 
 > "Heading level 1: Apply for Disability Benefits. Heading level 2: Who is eligible. Heading level 3: Age requirements. Heading level 3: Income requirements. Heading level 2: How to apply..."
 
-They jump to the section they need and read from there. **71.6% of screen reader users navigate by headings as their first action on a new page.** Without heading structure, a 2-minute visual scan becomes a 20-30 minute linear listen. ([WebAIM Survey #10](https://webaim.org/projects/screenreadersurvey10/))
+They jump to the section they need and read from there. Heading navigation is one available strategy; behavior varies by screen reader, mode, and user. ([WAI headings](https://www.w3.org/WAI/tutorials/page-structure/headings/))
 
 ### Bad vs. Good Structure
 
@@ -145,9 +141,9 @@ Good (logical hierarchy, informative):
 
 ### Rules
 
-- One `<h1>` per page, describing the page topic.
-- Nest hierarchically: h1 > h2 > h3. Do not skip levels.
-- Every content section needs a heading — without one, screen reader users cannot jump to it.
+- Project convention: use one primary `<h1>` describing the page topic; this is not a universal WCAG count requirement.
+- Use ranks that reflect relationships. Avoid downward rank skips as authoring guidance; returning from h4 to h2 closes subsections and is normal. ([WAI headings](https://www.w3.org/WAI/tutorials/page-structure/headings/))
+- Use meaningful headings for substantial sections. Section Headings is AAA; headings that exist must describe topic/purpose at AA. ([WAI headings](https://www.w3.org/WAI/tutorials/page-structure/headings/))
 - Headings must be informative: "How to apply" not "Section 3."
 - Do not use heading tags for visual styling. Use CSS instead.
 
@@ -171,7 +167,7 @@ Plain language means the reader can understand and act on the content the first 
 
 ### WCAG Connection
 
-WCAG 3.1.5 (Reading Level, AAA) recommends content at lower secondary education level. WCAG 3.1.3 (Unusual Words) requires definitions for jargon and idioms.
+SC 3.1.5 (AAA) requires supplemental content or a version not requiring reading beyond lower secondary level when the text exceeds that level after removing proper names/titles. SC 3.1.3 (AAA) requires a mechanism to identify definitions of unusual/restricted words, including idioms and jargon. ([Reading Level](https://www.w3.org/WAI/WCAG22/Understanding/reading-level.html); [Unusual Words](https://www.w3.org/WAI/WCAG22/Understanding/unusual-words.html))
 
 ### Bad vs. Good
 
@@ -188,7 +184,7 @@ WCAG 3.1.5 (Reading Level, AAA) recommends content at lower secondary education 
 
 ### Button Labels
 
-Button text must make sense when read aloud, without visual context. Screen readers announce "button" before the text.
+Button text must make sense when read aloud, without visual context. Role announcement order varies by screen reader and settings; give the control a clear purpose. ([WAI labels](https://www.w3.org/WAI/tutorials/forms/labels/))
 
 | Bad | Good | Why |
 |-----|------|-----|
@@ -198,24 +194,17 @@ Button text must make sense when read aloud, without visual context. Screen read
 
 ### Form Element Order
 
-Screen reader users encounter elements sequentially. Correct order:
-
-1. **Label**
-2. **Hint/instruction text**
-3. **Error message** (if applicable)
-4. **Input field**
-
-If the hint appears after the input, users reach the field before knowing the format requirement, type something wrong, and only then discover the instruction.
+Use a sensible reading order with a persistent label and instructions available when needed. A hint or error can appear before or after its input; associate it using `aria-describedby` so supported assistive technology can expose the description on focus. Put essential general instructions before the relevant task and verify field-level hints in both reading and focus navigation. ([WAI form instructions](https://www.w3.org/WAI/tutorials/forms/instructions/))
 
 ### The Placeholder Problem
 
 Never use placeholder as the only label. Placeholder text:
 
 1. **Disappears on input** — users with cognitive disabilities cannot reference it while typing.
-2. **Low contrast by default** — typically fails WCAG 1.4.3 (4.5:1).
-3. **Not reliably announced** by screen readers.
+2. **Contrast must be checked** — do not infer a failure from the presence of placeholder text alone.
+3. **Does not replace a persistent associated label**; inspect naming in supported environments.
 4. **Looks pre-filled** — users with cognitive disabilities may skip it.
-5. **Is not a label** — fails WCAG 1.3.1.
+5. **Is a hint, not the recommended persistent label pattern**. ([WAI labels](https://www.w3.org/WAI/tutorials/forms/labels/))
 
 **Instead:** Use visible, persistent `<label>` elements. Use hint text outside the input for format examples.
 
@@ -224,14 +213,14 @@ Never use placeholder as the only label. Placeholder text:
 <input placeholder="Email">
 
 <!-- RIGHT -->
-<label>Email address</label>
-<span class="hint">For example, name@company.com</span>
-<input type="email">
+<label for="email">Email address</label>
+<span id="email-hint" class="hint">For example, name@company.com</span>
+<input id="email" type="email" aria-describedby="email-hint">
 ```
 
 ### Help Text
 
-- Place help text before the input, not after.
+- Place help text near its field in a sensible reading order; associated hints can precede or follow the control.
 - Never put critical information only in a tooltip.
 - Use `aria-describedby` to link help text to its field programmatically.
 - Do not place important microcopy below a submit button — screen reader users may submit before encountering it.
@@ -255,15 +244,15 @@ Prefer making the article title the link instead. ([Vision Australia Read More L
 
 ### Placeholder as Label
 
-`<input placeholder="Email">` with no `<label>` — the label disappears on focus, fails WCAG 1.3.1, and is not reliably announced by screen readers.
+`<input placeholder="Email">` with no persistent associated label — the hint disappears when a value is entered. Use the explicit label pattern and inspect name/instructions rather than assuming a fixed announcement. ([WAI labels](https://www.w3.org/WAI/tutorials/forms/labels/))
 
 ### Filename Alt Text
 
-`alt="IMG_20240315_crop2.jpg"` — the user hears every character, underscore, and file extension. This happens when alt text is auto-populated from file metadata. Always write a human description.
+`alt="IMG_20240315_crop2.jpg"` gives a filename rather than a useful alternative conveying the image's purpose. Pronunciation varies by browser, screen reader, and settings. Write a context-appropriate alternative for informative images; use empty alt for decorative images.
 
 ### Missing Alt vs. Empty Alt
 
-No `alt` attribute at all causes screen readers to read the file path. Empty `alt=""` is intentional silence for decorative images. These are not the same thing.
+Without `alt`, some screen readers may announce the filename; fallback behavior varies by environment. Empty `alt=""` is the intended pattern for decorative images that add no information. ([WAI decorative images](https://www.w3.org/WAI/tutorials/images/decorative/))
 
 ### Headings for Styling
 
@@ -290,3 +279,5 @@ For detailed reference material:
 - [references/error-message-craft.md](references/error-message-craft.md) — NN/g framework, GOV.UK patterns, AT integration
 - [references/heading-navigation.md](references/heading-navigation.md) — heading outlines, screen reader navigation, structural patterns
 - [references/sources.yaml](references/sources.yaml) — provenance for all cited sources
+
+Read [common mistakes](references/common-mistakes.md) for concrete wrong/right examples.

@@ -1,7 +1,6 @@
 ---
 name: hostile-pattern-detection
-description: Detects and prevents hostile-by-design UI patterns that disproportionately harm disabled users. Auto-invokes when creating carousels, infinite scroll, hover-only interactions, auto-playing media, CAPTCHAs, cookie consent banners, or when considering accessibility overlay widgets. These patterns may be technically "fixable" but are fundamentally hostile — the skill recommends alternatives.
-allowed-tools: Read, Glob, Grep
+description: Detects and prevents hostile-by-design UI patterns that disproportionately harm disabled users. Auto-invokes when creating carousels, infinite scroll, hover-only interactions, auto-playing media, CAPTCHAs, cookie consent banners, or when considering accessibility overlay widgets. Prioritizes user control and distinguishes observed failures from project design preferences.
 ---
 
 # Hostile Pattern Detection
@@ -12,7 +11,7 @@ allowed-tools: Read, Glob, Grep
 > "Participants experienced manipulative effects regardless of designer intent."
 > — PMC study on deceptive design and disability ([PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC12188898/))
 
-These patterns are not just inaccessible. They are hostile by design. They remove user agency, punish disability, and create barriers that persist even when you add ARIA attributes and keyboard handlers. The right response is not to make them "accessible" — it is to stop building them.
+Review these patterns for loss of user control and access barriers. Prefer simpler alternatives as project guidance. A carousel, feed, or hover popup is not automatically a WCAG failure; evaluate its actual behavior against the applicable criteria. ([WAI carousel guidance](https://www.w3.org/WAI/tutorials/carousels/), [WAI feed pattern](https://www.w3.org/WAI/ARIA/apg/patterns/feed/))
 
 ---
 
@@ -40,7 +39,7 @@ An inaccessible pattern fails to meet a spec. A hostile pattern conflicts with h
 - **Cognitive/motor users:** Content disappears before it can be read or clicked. NNGroup: "Moving UI elements usually reduce accessibility, particularly for users with motor skill issues." ([NNGroup](https://www.nngroup.com/articles/auto-forwarding/))
 - **Vestibular users:** Slide transitions trigger dizziness, vertigo, and nausea.
 
-**Why "fixing" it is not enough:** The fundamental model — auto-advancing content with partial visibility — conflicts with sequential AT navigation. Even an "accessible" carousel forces screen reader users into a paradigm designed for visual scanning. And less than 1% of visitors click carousel features anyway. ([Notre Dame study, cited by multiple sources](https://www.nngroup.com/articles/designing-effective-carousels/))
+**Project preference:** static content reduces rotation and hidden-panel complexity. When a carousel is required, implement and test the WAI/APG control, focus, and hidden-slide behavior rather than treating every carousel as intrinsically inaccessible. ([WAI carousels](https://www.w3.org/WAI/tutorials/carousels/), [APG carousel](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/))
 
 **Build this instead:** Static content. Paginated sections. Accordion panels. Tabbed interfaces (with proper ARIA — see `a11y-tabs` skill). If a carousel is truly required, see [references/carousel-alternatives.md](references/carousel-alternatives.md).
 
@@ -49,12 +48,12 @@ An inaccessible pattern fails to meet a spec. A hostile pattern conflicts with h
 **What it is:** New content auto-loads as the user scrolls toward the bottom, creating an endlessly extending page.
 
 **Who it hurts and how:**
-- **Keyboard users:** Tabbing does not trigger scroll — keyboard users cannot cause new content to load. WordPress removed infinite scroll from its Media Library for this reason. This is effectively a keyboard trap. ([Deque](https://www.deque.com/blog/infinite-scrolling-rolefeed-accessibility-issues/))
-- **Speech recognition users (Dragon):** Have no way to trigger the scroll-based loading mechanism. Completely excluded.
+- **Keyboard users:** Keyboard focus/navigation can scroll a page. A loader tied only to particular scroll events can still leave keyboard users unable to discover or reach new results; test loading, focus, and footer access. ([WAI feed pattern](https://www.w3.org/WAI/ARIA/apg/patterns/feed/)) ([Deque](https://www.deque.com/blog/infinite-scrolling-rolefeed-accessibility-issues/))
+- **Speech recognition users (Dragon):** May need explicit Load more controls and reachable destinations; inspect the supported speech/input workflow.
 - **Screen reader users:** Dynamic loading is not announced. Users think the page is simply very long. The footer is unreachable.
 - **Cognitive users:** No way to bookmark, return to, or remember a specific item. Removes natural stopping points — disproportionately affects ADHD and impulse-control difficulties.
 
-**Why "fixing" it is not enough:** `role="feed"` only helps screen reader users. It does nothing for keyboard, motor, speech recognition, or cognitive accessibility. Even with `role="feed"`, less experienced AT users may not recognize the widget pattern.
+**Implementation review:** APG feed establishes a focus/loading contract with assistive technology and recommends discoverable keyboard navigation. The role alone does not implement that contract. Test focus-driven loading, reading navigation, explicit controls, and exit behavior; pagination or Load more remain project preferences for simpler flows. ([APG feed](https://www.w3.org/WAI/ARIA/apg/patterns/feed/))
 
 **Build this instead:** Pagination with numbered links. A "Load more" button with `aria-live` announcement. Never auto-load.
 
@@ -79,11 +78,11 @@ An inaccessible pattern fails to meet a spec. A hostile pattern conflicts with h
 
 **Who it hurts and how:**
 - **Screen reader users:** Auto-playing audio competes with and drowns out screen reader speech. Two simultaneous audio streams — neither parseable. ([BOIA](https://www.boia.org/blog/why-autoplay-is-an-accessibility-no-no))
-- **Epileptic users:** Flashing video content triggers photosensitive seizures. Twitter removed Vine ads in 2015 after six-second flashing videos triggered episodes.
+- **Flashing content:** Evaluate the video against the applicable WCAG flash criteria; do not infer a clinical event from playback duration alone.
 - **Vestibular users:** Motion triggers dizziness, vertigo, and nausea.
 - **ADHD users:** Unexpected audio/video disrupts focus and makes concentration on intended content extremely difficult.
 
-**Why "fixing" it is not enough:** WCAG 1.4.2 allows auto-play if controls exist and audio stops within 3 seconds. But even a 2-second auto-play can startle, disorient, or trigger a seizure. The "3 second" rule is a minimum, not a safe harbor. The hostility is compounded when controls are unlabeled, keyboard-inaccessible, or hover-only.
+**Why "fixing" it is not enough:** SC 1.4.2 (A) requires pause/stop or independent volume control when audio plays automatically for more than three seconds. Separately assess moving content and flashes; short audio duration does not waive those criteria. ([Audio Control](https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html)) Project preference: require explicit playback for optional media. Playback duration alone does not establish a flash failure or predict a medical event. The hostility is compounded when controls are unlabeled, keyboard-inaccessible, or hover-only.
 
 **Build this instead:** Never auto-play audio. Never auto-play video with audio. If auto-play video is required, start muted with obvious unmute control. Respect `prefers-reduced-motion`. Provide captions and transcripts.
 
@@ -92,9 +91,9 @@ An inaccessible pattern fails to meet a spec. A hostile pattern conflicts with h
 **What it is:** Challenge-response tests to distinguish humans from bots — distorted text, image classification, audio challenges, puzzle sliders.
 
 **Who it hurts and how:**
-- **Blind users (most severely):** WebAIM Survey #10 (2024, 1,539 respondents) ranked CAPTCHA as the most problematic item on the web — unchanged for 14 years. Google reCAPTCHA "often labels screen reader behavior as a bot." ([WebAIM](https://webaim.org/projects/screenreadersurvey10/))
+- **Blind users:** Visual challenges can block task completion. WebAIM Survey #10 respondents ranked CAPTCHA among their major barriers; that survey does not establish a vendor-specific bot-detection mechanism. ([WebAIM](https://webaim.org/projects/screenreadersurvey10/))
 - **Deaf users:** Audio CAPTCHAs use intentionally distorted speech with background noise.
-- **Deafblind users:** Zero CAPTCHA options exist. Neither visual nor audio alternatives work.
+- **Deafblind users:** A challenge offering only visual and audio alternatives can exclude people who cannot use either. Evaluate non-sensory methods and an accessible support/recovery route for the actual workflow. ([W3C CAPTCHA alternatives](https://www.w3.org/TR/turingtest/))
 - **Cognitive/motor users:** Puzzle challenges require fine motor control and cognitive processing under time pressure.
 
 **Why "fixing" it is not enough:** The W3C itself acknowledges this is fundamentally unsolved: "Interactive CAPTCHA approaches inherently exclude many people with disabilities, resulting in a denial of service to these users." The pattern is a Turing test that punishes disability. ([W3C](https://www.w3.org/TR/turingtest/))
@@ -103,29 +102,24 @@ An inaccessible pattern fails to meet a spec. A hostile pattern conflicts with h
 
 ### 2.6 Cookie Consent Banners
 
-**What it is:** Modal or fixed-position overlays requesting cookie tracking consent, required by GDPR/ePrivacy.
+**What it is:** Modal or nonmodal interfaces requesting tracking/cookie choices. The applicable legal requirements depend on jurisdiction and purpose; this skill reviews accessible interaction, not legal consent validity.
 
 **Who it hurts and how:**
-- **Screen reader users:** Banners at DOM end are never encountered. Missing `role="dialog"` or `aria-modal` means no announcement. Checkboxes lack label associations. ([Smashing Magazine](https://www.smashingmagazine.com/2023/04/potentially-dangerous-non-accessibility-cookie-notices/))
-- **Keyboard users:** Focus not trapped in banner — users tab past it into obscured content. Controls are often `<div>`s without keyboard support.
+- **Screen reader users:** A banner far from the current reading/focus position can be difficult to discover. A nonmodal banner does not require dialog semantics; test discovery, sensible focus behavior, control names, and field associations. Missing dialog ARIA alone does not prove silence. ([WAI labels](https://www.w3.org/WAI/tutorials/forms/labels/))
+- **Keyboard users:** A modal must contain focus while open; a nonmodal banner need not trap focus. Test that neither form obscures required controls and that its own actions are operable.
 - **Cognitive users:** "Reject" is deliberately harder to find than "Accept" — smaller text, lower contrast, more clicks. Dark pattern integration.
 
-**Why "fixing" it is not enough:** Inaccessible consent is legally invalid consent. Under GDPR, consent must be "freely given, specific, informed and unambiguous." If a user cannot perceive, understand, or operate the consent mechanism, no valid consent has been obtained — the tool meant to ensure privacy compliance creates accessibility non-compliance.
+**Review the task:** Users must be able to find, understand, and operate the choices. Test labels, contrast, keyboard/pointer operation, focus behavior, and saved preference state. Report observed access barriers; do not declare legal consent invalid without a jurisdiction-specific legal assessment.
 
 **Build this instead:** Use `<dialog>` with focus management. Use `<button>` for actions, `<label>` for checkboxes. Make "Reject All" as prominent and accessible as "Accept All." Write descriptions in plain language. Test with AT before deployment.
 
 ### 2.7 Accessibility Overlays
 
-**What it is:** Third-party widgets (accessiBe, UserWay, AudioEye, EqualWeb) claiming to make websites WCAG-compliant via a single script injection.
+Project policy: fix source/components and test task outcomes rather than treating an overlay widget as proof of conformance. Automated tools require human judgment; runtime JavaScript can repair some semantics, so do not use a frozen-accessibility-tree rationale. ([WAI tools](https://www.w3.org/WAI/test-evaluate/tools/selecting/), [Core AAM](https://www.w3.org/TR/core-aam-1.2/#mapping_events_state-change))
 
-**Who it hurts and how:**
-- **Screen reader users:** Unsolicited alerts on every page load. Unwanted headings injected. Focus jumps unpredictably. One user blocked accessiBe in their Windows Hosts file to regain account access.
-- **All AT users:** Overlays conflict with users' own carefully configured AT setups.
-- **Privacy:** Overlays detect AT use without consent, exposing disability status. Force disability disclosure through "profiles" (e.g., "Screen Reader Profile"). ([Overlay Fact Sheet](https://overlayfactsheet.com/en/))
+The FTC's April 22, 2025 final order against accessiBe concerns that company's deceptive or unsubstantiated claims and endorsement practices; it is not evidence against every named vendor. ([FTC](https://www.ftc.gov/news-events/news/press-releases/2025/04/ftc-approves-final-order-requiring-accessibe-pay-1-million))
 
-**Why "fixing" it is not enough:** Overlays cannot be fixed — they are the problem. Automated tools detect only 25-30% of accessibility issues. The remaining 70-75% require human judgment and code changes. WebAIM Survey: 72% of disabled respondents rated overlays "not at all" or "not very" effective. The FTC fined accessiBe $1 million (April 2025) for false advertising. 25% of digital accessibility lawsuits target overlay-equipped websites. The NFB banned accessiBe from their 2021 conference, calling the company "harmful." 1,000+ accessibility professionals signed the Overlay Fact Sheet. ([Adrian Roselli](https://adrianroselli.com/2022/03/overlays-underwhelm-a11y-nyc.html))
-
-**Build this instead:** Fix accessibility at the source. See [references/overlay-evidence.md](references/overlay-evidence.md) for the complete evidence base.
+Use `overlay-resistance` and [overlay evidence](references/overlay-evidence.md) to inspect an integration and propose maintained remediation.
 
 ### 2.8 Dark Patterns
 
@@ -143,11 +137,11 @@ An inaccessible pattern fails to meet a spec. A hostile pattern conflicts with h
 
 ### 2.9 Low-Contrast Placeholder Text as Labels
 
-**What it is:** Using the `placeholder` attribute as a substitute for visible `<label>` elements, with the default light-gray color (~#757575) that fails WCAG 4.5:1 contrast.
+**What it is:** Using the `placeholder` attribute as a substitute for visible `<label>` elements, with insufficient text contrast, for example #aaa on white. #757575 on white meets 4.5:1 for normal text; always measure the actual pair. ([Contrast Minimum](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html))
 
 **Who it hurts and how:**
 - **Low-vision users:** Cannot read light-gray placeholder text. Field purpose is invisible before typing.
-- **Cognitive users:** Placeholder disappears on focus, destroying the only label. Users with short-term memory issues, TBI, ADHD, or autism forget what the field requires. Some users think placeholder text is pre-populated data and submit forms without entering information. ([Deque](https://www.deque.com/blog/accessible-forms-the-problem-with-placeholders/))
+- **Cognitive users:** Placeholder disappears when a value is entered, destroying the only label. Users with short-term memory issues, TBI, ADHD, or autism forget what the field requires. Some users think placeholder text is pre-populated data and submit forms without entering information. ([Deque](https://www.deque.com/blog/accessible-forms-the-problem-with-placeholders/))
 - **Screen reader users:** AT support for placeholder-as-label is inconsistent. Some announce it, some do not.
 
 **Why "fixing" it is not enough:** Increasing placeholder contrast creates a different problem — users confuse high-contrast placeholder with entered data. The `placeholder` attribute was designed for hints ("e.g., john@example.com"), not labels. NNGroup concluded "placeholders in form fields are harmful" — full stop. ([NNGroup](https://www.nngroup.com/articles/form-design-placeholders/))
@@ -186,4 +180,5 @@ For detailed reference material:
 - [references/carousel-alternatives.md](references/carousel-alternatives.md) — what to build instead of carousels
 - [references/overlay-evidence.md](references/overlay-evidence.md) — the complete case against overlays
 - [references/pattern-catalog.md](references/pattern-catalog.md) — per-pattern alternatives with implementation guidance
+- [references/common-mistakes.md](references/common-mistakes.md) — concrete user-control corrections
 - [references/sources.yaml](references/sources.yaml) — provenance for all cited sources

@@ -17,7 +17,7 @@ Reusable templates for clear, actionable error messages. Every message follows t
 [Field name]: [What went wrong]. [How to fix it].
 ```
 
-Keep messages under 14 words. At 8 words or fewer, comprehension reaches 100%.
+Keep messages concise and specific; no word count guarantees comprehension. ([WAI validation](https://www.w3.org/WAI/tutorials/forms/validation/))
 ([NN/g](https://www.nngroup.com/articles/error-message-guidelines/))
 
 ---
@@ -73,22 +73,22 @@ Always pair error text with ARIA attributes on the field:
 <input id="email" type="email"
        aria-invalid="true"
        aria-describedby="email-error">
-<span id="email-error" role="alert">
+<span id="email-error">
   Email: must include an @ symbol. Example: name@example.com
 </span>
 ```
 
 - `aria-invalid="true"` marks the field as errored.
 - `aria-describedby` associates the error text with the field.
-- `role="alert"` or `aria-live="assertive"` announces dynamically injected errors.
+- Use a deliberate summary/focus or tested live-announcement strategy after submission; field descriptions do not all need live regions. ([WAI notifications](https://www.w3.org/WAI/tutorials/forms/notifications/))
 
 ## Error Summary
 
 For forms with multiple errors, provide a summary at the top linking to each errored field:
 
 ```html
-<div role="alert">
-  <h2>Please fix 2 errors</h2>
+<div id="error-summary" tabindex="-1" aria-labelledby="error-heading">
+  <h2 id="error-heading">Please fix 2 errors</h2>
   <ul>
     <li><a href="#email">Email: must include an @ symbol</a></li>
     <li><a href="#phone">Phone: must be 10 digits</a></li>

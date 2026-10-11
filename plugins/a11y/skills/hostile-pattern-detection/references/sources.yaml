@@ -1,358 +1,157 @@
 sources:
-  # Carousels
-  - name: "NNGroup: Auto-Forwarding Carousels Annoy Users"
-    url: "https://www.nngroup.com/articles/auto-forwarding/"
-    type: practitioner-research
-    accessed: "2026-03-27"
-    used_for: "Carousel hostility evidence, motor impairment impact quote"
-
-  - name: "NNGroup: Designing Effective Carousels"
-    url: "https://www.nngroup.com/articles/designing-effective-carousels/"
-    type: practitioner-research
-    accessed: "2026-03-27"
-    used_for: "Notre Dame <1% click rate, eye-tracking banner blindness data"
-
-  - name: "WebAIM: Carousels"
-    url: "https://webaim.org/techniques/carousels/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Screen reader carousel experience, accessibility requirements"
-
-  - name: "Chrome Developers: Accessible Carousel"
-    url: "https://developer.chrome.com/blog/accessible-carousel"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Implementation guidance for accessible carousel if required"
-
-  - name: "A11Y Collective: Accessible Carousel Guide"
-    url: "https://www.a11y-collective.com/blog/accessible-carousel/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Carousel accessibility requirements"
-
-  - name: "Baymard: 10 UX Requirements for Homepage Carousels"
-    url: "https://baymard.com/blog/homepage-carousel"
-    type: practitioner-research
-    accessed: "2026-03-27"
-    used_for: "46% performance issues stat, UX requirements"
-
-  - name: "DubBot: Build Better Carousels"
-    url: "https://dubbot.com/dubblog/2024/build-better-carousels-accessibility-first.html"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Accessibility-first carousel approach"
-
-  # Infinite Scroll
-  - name: "Deque: Infinite Scrolling & Role=Feed Accessibility Issues"
-    url: "https://www.deque.com/blog/infinite-scrolling-rolefeed-accessibility-issues/"
-    type: practitioner-research
-    accessed: "2026-03-27"
-    used_for: "Keyboard exclusion, WordPress removal, role=feed limitations"
-
-  - name: "DigitalA11Y: Infinite Scroll Accessibility"
-    url: "https://www.digitala11y.com/infinite-scroll-accessibility-is-it-any-good/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Speech recognition exclusion, cognitive impact"
-
-  - name: "BOIA: Is Infinite Scrolling Accessible?"
-    url: "https://www.boia.org/blog/is-infinite-scrolling-accessible"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Footer unreachability, user agency removal"
-
-  - name: "netz-barrierefrei: Accessibility Problems with Infinite Scroll"
-    url: "https://www.netz-barrierefrei.de/en/infinite.html"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Keyboard and screen reader interaction failures"
-
-  - name: "WebAxe: Infinite Scrolling and Accessibility"
-    url: "https://www.webaxe.org/infinite-scrolling-and-accessibility/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    used_for: "General infinite scroll accessibility issues"
-
-  - name: "W3C WCAG Discussion: Infinite scroll and bypass blocks"
-    url: "https://github.com/w3c/wcag/discussions/3837"
-    type: specification-discussion
-    accessed: "2026-03-27"
-    used_for: "W3C perspective on infinite scroll and bypass blocks"
-
-  # Overlays
-  - name: "Overlay Fact Sheet"
-    url: "https://overlayfactsheet.com/en/"
-    type: professional-consensus
-    accessed: "2026-03-27"
-    used_for: "1000+ signatories, user testimony, technical failures"
-
-  - name: "Accessibility.Works: Overlay Widgets Attract Lawsuits"
-    url: "https://www.accessibility.works/blog/avoid-accessibility-overlay-tools-toolbar-plugins/"
-    type: practitioner-research
-    accessed: "2026-03-27"
-    used_for: "25% lawsuit rate, 1023 companies sued, legal risk data"
-
-  - name: "Adrian Roselli: Overlays Underwhelm"
-    url: "https://adrianroselli.com/2022/03/overlays-underwhelm-a11y-nyc.html"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    used_for: "Technical analysis of overlay failures"
-
-  - name: "NFB Bans accessiBe"
-    url: "https://adabook.medium.com/nfb-bans-accessibe-calls-overlay-seller-harmful-5230ab467e95"
-    type: news
-    accessed: "2026-03-27"
-    used_for: "NFB ban and 'harmful' characterization"
-
-  - name: "Karl Groves: Overlay Fact Sheet"
-    url: "https://karlgroves.com/overlay-fact-sheet-what-it-is-and-how-to-make-it-work-for-you/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    used_for: "Overlay fact sheet context and analysis"
-
-  - name: "Should I Use An Accessibility Overlay?"
-    url: "https://shouldiuseanaccessibilityoverlay.com/"
-    type: advocacy
-    accessed: "2026-03-27"
-    used_for: "Community consensus against overlays"
-
-  # Auto-Playing Media
-  - name: "BOIA: Why Autoplay Is an Accessibility No-No"
-    url: "https://www.boia.org/blog/why-autoplay-is-an-accessibility-no-no"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Screen reader audio competition, consent removal"
-
-  - name: "A11Y Project: Never Use Auto-Play"
-    url: "https://www.a11yproject.com/posts/never-use-auto-play/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Auto-play as accessibility anti-pattern"
-
-  - name: "W3C Failure Technique F93"
-    url: "https://www.w3.org/TR/WCAG20-TECHS/F93.html"
-    type: specification
-    accessed: "2026-03-27"
-    used_for: "WCAG failure technique for auto-play"
-
-  - name: "Thoughtbot: Can Auto-Playing Videos be Accessible?"
-    url: "https://thoughtbot.com/blog/can-auto-playing-videos-be-accessible"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    used_for: "Conditions under which auto-play might be acceptable"
-
-  - name: "WebAIM: Seizure and Vestibular Disorders"
-    url: "https://webaim.org/articles/seizure/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Epilepsy and vestibular disorder impact data"
-
-  - name: "MDN: Seizure Disorders"
-    url: "https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Seizure_disorders"
-    type: reference
-    accessed: "2026-03-27"
-    used_for: "Seizure trigger mechanisms and prevention"
-
-  # Cookie Consent Banners
-  - name: "Smashing Magazine: The Potentially Dangerous Non-Accessibility of Cookie Notices"
-    url: "https://www.smashingmagazine.com/2023/04/potentially-dangerous-non-accessibility-cookie-notices/"
-    type: practitioner-research
-    accessed: "2026-03-27"
-    used_for: "DOM placement, screen reader invisibility, Leonie Watson demo"
-
-  - name: "Make Things Accessible: Cookie Banners Case Study"
-    url: "https://www.makethingsaccessible.com/guides/cookie-banners-case-study/"
-    type: practitioner-research
-    accessed: "2026-03-27"
-    used_for: "Cookie banner accessibility audit findings"
-
-  - name: "Ashley Sheridan: Accessibility Issues With Cookie Banners"
-    url: "https://www.ashleysheridan.co.uk/blog/Accessibility+Issues+With+Cookie+Banners"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    used_for: "Keyboard and screen reader interaction failures"
-
-  - name: "Cookie-Script: WCAG and Cookie Banners 2026 Checklist"
-    url: "https://cookie-script.com/guides/web-accessibility-and-cookie-banners-compliance-checklist"
-    type: vendor-guide
-    accessed: "2026-03-27"
-    used_for: "WCAG compliance checklist for cookie banners"
-
-  - name: "Cerovac: Cookie Consent Banners and Overlays"
-    url: "https://cerovac.com/a11y/2020/07/cookie-consent-banners-and-overlays-thoughts-on-accessibility-usability-and-seo/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    used_for: "Accessibility, usability, and SEO intersection"
-
-  # CAPTCHAs
-  - name: "W3C: Inaccessibility of CAPTCHA"
-    url: "https://www.w3.org/TR/turingtest/"
-    type: w3c-note
-    accessed: "2026-03-27"
-    used_for: "W3C acknowledgment that CAPTCHA accessibility is unsolved"
-
-  - name: "Smashing Magazine: The Accessibility Problem With Authentication Methods Like CAPTCHA"
-    url: "https://www.smashingmagazine.com/2025/11/accessibility-problem-authentication-methods-captcha/"
-    type: practitioner-research
-    accessed: "2026-03-27"
-    used_for: "Comprehensive CAPTCHA accessibility analysis"
-
-  - name: "DigitalA11Y: The CAPTCHA Conundrum & Accessible Alternatives"
-    url: "https://www.digitala11y.com/the-captcha-conundrum-accessible-alternatives/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Alternative authentication methods"
-
-  - name: "Cerovac: CAPTCHA Is Still Most Problematic Issue on the Web"
-    url: "https://cerovac.com/a11y/2024/02/captcha-is-still-most-problematic-issue-on-the-web/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    used_for: "14-year survey trend data"
-
-  - name: "Friendly Captcha: CAPTCHA Accessibility"
-    url: "https://friendlycaptcha.com/insights/captcha-accessibility/"
-    type: vendor-guide
-    accessed: "2026-03-27"
-    used_for: "Proof-of-work alternative approach"
-
-  - name: "NFB: Making CAPTCHA Accessible"
-    url: "https://nfb.org/making-captcha-more-accessible-blind"
-    type: advocacy
-    accessed: "2026-03-27"
-    used_for: "Blind user CAPTCHA experience"
-
-  - name: "WebAIM Screen Reader Survey #10"
-    url: "https://webaim.org/projects/screenreadersurvey10/"
-    type: survey-data
-    accessed: "2026-03-27"
-    used_for: "CAPTCHA as #1 problem (14 years), overlay effectiveness ratings, heading navigation stats"
-
-  # Dark Patterns
-  - name: "PMC: Inaccessible and Deceptive"
-    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12188898/"
-    type: academic-research
-    accessed: "2026-03-27"
-    used_for: "Six deceptive patterns amplified by access barriers, intent vs impact"
-
-  - name: "UX Planet: Evil UX Patterns and Cognitive Disability"
-    url: "https://uxplanet.org/the-disproportionate-impact-of-evil-ux-patterns-on-the-cognitively-disabled-community-c6b9eee71682"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    used_for: "Cognitive disability and dark pattern intersection"
-
-  - name: "netz-barrierefrei: Dark Patterns and Digital Accessibility"
-    url: "https://www.netz-barrierefrei.de/en/patterns.html"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Dark pattern taxonomy with accessibility lens"
-
-  - name: "Virginia Tech CCI: Tackling Dark Patterns and Visual Disabilities"
-    url: "https://cyberinitiative.org/research/funded-projects/inclusion-and-accessibility-in-cybersecurity/tackling-dark-pattern-induced-online-deception-of-people-with-vi.html"
-    type: academic-research
-    accessed: "2026-03-27"
-    used_for: "Research on dark patterns targeting visually disabled users"
-
-  - name: "Data & Society: Dark Patterns in Accessibility Tech"
-    url: "https://datasociety.net/library/dark-patterns-in-accessibility-tech/"
-    type: academic-research
-    accessed: "2026-03-27"
-    used_for: "Dark patterns within accessibility technology itself"
-
-  - name: "Sheri Byrne-Haber: Ethical Design and Accessibility"
-    url: "https://www.sheribyrnehaber.com/ethical-design-and-accessibility/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    used_for: "Ethical design framework for accessibility"
-
-  - name: "Best at Digital: The Inaccessibility of Dark Patterns"
-    url: "https://www.bestatdigital.com/blog/the-inaccessibility-of-dark-patterns"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    used_for: "Dark pattern accessibility analysis"
-
-  # Hover-Only Interactions
-  - name: "BOIA: Hover Actions and Accessibility"
-    url: "https://www.boia.org/blog/hover-actions-and-accessibility-addressing-a-common-wcag-violation"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Hover-only exclusion of keyboard users, WCAG violation"
-
-  - name: "W3C: Understanding SC 1.4.13 Content on Hover or Focus"
-    url: "https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html"
-    type: specification
-    accessed: "2026-03-27"
-    used_for: "Dismissable, hoverable, persistent requirements"
-
-  - name: "Access Guide: Use Hover and Focus Best Practices"
-    url: "https://www.accessguide.io/guide/hover-and-focus"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Hover/focus parity implementation"
-
-  - name: "TXI Digital: Digital Accessibility Hover and Focus"
-    url: "https://txidigital.com/insights/digital-accessibility"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Hover and focus accessibility patterns"
-
-  - name: "AccessUse: Content on Hover and Focus"
-    url: "https://accessuse.eu/en/Content-hover-focus.html"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "SC 1.4.13 implementation examples"
-
-  # Low-Contrast Placeholder Text
-  - name: "Deque: Accessible Forms — The Problem with Placeholders"
-    url: "https://www.deque.com/blog/accessible-forms-the-problem-with-placeholders/"
-    type: practitioner-research
-    accessed: "2026-03-27"
-    used_for: "Placeholder as label failures, AT inconsistency"
-
-  - name: "NNGroup: Placeholders in Form Fields Are Harmful"
-    url: "https://www.nngroup.com/articles/form-design-placeholders/"
-    type: practitioner-research
-    accessed: "2026-03-27"
-    used_for: "Definitive research on placeholder harm"
-
-  - name: "DigitalA11Y: Placeholder Is a Mirage"
-    url: "https://www.digitala11y.com/anatomy-of-accessible-forms-placeholder-is-a-mirage/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Placeholder accessibility analysis"
-
-  - name: "W3C Low Vision TF: Placeholder Research"
-    url: "https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Placeholder_Research"
-    type: specification-research
-    accessed: "2026-03-27"
-    used_for: "W3C task force findings on placeholder harm"
-
-  - name: "BrowserStack: The Problem with Placeholders in Form Accessibility"
-    url: "https://www.browserstack.com/guide/input-placeholder"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Placeholder accessibility testing guidance"
-
-  - name: "Accessible Web: Does Placeholder Text Need to Meet Contrast Requirements?"
-    url: "https://accessibleweb.com/question-answer/does-placeholder-text-need-to-meet-color-contrast-requirements/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    used_for: "Contrast requirements for placeholder text"
-
-  # Cross-cutting / User experience
-  - name: "UsableNet: A Screen Reader User's Honest Take"
-    url: "https://blog.usablenet.com/a-screen-reader-users-honest-take"
-    type: user-testimony
-    accessed: "2026-03-27"
-    used_for: "Opening quote — trepidation, caution, uncertainty"
-
-  - name: "Allyant: My Experience Navigating the Web as a Blind User"
-    url: "https://allyant.com/blog/my-experience-of-navigating-the-web-as-a-blind-user/"
-    type: user-testimony
-    accessed: "2026-03-27"
-    used_for: "Quick abandonment triggers, overlay interruption experience"
-
-  - name: "W3C WAI: User Stories"
-    url: "https://www.w3.org/WAI/people-use-web/user-stories/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    used_for: "Disability personas and barrier mapping"
+- name: 'NNGroup: Auto-Forwarding Carousels Annoy Users'
+  url: https://www.nngroup.com/articles/auto-forwarding/
+  type: practitioner-research
+  accessed: '2026-03-27'
+  used_for: Carousel hostility evidence, motor impairment impact quote
+- name: 'NNGroup: Designing Effective Carousels'
+  url: https://www.nngroup.com/articles/designing-effective-carousels/
+  type: practitioner-research
+  accessed: '2026-03-27'
+  used_for: Notre Dame <1% click rate, eye-tracking banner blindness data
+- name: 'WebAIM: Carousels'
+  url: https://webaim.org/techniques/carousels/
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  used_for: Screen reader carousel experience, accessibility requirements
+- name: 'Chrome Developers: Accessible Carousel'
+  url: https://developer.chrome.com/blog/accessible-carousel
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  used_for: Implementation guidance for accessible carousel if required
+- name: 'A11Y Collective: Accessible Carousel Guide'
+  url: https://www.a11y-collective.com/blog/accessible-carousel/
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  used_for: Carousel accessibility requirements
+- name: 'Baymard: 10 UX Requirements for Homepage Carousels'
+  url: https://baymard.com/blog/homepage-carousel
+  type: practitioner-research
+  accessed: '2026-03-27'
+  used_for: 46% performance issues stat, UX requirements
+- name: 'Deque: Infinite Scrolling & Role=Feed Accessibility Issues'
+  url: https://www.deque.com/blog/infinite-scrolling-rolefeed-accessibility-issues/
+  type: practitioner-research
+  accessed: '2026-03-27'
+  used_for: Keyboard exclusion, WordPress removal, role=feed limitations
+- name: 'BOIA: Why Autoplay Is an Accessibility No-No'
+  url: https://www.boia.org/blog/why-autoplay-is-an-accessibility-no-no
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  used_for: Screen reader audio competition, consent removal
+- name: 'W3C: Inaccessibility of CAPTCHA'
+  url: https://www.w3.org/TR/turingtest/
+  type: w3c-note
+  accessed: '2026-03-27'
+  used_for: W3C acknowledgment that CAPTCHA accessibility is unsolved
+- name: 'WebAIM Screen Reader Survey #10'
+  url: https://webaim.org/projects/screenreadersurvey10/
+  type: survey-data
+  accessed: '2026-03-27'
+  used_for: 'CAPTCHA as #1 problem (14 years), overlay effectiveness ratings, heading navigation stats'
+- name: 'PMC: Inaccessible and Deceptive'
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12188898/
+  type: academic-research
+  accessed: '2026-03-27'
+  used_for: Six deceptive patterns amplified by access barriers, intent vs impact
+- name: 'UX Planet: Evil UX Patterns and Cognitive Disability'
+  url: https://uxplanet.org/the-disproportionate-impact-of-evil-ux-patterns-on-the-cognitively-disabled-community-c6b9eee71682
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  used_for: Cognitive disability and dark pattern intersection
+- name: 'netz-barrierefrei: Dark Patterns and Digital Accessibility'
+  url: https://www.netz-barrierefrei.de/en/patterns.html
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  used_for: Dark pattern taxonomy with accessibility lens
+- name: 'BOIA: Hover Actions and Accessibility'
+  url: https://www.boia.org/blog/hover-actions-and-accessibility-addressing-a-common-wcag-violation
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  used_for: Hover-only exclusion of keyboard users, WCAG violation
+- name: 'W3C: Understanding SC 1.4.13 Content on Hover or Focus'
+  url: https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html
+  type: specification
+  accessed: '2026-03-27'
+  used_for: Dismissable, hoverable, persistent requirements
+- name: 'Deque: Accessible Forms — The Problem with Placeholders'
+  url: https://www.deque.com/blog/accessible-forms-the-problem-with-placeholders/
+  type: practitioner-research
+  accessed: '2026-03-27'
+  used_for: Placeholder as label failures, AT inconsistency
+- name: 'NNGroup: Placeholders in Form Fields Are Harmful'
+  url: https://www.nngroup.com/articles/form-design-placeholders/
+  type: practitioner-research
+  accessed: '2026-03-27'
+  used_for: Definitive research on placeholder harm
+- name: 'UsableNet: A Screen Reader User''s Honest Take'
+  url: https://blog.usablenet.com/a-screen-reader-users-honest-take
+  type: user-testimony
+  accessed: '2026-03-27'
+  used_for: Opening quote — trepidation, caution, uncertainty
+- name: ftc approves final order requiring accessibe pay 1 million
+  url: https://www.ftc.gov/news-events/news/press-releases/2025/04/ftc-approves-final-order-requiring-accessibe-pay-1-million
+  type: primary-enforcement
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: core aam 1.2
+  url: https://www.w3.org/TR/core-aam-1.2/#mapping_events_state-change
+  type: specification
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: wai aria 1.2
+  url: https://www.w3.org/TR/wai-aria-1.2/#managingfocus_authors
+  type: specification
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: carousel
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/carousel/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: feed
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/feed/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: audio control.html
+  url: https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: contrast minimum.html
+  url: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: target size minimum.html
+  url: https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: selecting
+  url: https://www.w3.org/WAI/test-evaluate/tools/selecting/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: carousels
+  url: https://www.w3.org/WAI/tutorials/carousels/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: labels
+  url: https://www.w3.org/WAI/tutorials/forms/labels/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance

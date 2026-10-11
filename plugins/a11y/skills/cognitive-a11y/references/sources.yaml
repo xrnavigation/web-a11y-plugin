@@ -1,131 +1,123 @@
-# Sources for cognitive-a11y skill
-# All claims in SKILL.md and reference files are traceable to these sources.
-
-w3c_wai:
-  - id: wcag-error-identification
-    title: "Understanding SC 3.3.1 Error Identification"
-    url: https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html
-    type: normative
-    used_in: [SKILL.md, error-message-patterns.md]
-
-  - id: wcag-error-suggestion
-    title: "Understanding SC 3.3.3 Error Suggestion"
-    url: https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html
-    type: normative
-    used_in: [SKILL.md, error-message-patterns.md, common-mistakes.md]
-
-  - id: wcag-on-focus
-    title: "Understanding SC 3.2.1 On Focus"
-    url: https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html
-    type: normative
-    used_in: [SKILL.md, common-mistakes.md]
-
-  - id: wcag-on-input
-    title: "Understanding SC 3.2.2 On Input"
-    url: https://www.w3.org/WAI/WCAG22/Understanding/on-input.html
-    type: normative
-    used_in: [SKILL.md, common-mistakes.md]
-
-  - id: wcag-timing-adjustable
-    title: "Understanding SC 2.2.1 Timing Adjustable"
-    url: https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html
-    type: normative
-    used_in: [SKILL.md, timeout-handling.md, common-mistakes.md]
-
-  - id: wcag-timeouts
-    title: "Understanding SC 2.2.6 Timeouts"
-    url: https://www.w3.org/WAI/WCAG21/Understanding/timeouts.html
-    type: normative
-    used_in: [SKILL.md, timeout-handling.md]
-
-  - id: wcag-consistent-help
-    title: "Understanding SC 3.2.6 Consistent Help"
-    url: https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html
-    type: normative
-    used_in: [SKILL.md, common-mistakes.md]
-
-  - id: wai-cognitive
-    title: "Cognitive Accessibility at W3C"
-    url: https://www.w3.org/WAI/cognitive/
-    type: normative
-    used_in: [SKILL.md]
-
-  - id: wai-multi-page-forms
-    title: "Multi-Page Forms Tutorial"
-    url: https://www.w3.org/WAI/tutorials/forms/multi-page/
-    type: tutorial
-    used_in: [SKILL.md]
-
-design_systems:
-  - id: uswds-step-indicator
-    title: "USWDS Step Indicator Component"
-    url: https://designsystem.digital.gov/components/step-indicator/
-    type: design-system
-    used_in: [SKILL.md]
-
-  - id: dwp-session-timeout
-    title: "DWP Design System: Manage a Session Timeout"
-    url: https://design-system.dwp.gov.uk/patterns/manage-a-session-timeout
-    type: design-system
-    used_in: [SKILL.md, timeout-handling.md]
-
-  - id: carbon-progress-indicator
-    title: "Carbon Design System: Progress Indicator Accessibility"
-    url: https://carbondesignsystem.com/components/progress-indicator/accessibility/
-    type: design-system
-    used_in: []
-
-practitioner:
-  - id: nng-error-messages
-    title: "Error-Message Guidelines"
-    url: https://www.nngroup.com/articles/error-message-guidelines/
-    type: practitioner
-    used_in: [SKILL.md, error-message-patterns.md, common-mistakes.md]
-
-  - id: webaim-cognitive
-    title: "Cognitive Disabilities: Design Considerations"
-    url: https://webaim.org/articles/cognitive/design
-    type: practitioner
-    used_in: [SKILL.md, common-mistakes.md]
-
-  - id: a11y-collective-cognitive
-    title: "Cognitive Accessibility"
-    url: https://www.a11y-collective.com/blog/cognitive-accessibility/
-    type: practitioner
-    used_in: [SKILL.md, common-mistakes.md]
-
-  - id: uxpin-error-messaging
-    title: "The Ultimate Guide to Error Messaging Accessibility"
-    url: https://www.uxpin.com/studio/blog/ultimate-guide-to-error-messaging-accessibility/
-    type: practitioner
-    used_in: [SKILL.md]
-
-  - id: harvard-plain-language
-    title: "Use Plain Language"
-    url: https://accessibility.huit.harvard.edu/use-plain-language
-    type: practitioner
-    used_in: [SKILL.md]
-
-  - id: harvard-timeouts
-    title: "Give Users Control Over Timeouts"
-    url: https://accessibility.huit.harvard.edu/give-users-control-over-timeouts
-    type: practitioner
-    used_in: [timeout-handling.md]
-
-  - id: siteimprove-readability
-    title: "Readability, Plain Language, and WCAG"
-    url: https://www.siteimprove.com/blog/readability-plain-language-wcag/
-    type: practitioner
-    used_in: [SKILL.md]
-
-  - id: smashing-error-messages
-    title: "Designing Better Error Messages UX"
-    url: https://www.smashingmagazine.com/2022/08/error-messages-ux-design/
-    type: practitioner
-    used_in: []
-
-  - id: accessguide-timeouts
-    title: "Warn Users About Timeouts"
-    url: https://www.accessguide.io/guide/warn-users-about-timeouts
-    type: practitioner
-    used_in: []
+sources:
+- id: wcag-error-identification
+  title: Understanding SC 3.3.1 Error Identification
+  url: https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html
+  type: normative
+  used_in:
+  - SKILL.md
+  - error-message-patterns.md
+- id: wcag-error-suggestion
+  title: Understanding SC 3.3.3 Error Suggestion
+  url: https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html
+  type: normative
+  used_in:
+  - SKILL.md
+  - error-message-patterns.md
+  - common-mistakes.md
+- id: wcag-on-focus
+  title: Understanding SC 3.2.1 On Focus
+  url: https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html
+  type: normative
+  used_in:
+  - SKILL.md
+  - common-mistakes.md
+- id: wcag-on-input
+  title: Understanding SC 3.2.2 On Input
+  url: https://www.w3.org/WAI/WCAG22/Understanding/on-input.html
+  type: normative
+  used_in:
+  - SKILL.md
+  - common-mistakes.md
+- id: wcag-timing-adjustable
+  title: Understanding SC 2.2.1 Timing Adjustable
+  url: https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html
+  type: normative
+  used_in:
+  - SKILL.md
+  - timeout-handling.md
+  - common-mistakes.md
+- id: wcag-timeouts
+  title: Understanding SC 2.2.6 Timeouts
+  url: https://www.w3.org/WAI/WCAG21/Understanding/timeouts.html
+  type: normative
+  used_in:
+  - SKILL.md
+  - timeout-handling.md
+- id: wcag-consistent-help
+  title: Understanding SC 3.2.6 Consistent Help
+  url: https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html
+  type: normative
+  used_in:
+  - SKILL.md
+  - common-mistakes.md
+- id: wai-multi-page-forms
+  title: Multi-Page Forms Tutorial
+  url: https://www.w3.org/WAI/tutorials/forms/multi-page/
+  type: tutorial
+  used_in:
+  - SKILL.md
+- id: dwp-session-timeout
+  title: 'DWP Design System: Manage a Session Timeout'
+  url: https://design-system.dwp.gov.uk/patterns/manage-a-session-timeout
+  type: design-system
+  used_in:
+  - SKILL.md
+  - timeout-handling.md
+- id: nng-error-messages
+  title: Error-Message Guidelines
+  url: https://www.nngroup.com/articles/error-message-guidelines/
+  type: practitioner
+  used_in:
+  - SKILL.md
+  - error-message-patterns.md
+  - common-mistakes.md
+- id: webaim-cognitive
+  title: 'Cognitive Disabilities: Design Considerations'
+  url: https://webaim.org/articles/cognitive/design
+  type: practitioner
+  used_in:
+  - SKILL.md
+  - common-mistakes.md
+- id: a11y-collective-cognitive
+  title: Cognitive Accessibility
+  url: https://www.a11y-collective.com/blog/cognitive-accessibility/
+  type: practitioner
+  used_in:
+  - SKILL.md
+  - common-mistakes.md
+- name: consistent navigation.html
+  url: https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: pause stop hide.html
+  url: https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: reading level.html
+  url: https://www.w3.org/WAI/WCAG22/Understanding/reading-level.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: timeouts.html
+  url: https://www.w3.org/WAI/WCAG22/Understanding/timeouts.html
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: notifications
+  url: https://www.w3.org/WAI/tutorials/forms/notifications/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance
+- name: validation
+  url: https://www.w3.org/WAI/tutorials/forms/validation/
+  type: w3c-guide
+  accessed: '2026-10-10'
+  sections_used:
+  - Referenced guidance

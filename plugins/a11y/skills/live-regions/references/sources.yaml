@@ -1,105 +1,124 @@
 sources:
-  - name: "WAI-ARIA 1.2 — Live Region Attributes"
-    url: "https://www.w3.org/TR/wai-aria-1.2/#attrs_liveregions"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "aria-live — politeness levels and inheritance"
-      - "aria-atomic — whole vs partial announcement"
-      - "aria-relevant — change type filtering"
-      - "aria-busy — batch update suppression"
-      - "Implicit live region roles (alert, status, log, timer, marquee)"
-
-  - name: "MDN — ARIA Live Regions Guide"
-    url: "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions"
-    type: reference
-    accessed: "2026-03-27"
-    sections_used:
-      - "Timing requirements — container must exist before content"
-      - "Politeness levels"
-      - "Implicit live region roles"
-      - "role='alert' + aria-live='assertive' double-announcement bug"
-      - "ariaNotify() upcoming API"
-
-  - name: "Sara Soueidan — Accessible Notifications with ARIA Live Regions (Part 1)"
-    url: "https://www.sarasoueidan.com/blog/accessible-notifications-with-aria-live-regions-part-1/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "aria-relevant inconsistent support warning"
-      - "aria-busy inconsistent support warning"
-      - "Assertive overuse guidance"
-      - "Transient announcements need fallback"
-
-  - name: "TetraLogical — Why Are My Live Regions Not Working?"
-    url: "https://tetralogical.com/blog/2024/05/01/why-are-my-live-regions-not-working/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Timing rule — container must exist before content injection"
-      - "Pre-populated regions not announced"
-      - "Hidden-then-shown regions unreliable"
-      - "Screen reader behavior comparison table"
-
-  - name: "W3C APG — Alert Pattern"
-    url: "https://www.w3.org/WAI/ARIA/apg/patterns/alert/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Alerts must not affect keyboard focus"
-      - "No auto-dismissing alerts (WCAG 2.2.3)"
-      - "Alert Dialog pattern for interactive alerts"
-
-  - name: "W3C WCAG Technique ARIA19"
-    url: "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA19"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "Using role=alert or live regions to identify errors"
-
-  - name: "dev.to — When Your Live Region Isn't Live (Angular, React, Vue)"
-    url: "https://dev.to/dkoppenhagen/when-your-live-region-isnt-live-fixing-aria-live-in-angular-react-and-vue-1g0j"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Conditional rendering destroys live regions"
-      - "Framework-specific fixes: [hidden], v-show, hidden prop"
-      - "Vue @vue-a11y/announcer usage"
-
-  - name: "Almero Steyn — ARIA Live Regions in React"
-    url: "https://almerosteyn.com/2017/09/aria-live-regions-in-react"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "react-aria-live dual-region pattern"
-      - "@react-aria/live-announcer"
-
-  - name: "Almero Steyn — Accessible React Navigation"
-    url: "https://almerosteyn.com/2017/03/accessible-react-navigation"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "SPA route change announcement pattern"
-      - "Focus management + live region complementary strategy"
-
-  - name: "Angular CDK LiveAnnouncer"
-    url: "https://github.com/angular/components/blob/main/src/cdk/a11y/live-announcer/live-announcer.md"
-    type: library-docs
-    accessed: "2026-03-27"
-    sections_used:
-      - "LiveAnnouncer injectable service API"
-      - "Persistent visually-hidden container approach"
-
-  - name: "NVDA Issue #7996 — Repeated Live Region Announcements"
-    url: "https://github.com/nvaccess/nvda/issues/7996"
-    type: bug-report
-    accessed: "2026-03-27"
-    sections_used:
-      - "Polite live region changes repeated up to 6x in Chrome, 3x in Firefox"
-
-  - name: "TPGi — Screen Reader Support for ARIA Live Regions"
-    url: "https://www.tpgi.com/screen-reader-support-aria-live-regions/"
-    type: practitioner-reference
-    accessed: "2026-03-27"
-    sections_used:
-      - "Cross-platform live region support comparison"
+- name: WAI-ARIA 1.2 — Live Region Attributes
+  url: https://www.w3.org/TR/wai-aria-1.2/#attrs_liveregions
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - aria-live — politeness levels and inheritance
+  - aria-atomic — whole vs partial announcement
+  - aria-relevant — change type filtering
+  - aria-busy — batch update suppression
+  - Implicit live region roles (alert, status, log, timer, marquee)
+- name: MDN — ARIA Live Regions Guide
+  url: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions
+  type: reference
+  accessed: '2026-03-27'
+  sections_used:
+  - Timing requirements — container must exist before content
+  - Politeness levels
+  - Implicit live region roles
+  - role='alert' + aria-live='assertive' double-announcement bug
+  - ariaNotify() upcoming API
+- name: Sara Soueidan — Accessible Notifications with ARIA Live Regions (Part 1)
+  url: https://www.sarasoueidan.com/blog/accessible-notifications-with-aria-live-regions-part-1/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - aria-relevant inconsistent support warning
+  - aria-busy inconsistent support warning
+  - Assertive overuse guidance
+  - Transient announcements need fallback
+- name: TetraLogical — Why Are My Live Regions Not Working?
+  url: https://tetralogical.com/blog/2024/05/01/why-are-my-live-regions-not-working/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Timing rule — container must exist before content injection
+  - Pre-populated regions not announced
+  - Hidden-then-shown regions unreliable
+  - Screen reader behavior comparison table
+- name: W3C APG — Alert Pattern
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/alert/
+  type: w3c-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Alerts must not affect keyboard focus
+  - No auto-dismissing alerts (WCAG 2.2.3)
+  - Alert Dialog pattern for interactive alerts
+- name: W3C WCAG Technique ARIA19
+  url: https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA19
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - Using role=alert or live regions to identify errors
+- name: dev.to — When Your Live Region Isn't Live (Angular, React, Vue)
+  url: https://dev.to/dkoppenhagen/when-your-live-region-isnt-live-fixing-aria-live-in-angular-react-and-vue-1g0j
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Conditional rendering destroys live regions
+  - 'Framework-specific fixes: [hidden], v-show, hidden prop'
+  - Vue @vue-a11y/announcer usage
+- name: Almero Steyn — ARIA Live Regions in React
+  url: https://almerosteyn.com/2017/09/aria-live-regions-in-react
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - react-aria-live dual-region pattern
+  - '@react-aria/live-announcer'
+- name: Almero Steyn — Accessible React Navigation
+  url: https://almerosteyn.com/2017/03/accessible-react-navigation
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - SPA route change announcement pattern
+  - Focus management + live region complementary strategy
+- name: Angular CDK LiveAnnouncer
+  url: https://github.com/angular/components/blob/main/src/cdk/a11y/live-announcer/live-announcer.md
+  type: library-docs
+  accessed: '2026-03-27'
+  sections_used:
+  - LiveAnnouncer injectable service API
+  - Persistent visually-hidden container approach
+- name: 'NVDA Issue #7996 — Repeated Live Region Announcements'
+  url: https://github.com/nvaccess/nvda/issues/7996
+  type: bug-report
+  accessed: '2026-03-27'
+  sections_used:
+  - Polite live region changes repeated up to 6x in Chrome, 3x in Firefox
+- name: TPGi — Screen Reader Support for ARIA Live Regions
+  url: https://www.tpgi.com/screen-reader-support-aria-live-regions/
+  type: practitioner-reference
+  accessed: '2026-03-27'
+  sections_used:
+  - Cross-platform live region support comparison
+- name: WAI validation
+  url: https://www.w3.org/WAI/tutorials/forms/validation
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  - references/recipes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: WAI-ARIA status
+  url: https://www.w3.org/TR/wai-aria-1.2/#status
+  used_in:
+  - references/recipes.md
+  accessed: '2026-03-27'
+  type: specification
+  notes: Exact citation registered; existing source metadata retained. Registration is not a new compatibility
+    test.
+- name: WAI-ARIA log
+  url: https://www.w3.org/TR/wai-aria-1.2/#log
+  used_in:
+  - references/recipes.md
+  accessed: '2026-03-27'
+  type: specification
+  notes: Exact citation registered; existing source metadata retained. Registration is not a new compatibility
+    test.
+- name: SC 4.1.3
+  url: https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html
+  used_in:
+  - SKILL.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.

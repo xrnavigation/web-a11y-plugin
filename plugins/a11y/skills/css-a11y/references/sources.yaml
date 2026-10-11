@@ -1,167 +1,228 @@
 sources:
-  - name: "Sara Soueidan — A Guide to Designing Accessible Focus Indicators"
-    url: "https://www.sarasoueidan.com/blog/focus-indicators/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Double-outline technique for universal visibility"
-      - "Focus indicator contrast requirements"
-      - ":focus-visible vs :focus guidance"
-
-  - name: "WCAG 2.2 SC 2.4.13 Focus Appearance"
-    url: "https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "Focus indicator area calculation (2px perimeter)"
-      - "3:1 contrast between focused and unfocused states"
-
-  - name: "WCAG 2.2 SC 2.5.8 Target Size (Minimum)"
-    url: "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "24x24 CSS pixel minimum"
-      - "Five exceptions (spacing, equivalent, inline, user agent, essential)"
-      - "Spacing exception with 24px-diameter circle test"
-
-  - name: "WCAG 2.1 SC 1.4.1 Use of Color"
-    url: "https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "Color must not be the only visual means of conveying information"
-      - "Link distinction requirements (3:1 contrast + non-color indicator)"
-
-  - name: "Modern CSS Upgrades to Improve Accessibility"
-    url: "https://moderncss.dev/modern-css-upgrades-to-improve-accessibility/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - ":focus-visible with outline-offset"
-      - "currentColor for forced-colors compatibility"
-      - "scroll-behavior with motion preference"
-      - "CSS Grid for source-order preservation"
-      - "min()/max()/clamp() for responsive spacing at zoom"
-
-  - name: "Smashing Magazine — The Guide to Windows High Contrast Mode"
-    url: "https://www.smashingmagazine.com/2022/06/guide-windows-high-contrast-mode/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Properties forced to system colors"
-      - "Properties forced to none (box-shadow, text-shadow, background-image)"
-      - "Transparent border/outline technique"
-      - "System color keywords"
-      - "forced-color-adjust usage"
-
-  - name: "Smashing Magazine — Windows High Contrast Mode, Forced Colors Mode and CSS Custom Properties"
-    url: "https://www.smashingmagazine.com/2022/03/windows-high-contrast-colors-mode-css-custom-properties/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "CSS custom properties in forced-colors mode"
-
-  - name: "MS Edge Blog — Styling for Windows High Contrast"
-    url: "https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/"
-    type: vendor-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Standards-based forced-colors media query"
-      - "Migration from -ms-high-contrast"
-
-  - name: "MDN — forced-colors"
-    url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/forced-colors"
-    type: reference
-    accessed: "2026-03-27"
-    sections_used:
-      - "forced-colors media feature values"
-      - "Properties affected by forced colors"
-
-  - name: "MDN — prefers-reduced-motion"
-    url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion"
-    type: reference
-    accessed: "2026-03-27"
-    sections_used:
-      - "reduce vs no-preference values"
-      - "Replace not remove guidance"
-
-  - name: "MDN — prefers-contrast"
-    url: "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast"
-    type: reference
-    accessed: "2026-03-27"
-    sections_used:
-      - "more, less, custom, no-preference values"
-      - "Platform behavior differences (macOS vs Windows)"
-
-  - name: "W3C Technique C39 — Using prefers-reduced-motion"
-    url: "https://www.w3.org/WAI/WCAG21/Techniques/css/C39"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "Sufficient technique for SC 2.3.3"
-
-  - name: "Adrian Roselli — Keep the Focus Outline"
-    url: "https://adrianroselli.com/2014/06/keep-focus-outline.html"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Why outline removal is harmful"
-
-  - name: "Adrian Roselli — Using CSS to Enforce Accessibility"
-    url: "https://adrianroselli.com/2021/06/using-css-to-enforce-accessibility.html"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Style by attribute not class for state"
-      - "CSS as accessibility enforcement mechanism"
-
-  - name: "The A11Y Project — Never Remove CSS Outlines"
-    url: "https://www.a11yproject.com/posts/never-remove-css-outlines/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "outline: none consequences"
-
-  - name: "outlinenone.com"
-    url: "https://www.outlinenone.com/"
-    type: practitioner-reference
-    accessed: "2026-03-27"
-    sections_used:
-      - "Awareness campaign against outline removal"
-
-  - name: "Eevis Panula — Don't Set outline: 0 or outline: none"
-    url: "https://eevis.codes/blog/2022-07-28/dont-set-outline-0-or-outline-none-for-focus/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "outline-color: transparent as safer alternative"
-
-  - name: "WebAIM — The Plague of outline:0"
-    url: "https://webaim.org/blog/plague-of-outline-0/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Prevalence and impact of outline removal"
-
-  - name: "Kilian Valkhof — I No Longer Understand prefers-contrast"
-    url: "https://kilianvalkhof.com/2023/css-html/i-no-longer-understand-prefers-contrast/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Platform differences between macOS and Windows"
-      - "Interaction between prefers-contrast and forced-colors"
-
-  - name: "Smashing Magazine — Creating a High-Contrast Design System with CSS Custom Properties"
-    url: "https://www.smashingmagazine.com/2023/01/creating-high-contrast-design-system-css-custom-properties/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Custom properties for contrast adaptation"
-
-  - name: "Carbon Design System — Status Indicator Pattern"
-    url: "https://carbondesignsystem.com/patterns/status-indicator-pattern/"
-    type: design-system
-    accessed: "2026-03-27"
-    sections_used:
-      - "Multi-signal status indicators (color + shape + text)"
+- name: Sara Soueidan — A Guide to Designing Accessible Focus Indicators
+  url: https://www.sarasoueidan.com/blog/focus-indicators/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Double-outline technique for universal visibility
+  - Focus indicator contrast requirements
+  - :focus-visible vs :focus guidance
+- name: WCAG 2.2 SC 2.4.13 Focus Appearance
+  url: https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - Focus indicator area calculation (2px perimeter)
+  - 3:1 contrast between focused and unfocused states
+- name: WCAG 2.2 SC 2.5.8 Target Size (Minimum)
+  url: https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - 24x24 CSS pixel minimum
+  - Five exceptions (spacing, equivalent, inline, user agent, essential)
+  - Spacing exception with 24px-diameter circle test
+- name: WCAG 2.1 SC 1.4.1 Use of Color
+  url: https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - Color must not be the only visual means of conveying information
+  - Link distinction requirements (3:1 contrast + non-color indicator)
+- name: Modern CSS Upgrades to Improve Accessibility
+  url: https://moderncss.dev/modern-css-upgrades-to-improve-accessibility/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - :focus-visible with outline-offset
+  - currentColor for forced-colors compatibility
+  - scroll-behavior with motion preference
+  - CSS Grid for source-order preservation
+  - min()/max()/clamp() for responsive spacing at zoom
+- name: Smashing Magazine — The Guide to Windows High Contrast Mode
+  url: https://www.smashingmagazine.com/2022/06/guide-windows-high-contrast-mode/
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Properties forced to system colors
+  - Properties forced to none (box-shadow, text-shadow, background-image)
+  - Transparent border/outline technique
+  - System color keywords
+  - forced-color-adjust usage
+- name: Smashing Magazine — Windows High Contrast Mode, Forced Colors Mode and CSS Custom Properties
+  url: https://www.smashingmagazine.com/2022/03/windows-high-contrast-colors-mode-css-custom-properties/
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - CSS custom properties in forced-colors mode
+- name: MS Edge Blog — Styling for Windows High Contrast
+  url: https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/
+  type: vendor-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Standards-based forced-colors media query
+  - Migration from -ms-high-contrast
+- name: MDN — forced-colors
+  url: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/forced-colors
+  type: reference
+  accessed: '2026-03-27'
+  sections_used:
+  - forced-colors media feature values
+  - Properties affected by forced colors
+- name: MDN — prefers-reduced-motion
+  url: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion
+  type: reference
+  accessed: '2026-03-27'
+  sections_used:
+  - reduce vs no-preference values
+  - Replace not remove guidance
+- name: MDN — prefers-contrast
+  url: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast
+  type: reference
+  accessed: '2026-03-27'
+  sections_used:
+  - more, less, custom, no-preference values
+  - Platform behavior differences (macOS vs Windows)
+- name: W3C Technique C39 — Using prefers-reduced-motion
+  url: https://www.w3.org/WAI/WCAG21/Techniques/css/C39
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - Sufficient technique for SC 2.3.3
+- name: Adrian Roselli — Keep the Focus Outline
+  url: https://adrianroselli.com/2014/06/keep-focus-outline.html
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Why outline removal is harmful
+- name: Adrian Roselli — Using CSS to Enforce Accessibility
+  url: https://adrianroselli.com/2021/06/using-css-to-enforce-accessibility.html
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Style by attribute not class for state
+  - CSS as accessibility enforcement mechanism
+- name: The A11Y Project — Never Remove CSS Outlines
+  url: https://www.a11yproject.com/posts/never-remove-css-outlines/
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - 'outline: none consequences'
+- name: outlinenone.com
+  url: https://www.outlinenone.com/
+  type: practitioner-reference
+  accessed: '2026-03-27'
+  sections_used:
+  - Awareness campaign against outline removal
+- name: 'Eevis Panula — Don''t Set outline: 0 or outline: none'
+  url: https://eevis.codes/blog/2022-07-28/dont-set-outline-0-or-outline-none-for-focus/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - 'outline-color: transparent as safer alternative'
+- name: WebAIM — The Plague of outline:0
+  url: https://webaim.org/blog/plague-of-outline-0/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Prevalence and impact of outline removal
+- name: Kilian Valkhof — I No Longer Understand prefers-contrast
+  url: https://kilianvalkhof.com/2023/css-html/i-no-longer-understand-prefers-contrast/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Platform differences between macOS and Windows
+  - Interaction between prefers-contrast and forced-colors
+- name: Smashing Magazine — Creating a High-Contrast Design System with CSS Custom Properties
+  url: https://www.smashingmagazine.com/2023/01/creating-high-contrast-design-system-css-custom-properties/
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Custom properties for contrast adaptation
+- name: Carbon Design System — Status Indicator Pattern
+  url: https://carbondesignsystem.com/patterns/status-indicator-pattern/
+  type: design-system
+  accessed: '2026-03-27'
+  sections_used:
+  - Multi-signal status indicators (color + shape + text)
+- name: Focus visible
+  url: https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  - references/focus-indicators.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: MDN forced-colors
+  url: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  - references/focus-indicators.md
+  - references/forced-colors-mode.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: WCAG 2.2
+  url: https://www.w3.org/TR/WCAG22
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: MDN any-pointer
+  url: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/any-pointer
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Pause Stop Hide
+  url: https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Non-text contrast
+  url: https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html
+  used_in:
+  - references/focus-indicators.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: MDN
+  url: https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible
+  used_in:
+  - SKILL.md
+  - references/focus-indicators.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Use of color
+  url: https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html
+  used_in:
+  - SKILL.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Contrast minimum
+  url: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html
+  used_in:
+  - SKILL.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: MDN reduced motion
+  url: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+  used_in:
+  - SKILL.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Target enhanced
+  url: https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html
+  used_in:
+  - SKILL.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Focus order
+  url: https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html
+  used_in:
+  - SKILL.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.

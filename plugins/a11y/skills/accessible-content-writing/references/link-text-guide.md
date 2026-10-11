@@ -76,7 +76,7 @@ Every link is self-explanatory. The user picks the one they need and goes direct
 | "Click here to view our annual report" | "2025 annual report" | "Click here" is noise. Screen readers already announce "link." The user needs the destination, not the mechanic of clicking. |
 | "Read more" (repeated 8 times) | "How we reduced carbon emissions by 40%" | In a links list, eight "Read more" entries are indistinguishable. |
 | "here" in "Download the PDF here" | "Download the quarterly earnings PDF" | "here" conveys zero information out of context. |
-| `https://www.example.com/reports/q3-2025-earnings.pdf` | "Q3 2025 earnings report (PDF, 2.4 MB)" | Raw URLs are not human-readable and force screen readers to read every character. |
+| `https://www.example.com/reports/q3-2025-earnings.pdf` | "Q3 2025 earnings report (PDF, 2.4 MB)" | A descriptive title makes the destination clearer than a raw URL; pronunciation varies. |
 | "Learn more" | "Learn how to apply for disability benefits" | "Learn more" is ambiguous in a links list. |
 
 ---

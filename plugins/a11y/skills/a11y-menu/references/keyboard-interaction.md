@@ -1,4 +1,4 @@
-# Menu Keyboard Interaction (Complete Spec)
+# Menu keyboard interaction summary
 ## Contents
 
 - [Tab / Shift+Tab](#tab-shifttab)
@@ -39,7 +39,7 @@ Arrow key directions below assume default orientation: menubar = horizontal, men
 - **On menuitemcheckbox:** toggles `aria-checked`, **closes the menu**
 - **On menuitemradio:** checks the item (unchecks others in group), **closes the menu**
 
-## Space
+## Space (optional in the APG menu pattern)
 
 - **On menuitemcheckbox:** toggles checked state (**without closing**)
 - **On unchecked menuitemradio:** checks it, unchecks siblings (**without closing**)
@@ -134,4 +134,4 @@ Instead of roving tabindex, the container can manage focus via `aria-activedesce
 2. `aria-activedescendant` is set to the ID of the visually focused item
 3. Arrow keys update `aria-activedescendant` without moving DOM focus
 
-Both approaches are valid per the APG specification.
+Both focus approaches are described by APG guidance. Test the selected model consistently.

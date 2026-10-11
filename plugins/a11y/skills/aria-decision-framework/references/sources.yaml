@@ -1,90 +1,155 @@
 sources:
-  - name: "WAI-ARIA 1.2"
-    url: "https://www.w3.org/TR/wai-aria-1.2/"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "§1.1 Rich Internet Application Accessibility — first rule of ARIA"
-      - "§5.3 Categorization of Roles — role taxonomy"
-      - "§5.4 Definition of Roles — required/supported states per role"
-      - "§6.5 Global States and Properties"
-
-  - name: "ARIA in HTML"
-    url: "https://w3c.github.io/html-aria/"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "Rules of ARIA attribute usage by HTML element — complete mapping table"
-
-  - name: "Using ARIA"
-    url: "https://www.w3.org/TR/using-aria/"
-    type: w3c-note
-    accessed: "2026-03-27"
-    sections_used:
-      - "Rule 1 — use native HTML"
-      - "Rule 2 — do not change native semantics"
-      - "Rule 3 — keyboard accessibility"
-      - "Rule 4 — no aria-hidden on focusable"
-      - "Rule 5 — accessible names"
-
-  - name: "ARIA Authoring Practices Guide (APG)"
-    url: "https://www.w3.org/WAI/ARIA/apg/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Read Me First — No ARIA is better than Bad ARIA"
-      - "Read Me First — A role is a promise"
-      - "Read Me First — ARIA as cloak and enhancement"
-
-  - name: "APG Read Me First"
-    url: "https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "No ARIA is better than Bad ARIA"
-      - "A role is a promise"
-      - "Warnings about role='menu' for navigation"
-
-  - name: "Adrian Roselli — Avoid aria-roledescription"
-    url: "https://adrianroselli.com/2020/04/avoid-aria-roledescription.html"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Localization failure with aria-roledescription"
-      - "Native HTML vs ARIA — built-in features that just work"
-      - "Double-announcement problems"
-
-  - name: "Accessibility Developer Guide — Bad ARIA Practices"
-    url: "https://www.accessibility-developer-guide.com/knowledge/aria/bad-practices/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Fixing broken semantics with ARIA"
-      - "Adding redundant semantics"
-      - "Hiding focusable elements with aria-hidden"
-      - "Adding missing labels with ARIA only"
-      - "Treating disabled users differently"
-
-  - name: "Make Things Accessible — Site Navigation Is Not an ARIA Menu"
-    url: "https://www.makethingsaccessible.com/guides/site-navigation-is-not-an-aria-menu/"
-    type: practitioner-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Semantic mismatch between navigation and menu"
-      - "Broken parent-child relationships"
-      - "WCAG 1.3.1 violation"
-
-  - name: "Scott O'Hara — Accessible Styled Form Controls"
-    url: "https://scottaohara.github.io/a11y_styled_form_controls/"
-    type: practitioner-reference
-    accessed: "2026-03-27"
-    sections_used:
-      - "Markup patterns for accessible form controls"
-      - "Screen reader support documentation"
-
-  - name: "WCAG 2.1 — SC 2.5.3 Label in Name"
-    url: "https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "Label in Name requirements"
+- name: WAI-ARIA 1.2
+  url: https://www.w3.org/TR/wai-aria-1.2/
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - §1.1 Rich Internet Application Accessibility — first rule of ARIA
+  - §5.3 Categorization of Roles — role taxonomy
+  - §5.4 Definition of Roles — required/supported states per role
+  - §6.5 Global States and Properties
+- name: ARIA in HTML
+  url: https://w3c.github.io/html-aria/
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - Rules of ARIA attribute usage by HTML element — complete mapping table
+- name: Using ARIA
+  url: https://www.w3.org/TR/using-aria/
+  type: w3c-note
+  accessed: '2026-03-27'
+  sections_used:
+  - Rule 1 — use native HTML
+  - Rule 2 — do not change native semantics
+  - Rule 3 — keyboard accessibility
+  - Rule 4 — no aria-hidden on focusable
+  - Rule 5 — accessible names
+- name: ARIA Authoring Practices Guide (APG)
+  url: https://www.w3.org/WAI/ARIA/apg/
+  type: w3c-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Read Me First — No ARIA is better than Bad ARIA
+  - Read Me First — A role is a promise
+  - Read Me First — ARIA as cloak and enhancement
+- name: APG Read Me First
+  url: https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/
+  type: w3c-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - No ARIA is better than Bad ARIA
+  - A role is a promise
+  - Warnings about role='menu' for navigation
+- name: Adrian Roselli — Avoid aria-roledescription
+  url: https://adrianroselli.com/2020/04/avoid-aria-roledescription.html
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Localization failure with aria-roledescription
+  - Native HTML vs ARIA — built-in features that just work
+  - Double-announcement problems
+- name: Accessibility Developer Guide — Bad ARIA Practices
+  url: https://www.accessibility-developer-guide.com/knowledge/aria/bad-practices/
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Fixing broken semantics with ARIA
+  - Adding redundant semantics
+  - Hiding focusable elements with aria-hidden
+  - Adding missing labels with ARIA only
+  - Treating disabled users differently
+- name: Make Things Accessible — Site Navigation Is Not an ARIA Menu
+  url: https://www.makethingsaccessible.com/guides/site-navigation-is-not-an-aria-menu/
+  type: practitioner-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Semantic mismatch between navigation and menu
+  - Broken parent-child relationships
+  - WCAG 1.3.1 violation
+- name: Scott O'Hara — Accessible Styled Form Controls
+  url: https://scottaohara.github.io/a11y_styled_form_controls/
+  type: practitioner-reference
+  accessed: '2026-03-27'
+  sections_used:
+  - Markup patterns for accessible form controls
+  - Screen reader support documentation
+- name: WCAG 2.1 — SC 2.5.3 Label in Name
+  url: https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - Label in Name requirements
+- name: HTML tabindex
+  url: https://html.spec.whatwg.org/multipage/interaction.html#the-tabindex-attribute
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  - references/five-rules-of-aria.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: HTML inert
+  url: https://html.spec.whatwg.org/multipage/interaction.html#inert
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  - references/five-rules-of-aria.md
+  notes: Exact citation registered; existing source metadata retained. Registration is not a new compatibility
+    test.
+- name: WAI-ARIA aria-hidden
+  url: https://www.w3.org/TR/wai-aria-1.2/#aria-hidden
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  - references/five-rules-of-aria.md
+  accessed: '2026-03-27'
+  type: specification
+  notes: Exact citation registered; existing source metadata retained. Registration is not a new compatibility
+    test.
+- name: WAI-ARIA tablist
+  url: https://www.w3.org/TR/wai-aria-1.2/#tablist
+  used_in:
+  - references/common-mistakes.md
+  accessed: '2026-03-27'
+  type: specification
+  notes: Exact citation registered; existing source metadata retained. Registration is not a new compatibility
+    test.
+- name: APG navigation menu button
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: Understanding 2.5.3
+  url: https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html
+  used_in:
+  - references/common-mistakes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: WAI-ARIA presentation
+  url: https://www.w3.org/TR/wai-aria-1.2/#presentation
+  used_in:
+  - references/five-rules-of-aria.md
+  accessed: '2026-03-27'
+  type: specification
+  notes: Exact citation registered; existing source metadata retained. Registration is not a new compatibility
+    test.
+- name: APG grid
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/grid
+  used_in:
+  - references/html-aria-mapping.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: APG combobox
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/combobox
+  used_in:
+  - SKILL.md
+  - references/required-aria-attributes.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.
+- name: APG button
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/button
+  used_in:
+  - SKILL.md
+  verification: Listed citation; see revision audit for live review scope. No retrieval date inferred
+    by registration.

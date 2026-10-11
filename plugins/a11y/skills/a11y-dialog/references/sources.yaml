@@ -1,102 +1,101 @@
 sources:
-  - name: "HTML Spec — The dialog element"
-    url: "https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "Dialog element definition — showModal(), show(), closedby"
-      - "Dialog focusing steps — autofocus, focus delegate"
-      - "Blocked by the modal dialog — automatic background inertness"
-      - "Events — close, toggle, beforetoggle, returnValue"
-
-  - name: "HTML Spec — The inert attribute"
-    url: "https://html.spec.whatwg.org/multipage/interaction.html#the-inert-attribute"
-    type: specification
-    accessed: "2026-03-27"
-    sections_used:
-      - "Inert attribute behavior — pointer events, text selection, focusability"
-      - "Relationship to modal dialogs — automatic inertness via top layer"
-
-  - name: "APG Dialog (Modal) Pattern"
-    url: "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "Required roles, states, and properties"
-      - "Keyboard interaction — Tab, Shift+Tab, Escape"
-      - "Focus management — on open, on close, tab containment"
-      - "aria-modal usage rule"
-
-  - name: "APG Alert and Message Dialogs Pattern"
-    url: "https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/"
-    type: w3c-guide
-    accessed: "2026-03-27"
-    sections_used:
-      - "alertdialog role — when to use, how it differs from dialog"
-      - "Required ARIA attributes — aria-describedby must reference alert message"
-      - "Keyboard interaction — inherits from modal dialog"
-
-  - name: "MDN — ARIA dialog role"
-    url: "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role"
-    type: reference
-    accessed: "2026-03-27"
-    sections_used:
-      - "Recommendation to use native <dialog>"
-      - "Virtual cursor escape problem with CSS-only overlays"
-      - "Required accessible name — aria-labelledby or aria-label"
-      - "inert attribute replacing triple-technique approach"
-
-  - name: "Adrian Roselli — Dialog Focus in Screen Readers"
-    url: "https://adrianroselli.com/2020/10/dialog-focus-in-screen-readers.html"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Screen reader behavior matrix — JAWS, NVDA, VoiceOver, TalkBack"
-      - "Per-browser announcement differences"
-      - "Implicit aria-modal with native dialog"
-      - "Native dialog limitations — no automatic aria-labelledby"
-
-  - name: "Adrian Roselli — Where to Put Focus When Opening a Modal Dialog"
-    url: "https://adrianroselli.com/2025/06/where-to-put-focus-when-opening-a-modal-dialog.html"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Context-dependent focus placement rules"
-      - "Decision table by dialog type"
-      - "Dark pattern — auto-focusing text fields in unsolicited modals"
-      - "Blanket statements quote"
-
-  - name: "a11y-dialog Documentation"
-    url: "https://a11y-dialog.netlify.app/"
-    type: library-docs
-    accessed: "2026-03-27"
-    sections_used:
-      - "Focus considerations — tab cycling, focus trapping caveats"
-      - "Markup — role=document for NVDA browse mode"
-      - "data-a11y-dialog-ignore-focus-trap escape hatch"
-
-  - name: "a11y-dialog — Focus Considerations"
-    url: "https://a11y-dialog.netlify.app/advanced/focus-considerations"
-    type: library-docs
-    accessed: "2026-03-27"
-    sections_used:
-      - "Focus trapping implementation details"
-      - "Focusable element detection limitations"
-      - "Focus restoration behavior"
-
-  - name: "Scott O'Hara — accessible_modal_window"
-    url: "https://github.com/scottaohara/accessible_modal_window"
-    type: practitioner-reference
-    accessed: "2026-03-27"
-    sections_used:
-      - "Focus restoration implementation"
-      - "Best practices for modal accessibility"
-
-  - name: "Common Accessibility Issues with Modals (OpenReplay)"
-    url: "https://blog.openreplay.com/common-accessibility-issues-modals-fix/"
-    type: practitioner-blog
-    accessed: "2026-03-27"
-    sections_used:
-      - "Virtual cursor escaping modal"
-      - "Automated testing limitations for dialogs"
-      - "Common mistakes catalog"
+- name: HTML Spec — The dialog element
+  url: https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - Dialog element definition — showModal(), show(), closedby
+  - Dialog focusing steps — autofocus, focus delegate
+  - Blocked by the modal dialog — automatic background inertness
+  - Events — close, toggle, beforetoggle, returnValue
+- name: HTML Spec — The inert attribute
+  url: https://html.spec.whatwg.org/multipage/interaction.html#the-inert-attribute
+  type: specification
+  accessed: '2026-03-27'
+  sections_used:
+  - Inert attribute behavior — pointer events, text selection, focusability
+  - Relationship to modal dialogs — automatic inertness via top layer
+- name: APG Dialog (Modal) Pattern
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+  type: w3c-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - Required roles, states, and properties
+  - Keyboard interaction — Tab, Shift+Tab, Escape
+  - Focus management — on open, on close, tab containment
+  - aria-modal usage rule
+- name: APG Alert and Message Dialogs Pattern
+  url: https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/
+  type: w3c-guide
+  accessed: '2026-03-27'
+  sections_used:
+  - alertdialog role — when to use, how it differs from dialog
+  - Required ARIA attributes — aria-describedby must reference alert message
+  - Keyboard interaction — inherits from modal dialog
+- name: MDN — ARIA dialog role
+  url: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role
+  type: reference
+  accessed: '2026-03-27'
+  sections_used:
+  - Recommendation to use native <dialog>
+  - Virtual cursor escape problem with CSS-only overlays
+  - Required accessible name — aria-labelledby or aria-label
+  - inert attribute replacing triple-technique approach
+- name: Adrian Roselli — Dialog Focus in Screen Readers
+  url: https://adrianroselli.com/2020/10/dialog-focus-in-screen-readers.html
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Screen reader behavior matrix — JAWS, NVDA, VoiceOver, TalkBack
+  - Per-browser announcement differences
+  - Implicit aria-modal with native dialog
+  - Native dialog limitations — no automatic aria-labelledby
+- name: Adrian Roselli — Where to Put Focus When Opening a Modal Dialog
+  url: https://adrianroselli.com/2025/06/where-to-put-focus-when-opening-a-modal-dialog.html
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Context-dependent focus placement rules
+  - Decision table by dialog type
+  - Dark pattern — auto-focusing text fields in unsolicited modals
+  - Blanket statements quote
+- name: a11y-dialog Documentation
+  url: https://a11y-dialog.netlify.app/
+  type: library-docs
+  accessed: '2026-03-27'
+  sections_used:
+  - Focus considerations — tab cycling, focus trapping caveats
+  - Markup — role=document for NVDA browse mode
+  - data-a11y-dialog-ignore-focus-trap escape hatch
+- name: a11y-dialog — Focus Considerations
+  url: https://a11y-dialog.netlify.app/advanced/focus-considerations
+  type: library-docs
+  accessed: '2026-03-27'
+  sections_used:
+  - Focus trapping implementation details
+  - Focusable element detection limitations
+  - Focus restoration behavior
+- name: Scott O'Hara — accessible_modal_window
+  url: https://github.com/scottaohara/accessible_modal_window
+  type: practitioner-reference
+  accessed: '2026-03-27'
+  sections_used:
+  - Focus restoration implementation
+  - Best practices for modal accessibility
+- name: Common Accessibility Issues with Modals (OpenReplay)
+  url: https://blog.openreplay.com/common-accessibility-issues-modals-fix/
+  type: practitioner-blog
+  accessed: '2026-03-27'
+  sections_used:
+  - Virtual cursor escaping modal
+  - Automated testing limitations for dialogs
+  - Common mistakes catalog
+- name: HTML inert
+  url: https://html.spec.whatwg.org/multipage/interaction.html#inert
+  used_in:
+  - SKILL.md
+  - references/common-mistakes.md
+  accessed: '2026-03-27'
+  type: specification
+  notes: Exact citation registered; existing source metadata retained. Registration is not a new compatibility
+    test.

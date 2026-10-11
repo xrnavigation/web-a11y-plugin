@@ -13,7 +13,7 @@
   - [Multiple / Compounding](#multiple-compounding)
 
 
-Complete templates for writing disability-centered user stories with acceptance criteria, WCAG references, and BDD scenarios.
+These are hypothetical story and acceptance-criteria examples, not executed tests or claims about every person with a disability. Specify browser, operating system, assistive technology versions, navigation mode, verbosity/language settings, and fixtures. Record evidence as observed, failed, or not run; quote speech only when actually observed in that environment. Test semantic outcomes rather than a universal speech transcript. Page title correctness is a separate check from announcements after navigation.
 
 ## Full Story Template
 
@@ -25,7 +25,7 @@ So that [human outcome -- what they can accomplish].
 
 ## Persona Context
 - **Disability:** [specific condition]
-- **AT Used:** [specific tools: NVDA, JAWS, VoiceOver, keyboard-only, Dragon, etc.]
+- **Environment:** [OS, browser, AT and versions; input method, navigation mode, language/verbosity settings]
 - **Navigation pattern:** [how they typically navigate: headings, landmarks, tab, voice commands]
 - **Key frustration:** [what blocks them most often]
 
@@ -36,7 +36,7 @@ So that [human outcome -- what they can accomplish].
 - [ ] [Component] is operable with [input method]
 
 ### Perceivable (what is announced/visible)
-- [ ] Screen reader announces [specific text] when [trigger]
+- [ ] The relevant name, role, state, description, or status is available and understandable using [specified environment] when [trigger]
 - [ ] Focus indicator is visible when [component] receives focus
 - [ ] Color is not the only means of conveying [information]
 
@@ -57,6 +57,11 @@ So that [human outcome -- what they can accomplish].
 Given [context with AT]
 When [user action]
 Then [observable outcome for user]
+
+## Evidence
+- Status: [observed / failed / not run]
+- Environment and settings: [versions and configuration]
+- Observed result: [user outcome; actual speech if collected]
 ```
 
 ---
@@ -83,10 +88,10 @@ So that I can access my financial dashboard independently.
 - [ ] Password field allows paste (for password managers)
 
 ### Perceivable
-- [ ] NVDA announces "Email address, edit text, required" when email field receives focus
-- [ ] NVDA announces "Password, edit text, required" when password field receives focus
-- [ ] NVDA announces "Log in, button" for the submit button
-- [ ] On error, NVDA immediately announces "Error: Email address is required" (or equivalent specific message)
+- [ ] The email field exposes the name Email address, text-input role, and required state in the specified environment
+- [ ] The password field exposes the name Password, protected-input semantics, and required state
+- [ ] The submit control exposes the name Log in and button role
+- [ ] Failed submission makes specific errors discoverable through associated descriptions and the chosen focus/notification strategy
 - [ ] Focus moves to the first field in error state after failed submission
 
 ### Understandable
@@ -111,17 +116,19 @@ So that I can access my financial dashboard independently.
 
 Given I am using NVDA with Firefox
 When I Tab to the email field
-Then NVDA announces "Email address, edit text, required"
+Then I can identify the email field, its required state, and any applicable instructions
 
 Given I have entered an invalid email address
 When I activate the Log In button
 Then focus moves to the email field
-And NVDA announces the specific error: "Email address must include an @ symbol"
+And I can discover the associated email error and understand how to correct it
 
 Given I have entered valid credentials
 When I activate the Log In button
 Then I am taken to the dashboard
-And NVDA announces the new page title
+And focus/context identifies the dashboard through the chosen navigation strategy
+And the document title describes the dashboard
+And any actual screen reader announcement is recorded separately for this environment
 ```
 
 Source: [Section 508 User Stories](https://www.section508.gov/develop/user-stories/), [TetraLogical User Stories](https://tetralogical.com/blog/2022/05/26/how-to-write-user-stories-for-accessibility/)
@@ -146,7 +153,7 @@ So that I can review quarterly revenue without sighted assistance.
 
 ### Perceivable
 - [ ] NVDA announces column and row headers when navigating to each cell
-- [ ] NVDA announces "Table with [N] rows and [M] columns" when entering the table
+- [ ] The table is identifiable and its row/column structure is available through table navigation in the specified environment
 - [ ] Table has a caption or `aria-label` describing its purpose
 
 ### Understandable
@@ -161,11 +168,11 @@ So that I can review quarterly revenue without sighted assistance.
 
 Given I am using NVDA with Firefox
 When I navigate to the data table
-Then NVDA announces "Table: Quarterly Revenue, 5 rows, 4 columns"
+Then I can identify the table as Quarterly Revenue and navigate its fixture rows and columns
 
 Given I am in the table
 When I press Ctrl+Alt+Right to move to the next column
-Then NVDA announces the column header followed by the cell value
+Then I can determine the cell value and its associated column/row headers; speech order is recorded as observed
 ```
 
 ---
@@ -207,7 +214,7 @@ So that I can find items without excessive typing or mouse use.
 Given I am a keyboard user
 When I type "lap" in the search field
 Then a list of suggestions appears
-And my screen reader announces "5 suggestions available"
+And a status communicates the fixture's available suggestion count without moving focus; record actual speech separately
 
 Given the suggestion list is open
 When I press Down Arrow

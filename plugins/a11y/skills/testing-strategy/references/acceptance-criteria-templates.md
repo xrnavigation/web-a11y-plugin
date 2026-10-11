@@ -1,115 +1,48 @@
-# Accessibility Acceptance Criteria Templates
-## Contents
+# Acceptance criteria templates
 
-- [Template 1: Per-Story Criteria](#template-1-per-story-criteria)
-- [Template 2: Disability-Specific Stories](#template-2-disability-specific-stories)
-  - [Keyboard-Only User](#keyboard-only-user)
-  - [Screen Reader User](#screen-reader-user)
-  - [Low Vision User](#low-vision-user)
-- [Template 3: Component-Level Criteria](#template-3-component-level-criteria)
-- [Definition of Done Checklist](#definition-of-done-checklist)
-- [Usage Notes](#usage-notes)
+## Form error journey
 
-
-## Template 1: Per-Story Criteria
-
-Add accessibility-specific acceptance criteria to each user story:
-
-```
-As a [user type], I want to [action] so that [benefit].
-
-Acceptance Criteria:
-- [ ] All interactive elements are reachable and operable by keyboard
-- [ ] Focus order matches the visual/logical order
-- [ ] Screen reader announces [specific element] as [expected announcement]
-- [ ] Color contrast meets WCAG AA (4.5:1 normal text, 3:1 large text)
-- [ ] Error messages are programmatically associated with their fields
-- [ ] State changes are announced to assistive technology
+```text
+Given a ready form with blank required Email field,
+when Submit is activated,
+then a visible text error identifies Email and suggests correction,
+the field exposes its invalid state and associated error,
+a documented summary/field focus strategy lets the user find and fix it,
+and corrected input can be submitted without losing other entered values.
+Evidence: revision, actions, DOM assertions, keyboard and observed AT results.
 ```
 
-## Template 2: Disability-Specific Stories
+Use the application's actual field IDs and tested feedback mechanism. Error
+identification and association are described in
+[WAI validation](https://www.w3.org/WAI/tutorials/forms/validation/).
 
-Write explicit stories for specific user needs:
+## Component lifecycle
 
-### Keyboard-Only User
-
-```
-As a keyboard-only user, I want to [complete this workflow using only
-the keyboard] so that I can [accomplish task independently].
-
-Acceptance Criteria:
-- [ ] All controls reachable via Tab / Shift+Tab
-- [ ] No keyboard traps
-- [ ] Visible focus indicator on every interactive element
-- [ ] Modal traps focus and returns it on close
-```
-
-### Screen Reader User
-
-```
-As a screen reader user, I want [the form to announce field labels,
-required status, and errors] so that I can complete it without sighted
-assistance.
-
-Acceptance Criteria:
-- [ ] Each input has a programmatically associated label
-- [ ] Required fields announce "required"
-- [ ] Error messages are announced when they appear (via aria-live or focus)
-- [ ] Form completion confirmation is announced
+```text
+Component / revision / support matrix:
+Chosen native element or APG interaction contract:
+Expected name, role, states and task outcome:
+Open / move / activate / close / restore actions:
+Automated assertions and rendered scans:
+Observed keyboard and AT evidence:
+Zoom / spacing / pointer alternatives as applicable:
+Exceptions and checks not run:
 ```
 
-### Low Vision User
+Follow the selected widget contract; exact speech wording varies by combination
+([APG keyboard interface](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/)).
 
-```
-As a user with low vision, I want [content to be readable at 200% zoom]
-so that I can read without horizontal scrolling.
+## Layout
 
-Acceptance Criteria:
-- [ ] Content reflows at 200% zoom without horizontal scrollbar
-- [ ] Text spacing can be adjusted without loss of content (WCAG 1.4.12)
-- [ ] All text meets 4.5:1 contrast ratio
-```
-
-## Template 3: Component-Level Criteria
-
-For design system or component library work:
-
-```
-Component: [Name]
-ARIA Pattern: [APG reference]
-
-Keyboard:
-- [ ] [Key]: [Expected behavior]
-- [ ] [Key]: [Expected behavior]
-
-Screen Reader:
-- [ ] Role announced as: [expected role]
-- [ ] Name announced as: [expected name]
-- [ ] State changes announced: [list states]
-
-Visual:
-- [ ] Focus indicator visible (3:1 contrast minimum)
-- [ ] Color contrast meets AA thresholds
-- [ ] Works at 200% zoom
+```text
+Text enlargement: 200%, no information/function loss (applicable exceptions).
+Reflow: 320 CSS px width for vertical or 256 CSS px height for horizontal flow.
+Two-dimensional exception: affected section and essential meaning documented.
+Spacing overrides: line 1.5, paragraph 2, letter .12, word .16 times font size.
+Check ready, modal and error states; report viewport, zoom and actual outcome.
 ```
 
-## Definition of Done Checklist
-
-Add to your team's Definition of Done:
-
-1. Automated scan passes (axe-core, zero violations)
-2. Keyboard-only operation verified (full workflow)
-3. Focus management correct (modals, route changes, dynamic content)
-4. Screen reader announces all content meaningfully (tested with NVDA or VoiceOver)
-5. Color contrast meets AA thresholds
-6. Content reflows at 200% zoom
-7. Error states are announced and associated with fields
-8. Heading hierarchy is logical (no skipped levels, reflects page structure)
-
-## Usage Notes
-
-- **Be specific.** "Must be accessible" is not testable. Name the expected screen reader announcement, keyboard interaction, and contrast ratio.
-- **Include the ARIA pattern reference.** For custom widgets, link to the [APG pattern](https://www.w3.org/WAI/ARIA/apg/patterns/) so implementers know the expected keyboard behavior.
-- **Test with the criteria.** Each checkbox should be verifiable by a tester using keyboard, screen reader, or automated tool.
-
-Sources: [TetraLogical, "How to write user stories for accessibility"](https://tetralogical.com/blog/2022/05/26/how-to-write-user-stories-for-accessibility/), [Section508.gov Sample User Stories](https://www.section508.gov/develop/user-stories/), [TPGi, "How to Write User Stories for Accessibility Requirements"](https://www.tpgi.com/how-write-user-stories-accessibility-requirements/)
+Thresholds and exceptions:
+[Resize text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html),
+[Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html),
+[Text spacing](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html).

@@ -4,9 +4,9 @@ Web accessibility agent skills for Claude Code, Codex CLI, and Gemini CLI. Part 
 
 ## Why this exists
 
-LLMs write inaccessible code by default. They over-use ARIA, skip keyboard interaction, ignore focus management, and produce markup that fails screen readers. These skills encode the actual rules — sourced from WAI-ARIA Authoring Practices, WCAG 2.2, and accessibility practitioners — so the agent gets it right the first time instead of generating plausible-looking code that breaks for real users.
+Accessibility work needs more than plausible markup. These skills guide native semantics, keyboard behavior, focus, content alternatives and verification using WCAG, WAI-ARIA, APG and cited implementation guidance. They provide concrete examples and identify the checks that require browser or assistive technology evidence.
 
-Every skill includes cited reference material. No hallucinated guidance.
+Skills include cited reference material and distinguish requirements, authoring guidance and tested behavior. Compatibility observations require verification against the product support matrix.
 
 ## Skills
 
@@ -30,13 +30,16 @@ Every skill includes cited reference material. No hallucinated guidance.
 | `form-a11y` | Error messaging, validation, accessible auth (WCAG 2.2), autocomplete |
 | `css-a11y` | Focus indicators, forced-colors, prefers-reduced-motion, target sizing |
 | `live-regions` | ARIA live regions for notifications, toasts, status messages |
+| `zoom-reflow` | Text resizing, reflow thresholds, spacing overrides and layout test matrices |
+| `pointer-gestures` | Dragging and gesture alternatives, cancellation, hybrid input and target spacing |
+| `media-a11y` | Captions, transcripts, audio description and usable media players |
 
 ### Audit & Testing
 | Skill | What it covers |
 |---|---|
 | `a11y-audit` | Automated scanning with axe-core, pa11y, Lighthouse, eslint-plugin-jsx-a11y |
 | `testing-strategy` | What to test automatically vs manually vs with AT |
-| `at-experience-verification` | What screen readers actually announce for your markup |
+| `at-experience-verification` | Actual AT journey evidence, support matrices and observed versus predicted output |
 
 ### Content & UX
 | Skill | What it covers |
@@ -49,13 +52,13 @@ Every skill includes cited reference material. No hallucinated guidance.
 | Skill | What it covers |
 |---|---|
 | `cognitive-a11y` | Error messages, consistent nav, timeouts, progress indicators |
-| `cognitive-neurodivergent-experience` | Why timeouts cause panic, why unpredictability causes distress |
+| `cognitive-neurodivergent-experience` | Predictability, sensory preferences and variable support needs |
 
 ### Guardrails
 | Skill | What it covers |
 |---|---|
 | `hostile-pattern-detection` | Carousels, infinite scroll, hover-only, auto-play, CAPTCHAs |
-| `overlay-resistance` | Never recommend accessibility overlays (accessiBe, UserWay, etc.) |
+| `overlay-resistance` | Source remediation, overlay limitations and bounded evidence |
 
 ## Install in Claude Code
 
@@ -86,3 +89,27 @@ plugins/a11y/
   .codex-plugin/plugin.json
   skills/<skill-name>/SKILL.md
 ```
+
+## Validate and develop
+
+There are 26 skills. Work in the plugin source repository; the xr-skills repository
+is a catalog. For a locally reviewed working copy in Codex:
+
+```text
+codex plugin marketplace add .
+codex plugin add a11y@web-a11y-skills-marketplace --json
+codex plugin list --marketplace web-a11y-skills-marketplace --json
+```
+
+Installed skills are available on the next turn. After changing source files,
+reinstall and compare the cached files with the reviewed source; registering a
+marketplace alone does not install skills.
+
+```text
+uv run --with pyyaml python scripts/check_skills.py
+```
+
+The validator checks metadata, required references, local file links, citation
+registration, plugin JSON and line budgets. It does not validate every claim,
+external link or browser/AT behavior. Local audit reports are kept in the ignored
+`reports/` directory; they record source-review scope and verification limits.

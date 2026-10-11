@@ -2,7 +2,6 @@
 name: disability-user-stories
 description: Generates accessibility-centered user stories, personas, and acceptance criteria that verify real assistive technology experiences. Use when writing user stories, sprint planning, defining acceptance criteria, or creating accessibility-specific test cases. Provides W3C, GOV.UK, and Microsoft persona frameworks plus Given/When/Then patterns for AT verification.
 argument-hint: "[feature-or-component]"
-allowed-tools: Read, Glob, Grep
 ---
 
 # Disability-Centered User Stories
@@ -10,8 +9,7 @@ allowed-tools: Read, Glob, Grep
 > "As a user, I want the site to be accessible" is not a user story. It is a wish.
 > — [TetraLogical](https://tetralogical.com/blog/2022/05/26/how-to-write-user-stories-for-accessibility/)
 
-> "Automated scans reliably flag only 13% of WCAG 2.1 AA success criteria."
-> — [Accessible.org](https://accessible.org/automated-scans-wcag/)
+Automated tools assist evaluation but do not determine accessibility on their own. ([WAI evaluation tools](https://www.w3.org/WAI/test-evaluate/tools/selecting/))
 
 Stories that say "accessible" are not testable. Stories that name the assistive technology, the persona, and the experience are. This skill generates user stories, acceptance criteria, and BDD scenarios that center the disability experience rather than the code implementation.
 
@@ -32,7 +30,7 @@ Accessibility stories fail when they describe code attributes instead of human e
 |---|---|
 | "Image has alt attribute" | "Screen reader announces descriptive text that conveys the image's purpose" |
 | "Button has aria-label" | "Screen reader announces the button's visible text and purpose" |
-| "Error div has role=alert" | "When I submit invalid data, my screen reader immediately announces what went wrong and how to fix it" |
+| "Error div has role=alert" | "When I submit invalid data, I can find which fields have errors and their correction guidance through associated field descriptions and a deliberate submission notification/focus strategy" |
 | "Dialog has aria-modal=true" | "When the dialog opens, focus moves inside it; I can tab through its contents without escaping to the background; Escape closes it and returns focus to the trigger" |
 | "Input has associated label element" | "When I tab to this field, my screen reader announces its label, whether it is required, and any format instructions" |
 
@@ -180,7 +178,7 @@ Acceptance criteria must specify what the user experiences:
 
 ```
 ### Perceivable (what is announced/visible)
-- [ ] Screen reader announces [specific text] when [trigger]
+- [ ] The relevant semantic name, role, state, description, or status is understandable in the specified test environment when [trigger]
 - [ ] Focus indicator is visible when [component] receives focus
 - [ ] Color is not the only means of conveying [information]
 
@@ -272,14 +270,14 @@ Sources: [Hassell Inclusion](https://www.hassellinclusion.com/blog/gherkin-acces
 
 ## 7. Shift-Left Integration
 
-Accessibility acceptance criteria belong in the story before development starts, not in a QA phase after. Fixing accessibility post-release costs 10-100x more than building it in. ([IAPM](https://www.iapm.net/en/blog/shift-left-accessibility/))
+Accessibility acceptance criteria belong in the story before development starts, not in a QA phase after. Define and test accessibility behavior before release; do not apply a universal repair-cost multiplier. ([IAPM](https://www.iapm.net/en/blog/shift-left-accessibility/))
 
 ### Definition of Done
 
 A team's Definition of Done should include four accessibility gates (per [Accessibility for Teams](https://accessibility-for-teams.com/article/accessibility-in-the-definition-of-done)):
 
 1. **Automated accessibility testing passed** -- axe, WAVE, Lighthouse, or Pa11y (use multiple tools; each catches different issues)
-2. **Manual WCAG review completed** -- a screen reader user can test ~2/3 of WCAG 2.1 success criteria using a screen reader alone
+2. **Manual WCAG review completed** -- scope manual review to the applicable criteria and combine keyboard, zoom, visual/content, pointer, and supported assistive technology checks; a screen reader alone does not cover every criterion
 3. **Accessibility statement updated** -- if the feature has known limitations, document them
 4. **Content style guide followed** -- plain language, descriptive link text, proper alt text, meaningful headings
 
@@ -313,12 +311,12 @@ A team's Definition of Done should include four accessibility gates (per [Access
 |---|---|---|
 | "Image has alt attribute" | Alt may be empty, wrong, or unhelpful | "Screen reader announces descriptive text that conveys the image's purpose" |
 | "Button has aria-label" | Label may not match visible text (WCAG 2.5.3 violation) | "Screen reader announces the button's visible text and purpose" |
-| "axe passes, so we're accessible" | Automation catches at most 57% of issues by volume | Add keyboard testing and screen reader verification |
+| "axe passes, so we're accessible" | Automated coverage depends on the rules, content, states, and evaluation scope | Add keyboard testing and screen reader verification |
 | "We tested with Chrome DevTools" | DevTools shows the accessibility tree, not what users hear | Run NVDA or VoiceOver and listen |
 
 ### Missing the Spectrum
 
-Writing stories only for permanent disabilities misses 80%+ of the affected population. Use Microsoft's persona spectrum: permanent -> temporary -> situational. Every accessibility improvement benefits users across the spectrum.
+Consider permanent, temporary, and situational access needs using the persona spectrum, then evaluate actual task outcomes. Do not infer a population percentage or universal benefit from that framework.
 
 ---
 
@@ -337,3 +335,5 @@ For detailed reference material:
 - [references/story-templates.md](references/story-templates.md) -- complete story-to-criteria templates with worked examples
 - [references/acceptance-criteria-patterns.md](references/acceptance-criteria-patterns.md) -- three-level model, Coles AACs, AT verification patterns
 - [references/sources.yaml](references/sources.yaml) -- provenance for all cited sources
+
+Read [common mistakes](references/common-mistakes.md) for concrete wrong/right examples.
