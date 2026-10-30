@@ -24,5 +24,5 @@ runs:
           "$validator" plugin validate "$MARKETPLACE"
         fi
         if [[ -n "$PLUGIN_ROOT" ]]; then
-          "$validator" plugin validate "$PLUGIN_ROOT"
+          "$validator" plugin validate "$PLUGIN_ROOT" --strict
         fi
