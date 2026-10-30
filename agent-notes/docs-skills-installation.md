@@ -12,5 +12,7 @@ Keep one canonical skill tree and preserve current versions. Use direct Antigrav
 ## Surprises
 Antigravity App/IDE and CLI have different user-wide skill locations. Existing repositories already support Codex except MapLibre's missing host manifests. No GitHub Actions workflow files were present in this checkout.
 
+The first hosted CI run caught workspace-relative composition and an unlocked native CLI install; both were fixed in source with self-repository references and a single locked tool package. The next run exposed that original actionlint does not recognize GitHub's current self-repository syntax, even on its main branch. The maintained kjanat/actionlint release supports that syntax through the existing validation path; the shared workflow now pins its release and explicitly disables unused cache access. No audit was ignored or disabled. The locked CLI action uses self-repository composition so consumers fetch the exact integrated shared workflow revision without a moving source ref.
+
 ## Next step
 Refresh against integrated main, push the shared workflow and its local caller, and read hosted checks to completion. Root verifies the result and performs the normal merge. Then consumer PRs can pin the integrated workflow revision; no open-PR references. CI validation lives once, inline in the reusable workflow, and checks out the caller's repository by design. Run no local CI substitute gates.

@@ -23,6 +23,8 @@ on:
 permissions:
   contents: read
 
+cache-mode: none
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -37,7 +39,7 @@ jobs:
           python-version: '3.12'
           enable-cache: false
       - name: Check workflow syntax
-        run: go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12
+        run: go run actionlint.kjanat.dev/cmd/actionlint@v1.17.0
       - name: Check workflow security
         run: uvx --from zizmor==1.31.1 zizmor --offline .github
       - name: Validate JSON and Agent Skills metadata
