@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   skills:
-    uses: ./.github/workflows/skills-ci.yml
+    uses: $/.github/workflows/skills-ci.yml
     with:
       marketplace: .claude-plugin/marketplace.json
       plugin-root: plugins/a11y

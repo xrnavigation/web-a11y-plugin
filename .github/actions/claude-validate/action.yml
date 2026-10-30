@@ -1,0 +1,28 @@
+name: Validate Claude plugin metadata
+description: Run the locked native Claude validator from the shared workflow revision
+inputs:
+  marketplace:
+    description: Marketplace manifest path, if present
+    required: false
+    default: ''
+  plugin-root:
+    description: Local plugin root, if present
+    required: false
+    default: ''
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        ACTION_PATH: ${{ github.action_path }}
+        MARKETPLACE: ${{ inputs.marketplace }}
+        PLUGIN_ROOT: ${{ inputs.plugin-root }}
+      run: |
+        npm ci --prefix "$ACTION_PATH" --include=optional
+        validator="$ACTION_PATH/node_modules/.bin/claude"
+        if [[ -n "$MARKETPLACE" ]]; then
+          "$validator" plugin validate "$MARKETPLACE"
+        fi
+        if [[ -n "$PLUGIN_ROOT" ]]; then
+          "$validator" plugin validate "$PLUGIN_ROOT"
+        fi

@@ -39,7 +39,7 @@ jobs:
       - name: Check workflow syntax
         run: go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12
       - name: Check workflow security
-        run: uvx --from zizmor==1.31.1 zizmor --offline .github/workflows
+        run: uvx --from zizmor==1.31.1 zizmor --offline .github
       - name: Validate JSON and Agent Skills metadata
         env:
           SKILL_ROOT: ${{ inputs.skill-root }}
@@ -80,14 +80,7 @@ jobs:
           PY
       - name: Validate Claude marketplace and plugin
         if: inputs.marketplace != '' || inputs.plugin-root != ''
-        env:
-          MARKETPLACE: ${{ inputs.marketplace }}
-          PLUGIN_ROOT: ${{ inputs.plugin-root }}
-        run: |
-          npm install --global --include=optional @anthropic-ai/claude-code@2.1.314
-          if [[ -n "$MARKETPLACE" ]]; then
-            claude plugin validate "$MARKETPLACE"
-          fi
-          if [[ -n "$PLUGIN_ROOT" ]]; then
-            claude plugin validate "$PLUGIN_ROOT"
-          fi
+        uses: $/.github/actions/claude-validate
+        with:
+          marketplace: ${{ inputs.marketplace }}
+          plugin-root: ${{ inputs.plugin-root }}
