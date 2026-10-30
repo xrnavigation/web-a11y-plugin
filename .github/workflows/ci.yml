@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  skills:
+    uses: ./.github/workflows/skills-ci.yml
+    with:
+      marketplace: .claude-plugin/marketplace.json
+      plugin-root: plugins/a11y
+      skill-root: plugins/a11y/skills
