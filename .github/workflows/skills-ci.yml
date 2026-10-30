@@ -1,0 +1,93 @@
+name: Shared skills validation
+
+on:
+  workflow_call:
+    inputs:
+      marketplace:
+        description: Marketplace manifest to validate, if present
+        type: string
+        default: ''
+      plugin-root:
+        description: Local plugin root to validate, if present
+        type: string
+        default: ''
+      skill-root:
+        description: Directory containing the skills to validate, if present
+        type: string
+        default: ''
+      installed-skill-name:
+        description: Installed name for a single root skill whose source directory differs
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+cache-mode: none
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: '0.13.6'
+          python-version: '3.12'
+          enable-cache: false
+      - name: Check workflow syntax
+        run: go run actionlint.kjanat.dev/cmd/actionlint@v1.17.0
+      - name: Check workflow security
+        run: uvx --from zizmor==1.31.1 zizmor --offline .github
+      - name: Validate Claude marketplace and plugin
+        if: inputs.marketplace != '' || inputs.plugin-root != ''
+        uses: $/.github/actions/claude-validate
+        with:
+          marketplace: ${{ inputs.marketplace }}
+          plugin-root: ${{ inputs.plugin-root }}
+      - name: Validate JSON and Agent Skills metadata
+        env:
+          SKILL_ROOT: ${{ inputs.skill-root }}
+          INSTALLED_SKILL_NAME: ${{ inputs.installed-skill-name }}
+          CLAUDE_PLUGIN_ROOT: ${{ inputs.plugin-root }}
+        run: |
+          uv run --no-project --with 'git+https://github.com/agentskills/agentskills.git@69ef37e9424c0a7ea9dd2293b559e43ec8176379#subdirectory=skills-ref' python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+          from skills_ref.parser import parse_frontmatter
+          from skills_ref.validator import validate_metadata
+
+          tracked = subprocess.check_output(['git', 'ls-files', '-z']).decode().split('\0')
+          json_paths = [Path(path) for path in tracked if path.endswith('.json')]
+          for path in json_paths:
+              json.loads(path.read_text(encoding='utf-8'))
+          print(f'Parsed {len(json_paths)} tracked JSON files')
+
+          skill_root = os.environ['SKILL_ROOT']
+          if skill_root:
+              root = Path(skill_root)
+              paths = sorted(root.rglob('SKILL.md'))
+              if not paths:
+                  raise SystemExit(f'No skills found under {root}')
+              installed_name = os.environ['INSTALLED_SKILL_NAME']
+              if installed_name and len(paths) != 1:
+                  raise SystemExit('An installed name requires exactly one source skill')
+              problems = []
+              # Claude plugin skills permit these documented host extensions;
+              # the preceding strict native validator checks the full files.
+              claude_fields = {'argument-hint', 'context'} if os.environ['CLAUDE_PLUGIN_ROOT'] else set()
+              for path in paths:
+                  metadata, _ = parse_frontmatter(path.read_text(encoding='utf-8'))
+                  core = {key: value for key, value in metadata.items() if key not in claude_fields}
+                  skill_dir = Path(installed_name) if installed_name else path.parent
+                  for problem in validate_metadata(core, skill_dir):
+                      problems.append(f'{path}: {problem}')
+              if problems:
+                  raise SystemExit('\n'.join(problems))
+              print(f'Validated {len(paths)} skills')
+          PY

@@ -76,6 +76,19 @@ codex plugin add a11y@web-a11y-skills-marketplace
 Adding the marketplace registers its catalog; the second command installs the plugin.
 For local development, replace the repository name in either marketplace command with `.`.
 
+## Install in Antigravity
+
+Clone this repository and install complete directories from `plugins/a11y/skills/<skill-name>/` into a skill location below. Keep each `SKILL.md` with its references and scripts; do not install the repository's marketplace root as a skill.
+
+| Surface | Project location | User location |
+| --- | --- | --- |
+| App and IDE | `.agents/skills/<skill-name>/` | `~/.gemini/config/skills/<skill-name>/` |
+| CLI | `.agents/skills/<skill-name>/` | `~/.gemini/antigravity-cli/skills/<skill-name>/` |
+
+Invoke `/a11y-dialog` or ask the agent to use the skill. Inspect active skills in the IDE's Customizations menu. These are direct skill installations; native Antigravity plugin compatibility has not been established for this bundle.
+
+See [Antigravity skill locations](https://antigravity.google/docs/skills), [Claude Code plugin installation](https://code.claude.com/docs/en/discover-plugins), and [Codex skill discovery](https://learn.chatgpt.com/docs/build-skills). Installing skills does not install any external tools their workflows need.
+
 ## Layout
 
 ```text
